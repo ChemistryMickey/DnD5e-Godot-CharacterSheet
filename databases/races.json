@@ -1,0 +1,459 @@
+{
+   "Dwarf": {
+      "Description": "Your dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.",
+      "Ability Score Increases": {
+         "Stats": [
+            "CON"
+         ],
+         "Amount": [
+            2
+         ]
+      },
+      "Age": "Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years.",
+      "Size": "Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium",
+      "Speeds": {
+         "Walking": 25,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray",
+         "Dwarven Resilience - You have advantage on saving throws against poison, and you have resistance against poison damage",
+         "Dwarven Combat Training - You have proficiency with the battleaxe, handaxe, light hammer, and warhammer",
+         "Stonecunning - Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus"
+      ],
+      "Tool Proficiencies": [
+         [
+            "Smith's Tools",
+            "Brewer's Supplies",
+            "Mason's Tools"
+         ]
+      ],
+      "Languages": [
+         "Common",
+         "Dwarvish"
+      ],
+      "Subraces": {
+         "Hill Dwarf": {
+            "Ability Score Increases": {
+               "Stats": [
+                  "WIS"
+               ],
+               "Amount": [
+                  1
+               ]
+            },
+            "Abilities": [
+               "Dwarven Toughness - Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+            ]
+         }
+      }
+   },
+   "Elf": {
+      "Description": "Your elf character has a variety of natural abilities, the result of thousands of years of elven refinement.",
+      "Ability Score Increases": {
+         "Stats": [
+            "DEX"
+         ],
+         "Amount": [
+            2
+         ]
+      },
+      "Age": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old.",
+      "Size": "Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Keen Senses - You have proficiency in the Perception skill.",
+         "Fey Ancestry - You have advantage on saving throws against being charmed, and magic can’t put you to sleep.",
+         "Trance - Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice.\nAfter resting in this way, you gain the same benefit that a human does from 8 hours of sleep"
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Elvish"
+      ],
+      "Subraces": {
+         "High Elf": {
+            "Ability Score Increases": {
+               "Stats": [
+                  "INT"
+               ],
+               "Amount": [
+                  1
+               ]
+            },
+            "Abilities": [
+               "Elf Weapon Training - You have proficiency with the longsword, shortsword, shortbow, and longbow.",
+               "Cantrip - You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
+               "Extra Language - You can speak, read, and write one extra language"
+            ]
+         }
+      }
+   },
+   "Halfling": {
+      "Description": "Your halfling character has a number of traits in common with all other halflings.",
+      "Ability Score Increases": {
+         "Stats": [
+            "DEX"
+         ],
+         "Amount": [
+            2
+         ]
+      },
+      "Age": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century.",
+      "Size": "Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small.",
+      "Speeds": {
+         "Walking": 25,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Lucky - When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+         "Brave - You have advantage on saving throws against being frightened.",
+         "Halfling Nimbleness - You can move through the space of any creature that is of a size larger than yours."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Halfling"
+      ],
+      "Subraces": {
+         "Lightfoot": {
+            "Ability Score Increases": {
+               "Stats": [
+                  "CHA"
+               ],
+               "Amount": [
+                  1
+               ]
+            },
+            "Abilities": [
+               "Naturally Stealthy - You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+            ]
+         }
+      }
+   },
+   "Human": {
+      "Description": "It’s hard to make generalizations about humans, but your human character has these traits.",
+      "Ability Score Increases": {
+         "Stats": [
+            "All"
+         ],
+         "Amount": [
+            1
+         ]
+      },
+      "Age": "Humans reach adulthood in their late teens and live less than a century.",
+      "Size": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Lucky - When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+         "Brave - You have advantage on saving throws against being frightened.",
+         "Halfling Nimbleness - You can move through the space of any creature that is of a size larger than yours."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Any"
+      ],
+      "Subraces": {}
+   },
+   "Dragonborn": {
+      "Description": "Your draconic heritage manifests in a variety of traits you share with other dragonborn.",
+      "Ability Score Increases": {
+         "Stats": [
+            "STR",
+            "CHA"
+         ],
+         "Amount": [
+            2,
+            1
+         ]
+      },
+      "Age": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.",
+      "Size": "Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Draconic Ancestry - You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
+         {
+            "Dragon": [
+               "Black",
+               "Blue",
+               "Brass",
+               "Bronze",
+               "Copper",
+               "Gold",
+               "Green",
+               "Red",
+               "Silver",
+               "White"
+            ],
+            "Damage Type": [
+               "Acid",
+               "Lightning",
+               "Fire",
+               "Lightning",
+               "Acid",
+               "Fire",
+               "Poison",
+               "Fire",
+               "Cold",
+               "Cold"
+            ],
+            "Breath Weapon": [
+               "5 by 30 ft. line (Dex. save)",
+               "5 by 30 ft. line (Dex. save)",
+               "5 by 30 ft. line (Dex. save)",
+               "5 by 30 ft. line (Dex. save)",
+               "5 by 30 ft. line (Dex. save)",
+               "15 ft. cone (Dex. save)",
+               "15 ft. cone (Con. save)",
+               "15 ft. cone (Dex. save)",
+               "15 ft. cone (Con. save)",
+               "15 ft. cone (Con. save)"
+            ]
+         },
+         "Breath Weapon - You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.\nWhen you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. \nThe DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. \nA creature takes 2d6 damage on a failed save, and half as much damage on a successful one. \nThe damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. \nAfter you use your breath weapon, you can’t use it again until you complete a short or long rest.",
+         "Damage Resistance - You have resistance to the damage type associated with your draconic ancestry."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Draconic"
+      ],
+      "Subraces": {}
+   },
+   "Gnome": {
+      "Description": "Your gnome character has certain characteristics in common with all other gnomes.",
+      "Ability Score Increases": {
+         "Stats": [
+            "INT"
+         ],
+         "Amount": [
+            2
+         ]
+      },
+      "Age": "Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years.",
+      "Size": "Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small.",
+      "Speeds": {
+         "Walking": 25,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Gnome Cunning - You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Gnomish"
+      ],
+      "Subraces": {
+         "Rock Gnome": {
+            "Ability Score Increases": {
+               "Stats": [
+                  "CON"
+               ],
+               "Amount": [
+                  1
+               ]
+            },
+            "Abilities": [
+               "Artificer’s Lore - Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.",
+               "Tinker - You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). \nThe device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. \nYou can have up to three such devices active at a time.",
+               "When you create a device, choose one of the following options: \nClockwork Toy - This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. \nFire Starter - The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action. \nMusic Box - When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+            ]
+         }
+      }
+   },
+   "Half-Elf": {
+      "Description": "Your half-elf character has some qualities in common with elves and some that are unique to half-elves.",
+      "Ability Score Increases": {
+         "Stats": [
+            "CHA",
+            "Any",
+            "Any"
+         ],
+         "Amount": [
+            2,
+            1,
+            1
+         ]
+      },
+      "Age": "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years.",
+      "Size": "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Fey Ancestry - You have advantage on saving throws against being charmed, and magic can’t put you to sleep.",
+         "Skill Versatility - You gain proficiency in two skills of your choice."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Elvish",
+         "Any"
+      ],
+      "Subraces": {}
+   },
+   "Half-Orc": {
+      "Description": "Your half-orc character has certain traits deriving from your orc ancestry.",
+      "Ability Score Increases": {
+         "Stats": [
+            "STR",
+            "CON"
+         ],
+         "Amount": [
+            2,
+            1
+         ]
+      },
+      "Age": "Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years.",
+      "Size": "Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Menacing - You gain proficiency in the Intimidation skill.",
+         "Relentless Endurance - When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.",
+         "Savage Attacks - When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Orc"
+      ],
+      "Subraces": {}
+   },
+   "Tiefling": {
+      "Description": "Tieflings share certain racial traits as a result of their infernal descent.",
+      "Ability Score Increases": {
+         "Stats": [
+            "INT",
+            "CHA"
+         ],
+         "Amount": [
+            1,
+            2
+         ]
+      },
+      "Age": "Tieflings mature at the same rate as humans but live a few years longer.",
+      "Size": "Tieflings are about the same size and build as humans. Your size is Medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Hellish Resistance - You have resistance to fire damage.",
+         "Infernal Legacy - You know the *thaumaturgy* cantrip. When you reach 3rd level, you can cast the *hellish rebuke* spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the *darkness* spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Infernal"
+      ],
+      "Subraces": {}
+   },
+   "Rabbitfolk": {
+      "Description": "Rabbitfolk are similar to Hobbits in that they cloister themselves in idyllic environments but they can also survive in nearly blasted wastelands.",
+      "Ability Score Increases": {
+         "Stats": [
+            "DEX"
+         ],
+         "Amount": [
+            2
+         ]
+      },
+      "Age": "Rabbitfolk tend to die quite young. The only live around 50 years.",
+      "Size": "You may choose small or medium.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 0
+      },
+      "Abilities": [
+         "Darkvision - Thanks to living underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
+         "Alert - Your bunny paranoia grants you the 'Alert' feat."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Rabbitish"
+      ],
+      "Subraces": {}
+   },
+   "Corvid": {
+      "Description": "Corvids are bird-people.",
+      "Ability Score Increases": {
+         "Stats": [
+            "DEX",
+            "WIS"
+         ],
+         "Amount": [
+            2,
+            1
+         ]
+      },
+      "Age": "Corvid tend to live a bit longer than humans. Most live to 150 or older.",
+      "Size": "Medium and quite light. Maybe 80 lbs at 6' tall.",
+      "Speeds": {
+         "Walking": 30,
+         "Climbing": 10,
+         "Swimming": 10,
+         "Flying": 40
+      },
+      "Abilities": [
+         "Kenku Training - You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand.",
+         "Mimicry - You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.",
+         "Expert Forgery - You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects."
+      ],
+      "Tool Proficiencies": [],
+      "Languages": [
+         "Common",
+         "Sylvan"
+      ],
+      "Subraces": {
+         "Owlkind": {
+            "Ability Score Increases": {},
+            "Abilities": [
+               "You gain none of the normal Kenku abilities but you gain the following:",
+               "Darkvision - As a nocturnal creature, you can see well in the dark.",
+               "Flying - You have the ability to fly and operate simple machines/items (one handed weapons, guns, thrown items, etc.) while in flight"
+            ]
+         }
+      }
+   }
+}

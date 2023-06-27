@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UI/CharacterSheetSubpages/TransactionLog/ExperienceEntry.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/CharacterSheetSubpages/SubpageBlocks/ReadableLineEdit.gd" type="Script" id=2]
+
+[node name="ExperienceEntry" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -429, 135 )
+script = ExtResource( 1 )
+
+[node name="IRLEdit" type="LineEdit" parent="."]
+margin_top = 528.0
+margin_right = 936.0
+margin_bottom = 552.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+align = 1
+
+[node name="ExpAmountEdit" type="LineEdit" parent="."]
+margin_left = 940.0
+margin_top = 528.0
+margin_right = 1876.0
+margin_bottom = 552.0
+rect_min_size = Vector2( 120, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 4
+align = 1
+script = ExtResource( 2 )
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 1880.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 40, 0 )
+
+[connection signal="text_changed" from="ExpAmountEdit" to="." method="_on_ExpAmountEdit_text_changed"]
+[connection signal="text_entered" from="ExpAmountEdit" to="." method="_on_ExpAmountEdit_text_entered"]

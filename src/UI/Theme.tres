@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=2]
+
+[resource]
+LineEdit/colors/font_color_uneditable = Color( 1, 1, 1, 1 )
+LineEdit/colors/selection_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/font_color_readonly = Color( 1, 1, 1, 1 )

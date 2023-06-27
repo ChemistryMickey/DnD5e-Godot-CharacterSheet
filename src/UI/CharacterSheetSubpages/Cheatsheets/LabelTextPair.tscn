@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/UI/CharacterSheetSubpages/Cheatsheets/LabelTextPair.gd" type="Script" id=1]
+
+[node name="LabelTextPair" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 520.0
+margin_right = 200.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 200, 40 )
+valign = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 204.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+readonly = true
+wrap_enabled = true

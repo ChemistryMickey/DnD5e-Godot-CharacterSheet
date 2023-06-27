@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/UI/CommonComponents/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/Fonts/new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Quit.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "selected"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -196.5
+margin_right = 512.0
+margin_bottom = 196.5
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 97.0
+text = "Dungeons and Dragons, 5e
+Character Sheet Manager"
+align = 1
+valign = 1
+
+[node name="New Character" parent="VBoxContainer" instance=ExtResource( 1 )]
+visible = false
+margin_top = 101.0
+margin_right = 1024.0
+margin_bottom = 171.0
+text = "New Character"
+next_scene_path = "res://src/UI/CharacterCreator/CharacterCreator.tscn"
+use_scene_changer = true
+
+[node name="Enter Raw Spreadsheet" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 101.0
+margin_right = 1024.0
+margin_bottom = 171.0
+text = "Enter Charactersheet"
+next_scene_path = "res://src/UI/CharacterSheet.tscn"
+use_scene_changer = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 175.0
+margin_right = 1024.0
+margin_bottom = 245.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 32, 32 )
+text = "Quit"
+icon = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Quit"]
+anims/RESET = SubResource( 1 )
+anims/selected = SubResource( 2 )
+
+[connection signal="button_up" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_Quit_button_up"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_ChangeSceneButton_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Quit" to="VBoxContainer/Quit" method="_on_ChangeSceneButton_mouse_exited"]
