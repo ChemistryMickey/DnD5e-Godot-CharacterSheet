@@ -12,3 +12,5 @@ Hotkeys:
 - CTRL+T to open an additional scratch work popup (in addition to the additional scratch work tab)
 
 ![Example Character Sheet](assets/example.png?raw=true "Example Character Sheet")
+
+(This was my first attempt at a UI using Godot so I apologize for the structure and quality)
