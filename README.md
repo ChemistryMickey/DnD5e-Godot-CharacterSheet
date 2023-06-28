@@ -8,3 +8,5 @@ Hotkeys:
 - CTRL+S to save (causes a gentle flash of white for feedback)
 - CTRL+L to load a character sheet
 - CTRL+T to open an additional scratch work popup (in addition to the additional scratch work tab)
+
+![Example Character Sheet](assets/example.png?raw=true "Example Character Sheet")
