@@ -17,7 +17,7 @@ func find_in_dictionary(dict, term):
 			for item in dict:
 				var output = find_in_dictionary(dict[item], term)
 				if output is Dictionary:
-					if not output.empty():
+					if not output.is_empty():
 						return output
 
 		else:

@@ -3,7 +3,7 @@ extends ItemList
 var current_cheatsheet = ""
 
 func _ready() -> void:
-	Signals.connect("request_subcheatsheet", self, "update_list")
+	Signals.connect("request_subcheatsheet", Callable(self, "update_list"))
 	
 func update_list(cheatsheet_in):
 	self.clear()

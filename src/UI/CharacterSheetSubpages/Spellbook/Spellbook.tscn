@@ -1,665 +1,474 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://bm2qgaji5d7g7"]
 
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/Spellbook.gd" type="Script" id=1]
-[ext_resource path="res://src/UI/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/SubpageBlocks/ReadableLineEdit.gd" type="Script" id=3]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/PreparedSpellList.gd" type="Script" id=4]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellInfo.gd" type="Script" id=5]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/AllSpellsDialogue.gd" type="Script" id=6]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellSlotContainer.gd" type="Script" id=7]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/CastingStats.gd" type="Script" id=8]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellcastingAbilitySelection.gd" type="Script" id=9]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/Spellbook.gd" id="1"]
+[ext_resource type="Theme" path="res://src/UI/Theme.tres" id="2"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/SubpageBlocks/ReadableLineEdit.gd" id="3"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/PreparedSpellList.gd" id="4"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellInfo.gd" id="5"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/AllSpellsDialogue.gd" id="6"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellSlotContainer.gd" id="7"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/CastingStats.gd" id="8"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Spellbook/SpellcastingAbilitySelection.gd" id="9"]
 
 [node name="Spellbook" type="VBoxContainer" groups=["Persist"]]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-theme = ExtResource( 2 )
-script = ExtResource( 1 )
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
+theme = ExtResource("2")
+script = ExtResource("1")
 
 [node name="TopMatter" type="HBoxContainer" parent="."]
-margin_right = 1912.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="CastingStats" type="VBoxContainer" parent="TopMatter"]
-margin_right = 1295.0
-margin_bottom = 80.0
+layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource( 8 )
+script = ExtResource("8")
 
 [node name="SpellcastingAbility" type="HBoxContainer" parent="TopMatter/CastingStats"]
-margin_right = 244.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
 [node name="Label" type="Label" parent="TopMatter/CastingStats/SpellcastingAbility"]
-margin_top = 3.0
-margin_right = 140.0
-margin_bottom = 17.0
-rect_min_size = Vector2( 140, 0 )
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
 text = "Spellcasting Ability: "
 
 [node name="SpellcastingAbilitySelection" type="OptionButton" parent="TopMatter/CastingStats/SpellcastingAbility" groups=["Persist"]]
-margin_left = 144.0
-margin_right = 244.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 100, 0 )
-text = "STR"
-items = [ "STR", null, false, 0, null, "DEX", null, false, 1, null, "CON", null, false, 2, null, "INT", null, false, 3, null, "WIS", null, false, 4, null, "CHA", null, false, 5, null ]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+item_count = 6
 selected = 0
-script = ExtResource( 9 )
+popup/item_0/text = "STR"
+popup/item_0/id = 0
+popup/item_1/text = "INT"
+popup/item_1/id = 1
+popup/item_2/text = "DEX"
+popup/item_2/id = 2
+popup/item_3/text = "CON"
+popup/item_3/id = 3
+popup/item_4/text = "WIS"
+popup/item_4/id = 4
+popup/item_5/text = "CHA"
+popup/item_5/id = 5
+script = ExtResource("9")
 
 [node name="SpellSaveDC" type="HBoxContainer" parent="TopMatter/CastingStats"]
-margin_top = 24.0
-margin_right = 1295.0
-margin_bottom = 48.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="TopMatter/CastingStats/SpellSaveDC"]
-margin_top = 5.0
-margin_right = 140.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 140, 0 )
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
 text = "Spellsave DC: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/CastingStats/SpellSaveDC"]
-margin_left = 144.0
-margin_right = 1295.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
 [node name="SpellAttackBonus" type="HBoxContainer" parent="TopMatter/CastingStats"]
-margin_top = 52.0
-margin_right = 1295.0
-margin_bottom = 76.0
+layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="TopMatter/CastingStats/SpellAttackBonus"]
-margin_top = 5.0
-margin_right = 140.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 140, 0 )
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
 text = "Spell Attack Modifier: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/CastingStats/SpellAttackBonus"]
-margin_left = 144.0
-margin_right = 1295.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 
 [node name="VSeparator" type="VSeparator" parent="TopMatter"]
-margin_left = 1299.0
-margin_right = 1303.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="SpellSlotContainer" type="GridContainer" parent="TopMatter" groups=["Persist"]]
-margin_left = 1307.0
-margin_right = 1912.0
-margin_bottom = 80.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
-script = ExtResource( 7 )
+script = ExtResource("7")
 
 [node name="1stLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/1stLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "1st-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/1stLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/1stLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="2ndLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 203.0
-margin_right = 402.0
-margin_bottom = 24.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/2ndLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "2nd-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/2ndLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/2ndLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="3rdLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 406.0
-margin_right = 605.0
-margin_bottom = 24.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/3rdLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "3rd-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/3rdLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/3rdLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="4thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_top = 28.0
-margin_right = 199.0
-margin_bottom = 52.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/4thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "4th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/4thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/4thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="5thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 203.0
-margin_top = 28.0
-margin_right = 402.0
-margin_bottom = 52.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/5thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "5th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/5thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/5thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="6thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 406.0
-margin_top = 28.0
-margin_right = 605.0
-margin_bottom = 52.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/6thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "6th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/6thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/6thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="7thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_top = 56.0
-margin_right = 199.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/7thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "7th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/7thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/7thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="8thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 203.0
-margin_top = 56.0
-margin_right = 402.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/8thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "8th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/8thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/8thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="9thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
-margin_left = 406.0
-margin_top = 56.0
-margin_right = 605.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TopMatter/SpellSlotContainer/9thLevel"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 75, 0 )
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
 text = "9th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/9thLevel"]
-margin_left = 79.0
-margin_right = 137.0
-margin_bottom = 24.0
-align = 2
-script = ExtResource( 3 )
+layout_mode = 2
+script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/9thLevel"]
-margin_left = 141.0
-margin_right = 199.0
-margin_bottom = 24.0
+layout_mode = 2
 text = "/?"
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="HSeparator" type="HSeparator" parent="."]
-margin_top = 84.0
-margin_right = 1912.0
-margin_bottom = 88.0
+layout_mode = 2
 
 [node name="Spells" type="HBoxContainer" parent="."]
-margin_top = 92.0
-margin_right = 1912.0
-margin_bottom = 1012.0
+layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Left" type="VBoxContainer" parent="Spells"]
-margin_right = 950.0
-margin_bottom = 920.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Spells/Left"]
-margin_right = 950.0
-margin_bottom = 14.0
+layout_mode = 2
 text = "Prepared Spells"
 
 [node name="PreparedSpells" type="ScrollContainer" parent="Spells/Left"]
-margin_top = 18.0
-margin_right = 950.0
-margin_bottom = 430.0
-rect_min_size = Vector2( 0, 200 )
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="PreparedSpellList" type="ItemList" parent="Spells/Left/PreparedSpells" groups=["Persist"]]
-margin_right = 950.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 0, 200 )
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Spells/Left"]
-margin_top = 434.0
-margin_right = 950.0
-margin_bottom = 454.0
+layout_mode = 2
 
 [node name="RemovePreparedSpell" type="Button" parent="Spells/Left/HBoxContainer"]
-margin_right = 473.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Remove Prepared Spell"
 
 [node name="ClearPreparedSpells" type="Button" parent="Spells/Left/HBoxContainer"]
-margin_left = 477.0
-margin_right = 950.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Clear All Prepared Spells"
 
 [node name="HSeparator" type="HSeparator" parent="Spells/Left"]
-margin_top = 458.0
-margin_right = 950.0
-margin_bottom = 462.0
+layout_mode = 2
 
 [node name="Label3" type="Label" parent="Spells/Left"]
-margin_top = 466.0
-margin_right = 950.0
-margin_bottom = 480.0
+layout_mode = 2
 text = "All Available Spells:"
 
 [node name="AllSpells" type="ScrollContainer" parent="Spells/Left"]
-margin_top = 484.0
-margin_right = 950.0
-margin_bottom = 896.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ItemList" type="ItemList" parent="Spells/Left/AllSpells"]
-margin_right = 950.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Spells/Left"]
-margin_top = 900.0
-margin_right = 950.0
-margin_bottom = 920.0
+layout_mode = 2
 
 [node name="AddToPreparedSpells" type="Button" parent="Spells/Left/HBoxContainer2"]
-margin_right = 950.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Add to Prepared Spells"
 
 [node name="VSeparator" type="VSeparator" parent="Spells"]
-margin_left = 954.0
-margin_right = 958.0
-margin_bottom = 920.0
+layout_mode = 2
 
 [node name="SpellInfo" type="VBoxContainer" parent="Spells"]
-margin_left = 962.0
-margin_right = 1912.0
-margin_bottom = 920.0
+layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="SpellName" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/SpellName"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Spell Name: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/SpellName"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="SpellType" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 28.0
-margin_right = 950.0
-margin_bottom = 52.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/SpellType"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Spell Type: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/SpellType"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Action" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 56.0
-margin_right = 950.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/Action"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Action: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/Action"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Range" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 84.0
-margin_right = 950.0
-margin_bottom = 108.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/Range"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Range: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/Range"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Components" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 112.0
-margin_right = 950.0
-margin_bottom = 136.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/Components"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Components: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/Components"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Duration" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 140.0
-margin_right = 950.0
-margin_bottom = 164.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/Duration"]
-margin_top = 5.0
-margin_right = 90.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Duration: "
 
 [node name="LineEdit" type="LineEdit" parent="Spells/SpellInfo/Duration"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Effect" type="HBoxContainer" parent="Spells/SpellInfo"]
-margin_top = 168.0
-margin_right = 950.0
-margin_bottom = 920.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Spells/SpellInfo/Effect"]
-margin_right = 90.0
-margin_bottom = 752.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 size_flags_vertical = 1
 text = "Effect: "
 
 [node name="TextEdit" type="TextEdit" parent="Spells/SpellInfo/Effect"]
-margin_left = 94.0
-margin_right = 950.0
-margin_bottom = 752.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_horizontal = 11
 size_flags_vertical = 3
-readonly = true
 selecting_enabled = false
-wrap_enabled = true
+wrap_mode = 1
 
 [node name="HSeparator2" type="HSeparator" parent="."]
-margin_top = 1016.0
-margin_right = 1912.0
-margin_bottom = 1020.0
+layout_mode = 2
 
 [node name="AllSpellsButton" type="Button" parent="."]
-margin_top = 1024.0
-margin_right = 1912.0
-margin_bottom = 1044.0
+layout_mode = 2
 text = "View All Spells"
 
-[node name="AllSpellsDialogue" type="WindowDialog" parent="."]
-margin_top = 774.0
-margin_right = 960.0
-margin_bottom = 1574.0
-rect_min_size = Vector2( 960, 800 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-popup_exclusive = true
-window_title = "All Spells"
-resizable = true
-script = ExtResource( 6 )
+[node name="AllSpellsDialogue" type="Window" parent="."]
+title = "Spellbook"
+position = Vector2i(100, 200)
+size = Vector2i(600, 600)
+visible = false
+script = ExtResource("6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AllSpellsDialogue"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TabContainer" type="TabContainer" parent="AllSpellsDialogue/VBoxContainer"]
-margin_right = 960.0
-margin_bottom = 776.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-tab_align = 0
 
 [node name="All Spells" type="ItemList" parent="AllSpellsDialogue/VBoxContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="By Level" type="ItemList" parent="AllSpellsDialogue/VBoxContainer/TabContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="By Class" type="ItemList" parent="AllSpellsDialogue/VBoxContainer/TabContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="AllSpellsDialogue/VBoxContainer"]
-margin_top = 780.0
-margin_right = 960.0
-margin_bottom = 800.0
+layout_mode = 2
 text = "Override: Add to Prepared Spells"
 
 [connection signal="item_selected" from="TopMatter/CastingStats/SpellcastingAbility/SpellcastingAbilitySelection" to="TopMatter/CastingStats" method="_on_SpellcastingAbilitySelection_item_selected"]
@@ -669,6 +478,7 @@ text = "Override: Add to Prepared Spells"
 [connection signal="item_activated" from="Spells/Left/AllSpells/ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="button_up" from="Spells/Left/HBoxContainer2/AddToPreparedSpells" to="." method="_on_AddToPreparedSpells_button_up"]
 [connection signal="button_up" from="AllSpellsButton" to="." method="_on_AllSpellsButton_button_up"]
+[connection signal="close_requested" from="AllSpellsDialogue" to="AllSpellsDialogue" method="_on_close_requested"]
 [connection signal="item_activated" from="AllSpellsDialogue/VBoxContainer/TabContainer/All Spells" to="AllSpellsDialogue" method="_on_All_Spells_item_activated"]
 [connection signal="item_activated" from="AllSpellsDialogue/VBoxContainer/TabContainer/By Level" to="AllSpellsDialogue" method="_on_By_Level_item_activated"]
 [connection signal="item_activated" from="AllSpellsDialogue/VBoxContainer/TabContainer/By Class" to="AllSpellsDialogue" method="_on_By_Class_item_activated"]

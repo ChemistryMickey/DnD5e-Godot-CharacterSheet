@@ -4,14 +4,14 @@ var double_click_list_template = preload("res://src/UI/CharacterSheetSubpages/In
 var label_edit_couple = load("res://src/UI/CharacterSheetSubpages/Inventory/LabelEditCouple.tscn")
 
 func _ready() -> void:
-	Signals.connect("display_item_database_info", self, "create_item_display")
+	Signals.connect("display_item_database_info", Callable(self, "create_item_display"))
 	var item_database = DatabaseLoader.json_dicts["item_database"]
 	for item_class in item_database:
 		var new_hbox = make_expansive(HBoxContainer.new())
 		new_hbox.name = item_class
 		
 		var scroll = make_expansive(ScrollContainer.new())
-		var database = double_click_list_template.instance()
+		var database = double_click_list_template.instantiate()
 		database.name = "%s List" % item_class
 		
 		scroll.add_child(database)
@@ -27,7 +27,7 @@ func create_item_display(item_str : String):
 	# Get item dictionary entry
 	var item_database = DatabaseLoader.json_dicts["item_database"]
 	var dict_entry : Dictionary = Utilities.find_in_dictionary(item_database, item_str)
-	assert(not dict_entry.empty()) #Revel in your mistakes
+	assert(not dict_entry.is_empty()) #Revel in your mistakes
 	
 	for child in self.get_children():
 		for subchild in child.get_children():
@@ -41,12 +41,12 @@ func create_item_display(item_str : String):
 			info_box.name = "item_info_block"
 			for info in dict_entry:
 				if info != "Contents":
-					var info_line = label_edit_couple.instance()
+					var info_line = label_edit_couple.instantiate()
 					info_line.set_props("%s: " % info, String(dict_entry[info]))
 					info_box.add_child(info_line)
 				else:
 					for idx in dict_entry["Contents"].size():
-						var info_line = label_edit_couple.instance()
+						var info_line = label_edit_couple.instantiate()
 						var item_quant_str = "%dx %s" % [dict_entry["Contents"][idx]["Quantity"],
 														 dict_entry["Contents"][idx]["Item"]]
 						info_line.set_props("Contents[%d]" % idx, item_quant_str)

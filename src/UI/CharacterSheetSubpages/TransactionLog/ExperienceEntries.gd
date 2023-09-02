@@ -13,7 +13,7 @@ func load_sheet(save_dict):
 		child.queue_free()
 		
 	for entry in save_dict["Experience Entries"]:
-		var new_entry = exp_log_template.instance()
+		var new_entry = exp_log_template.instantiate()
 		new_entry.load_sheet(entry)
 		self.add_child(new_entry)
 		

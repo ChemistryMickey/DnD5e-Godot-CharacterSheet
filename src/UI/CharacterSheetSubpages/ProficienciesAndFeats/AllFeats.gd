@@ -10,7 +10,7 @@ func _on_ItemList_item_activated(index: int) -> void:
 
 func _on_AddToFeats_button_up() -> void:
 	var selected_ind = $ItemList.get_selected_items()
-	if selected_ind.empty():
+	if selected_ind.is_empty():
 		return
 	selected_ind = selected_ind[0]
 	var feat_str = $ItemList.get_item_text(selected_ind)

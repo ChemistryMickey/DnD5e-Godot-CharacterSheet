@@ -15,6 +15,6 @@ func load_sheet(sheet_dict):
 		child.queue_free() #remove all children
 	
 	for entry in sheet_dict["Journal Entries"]:
-		var new_entry = journal_entry_template.instance()
+		var new_entry = journal_entry_template.instantiate()
 		new_entry.load_sheet(entry)
 		self.add_child(new_entry)

@@ -1,7 +1,7 @@
 extends ItemList
 
 func _ready() -> void:
-	if Signals.connect("add_feat", self, "add_feat"): print("Unable to add feat!")
+	if Signals.connect("add_feat", Callable(self, "add_feat")): print("Unable to add feat!")
 	
 func add_feat(feat : String):
 	var cur_items = []
@@ -29,7 +29,7 @@ func load_sheet(save_dict):
 
 func _on_RemoveFeat_button_up() -> void:
 	var feats_to_remove = self.get_selected_items()
-	if feats_to_remove.empty():
+	if feats_to_remove.is_empty():
 		return
 	self.remove_item(feats_to_remove[0])
 

@@ -1,16 +1,16 @@
 extends HBoxContainer
 class_name StatLine
 
-export (String) var stat_str = ""
+@export var stat_str = ""
 
-onready var stat_label = $Panel/Stat
-onready var base_val = $BaseVal
-onready var misc_bonus = $MiscBonus
-onready var total_stat = $TotalStat
-onready var ability_bonus = $AbilityBonus
+@onready var stat_label = $Panel/Stat
+@onready var base_val = $BaseVal
+@onready var misc_bonus = $MiscBonus
+@onready var total_stat = $TotalStat
+@onready var ability_bonus = $AbilityBonus
 
 func _ready() -> void:
-	Signals.connect("request_ability_bonus", self, "emit_ability_bonus")
+	Signals.connect("request_ability_bonus", Callable(self, "emit_ability_bonus"))
 	stat_label.text = stat_str
 	calculate_total_stat()
 	
@@ -27,24 +27,24 @@ func _on_MiscBonus_text_changed(_new_text: String) -> void:
 func calculate_bonus() -> void:
 	#warning-ignore:integer_division
 	var bonus = floor((int(total_stat.text) - 10) / 2)
-	ability_bonus.text = String(bonus)
+	ability_bonus.text = str(bonus)
 	Signals.emit_signal("ability_score_changed", $Panel/Stat.text, bonus)
 	
 func calculate_total_stat():
-	var total_stat_val = String( int(base_val.text) + int(misc_bonus.text) )
-	total_stat.text = total_stat_val
+	var total_stat_val = int(base_val.text) + int(misc_bonus.text)
+	total_stat.text = str(total_stat_val)
 	calculate_bonus()
 
 func save():
 	var save_dict = {
 		"Base" : $BaseVal.text,
 		"Misc Bonus" : $MiscBonus.text,
-		"Saving Throw" : $SavingThrow.pressed
+		"Saving Throw" : $SavingThrow.button_pressed
 	}
 	return save_dict
 	
 func load_sheet(save_dict):
 	$BaseVal.text = save_dict["Base"]
 	$MiscBonus.text = save_dict["Misc Bonus"]
-	$SavingThrow.pressed = save_dict["Saving Throw"]
+	$SavingThrow.button_pressed = save_dict["Saving Throw"]
 	calculate_total_stat()

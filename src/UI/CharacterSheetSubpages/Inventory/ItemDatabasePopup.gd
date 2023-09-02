@@ -1,13 +1,24 @@
-extends WindowDialog
+extends Window
 
 func _ready() -> void:
-	Signals.connect("show_item_database", self, "toggle_self")
+	Signals.connect("show_item_database", Callable(self, "toggle_self"))
 
 func toggle_self():
-	if self.is_visible_in_tree():
+	if self.visible:
 		self.hide()
 	else:
 		self.show()
+
+func get_currently_selected():
+	# Get visible child
+	for child in $VBoxContainer/DatabaseTabs.get_children():
+		if child.is_visible():
+			var scroll : ScrollContainer = child.get_child(0)
+			var list : ItemList = scroll.get_child(0)
+			var selected_ind = list.get_selected_items()[0]
+			return list.get_item_text(selected_ind)
+			
+	return ""
 
 
 func _on_Purchase_show_button_up() -> void:
@@ -60,19 +71,7 @@ func _on_Confirm_Purchase_button_up() -> void:
 	$VBoxContainer/PurchaseBar/Quantity.text = ""
 	$VBoxContainer/PurchaseBar.hide()
 
-func get_currently_selected():
-	# Get visible child
-	for child in $VBoxContainer/DatabaseTabs.get_children():
-		if child.is_visible():
-			var scroll : ScrollContainer = child.get_child(0)
-			var list : ItemList = scroll.get_child(0)
-			var selected_ind = list.get_selected_items()[0]
-			return list.get_item_text(selected_ind)
-			
-	return ""
-	
-
-	
 
 
-
+func _on_close_requested():
+	self.hide()

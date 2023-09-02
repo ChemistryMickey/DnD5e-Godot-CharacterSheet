@@ -13,7 +13,7 @@ var skill_line_template = preload("res://src/UI/CharacterSheetSubpages/Summary/S
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for idx in range(stat_list.size()):
-		var new_skill_line = skill_line_template.instance()
+		var new_skill_line = skill_line_template.instantiate()
 		new_skill_line.stat = stat_list[idx]
 		new_skill_line.skill = skill_list[idx]
 		

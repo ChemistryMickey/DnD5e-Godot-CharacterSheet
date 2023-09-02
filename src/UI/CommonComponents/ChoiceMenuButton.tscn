@@ -3,7 +3,7 @@
 [ext_resource path="res://src/UI/CharacterSheetSubpages/Summary/ClassChoice.gd" type="Script" id=1]
 
 [node name="ChoiceMenuButton" type="MenuButton"]
-rect_min_size = Vector2( 140, 20 )
+custom_minimum_size = Vector2( 140, 20 )
 focus_mode = 2
 text = "Choice"
 flat = false

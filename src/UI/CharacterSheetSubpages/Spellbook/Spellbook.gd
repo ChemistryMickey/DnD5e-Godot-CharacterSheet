@@ -1,7 +1,7 @@
 extends VBoxContainer
 
-onready var class_spell_list = $Spells/Left/AllSpells/ItemList
-onready var prepared_spell_list = $Spells/Left/PreparedSpells/PreparedSpellList
+@onready var class_spell_list = $Spells/Left/AllSpells/ItemList
+@onready var prepared_spell_list = $Spells/Left/PreparedSpells/PreparedSpellList
 
 const spell_levels = ["Cantrips", "1st Level", "2nd Level", "3rd Level", 
 					"4th Level", "5th Level", "6th Level", "7th Level",
@@ -9,7 +9,7 @@ const spell_levels = ["Cantrips", "1st Level", "2nd Level", "3rd Level",
 const json_search_strs = ["cantrip", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 func _ready() -> void:
-	if Signals.connect("class_updated", self, "choose_class_spell_list"): print("Unable to connect to class_updated!")
+	if Signals.connect("class_updated", Callable(self, "choose_class_spell_list")): print("Unable to connect to class_updated!")
 
 func _on_PreparedSpellList_item_activated(index: int) -> void:
 	var chosen_spell_str : String = prepared_spell_list.get_item_text(index).strip_edges()
@@ -36,7 +36,7 @@ func _on_RemovePreparedSpell_button_up() -> void:
 	# Get selected spell in prepared spell list
 	if prepared_spell_list.get_item_count() > 0 and prepared_spell_list.get_selected_items().size() > 0:
 		var selected_ind = prepared_spell_list.get_selected_items()
-		if not selected_ind.empty():
+		if not selected_ind.is_empty():
 			selected_ind = selected_ind[0]
 		
 		# Remove spell from prepared spell list
@@ -46,7 +46,7 @@ func _on_RemovePreparedSpell_button_up() -> void:
 func _on_AddToPreparedSpells_button_up() -> void:
 	# Insert new spell into appropriate dict spot
 	var selected_vals = class_spell_list.get_selected_items()
-	if not selected_vals.empty(): 
+	if not selected_vals.is_empty(): 
 		var selected_ind = selected_vals[0]
 		var spell_to_add = class_spell_list.get_item_text(selected_ind)
 		Signals.emit_signal("add_to_prepared_spells", spell_to_add)

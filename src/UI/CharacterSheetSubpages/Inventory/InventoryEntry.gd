@@ -2,17 +2,17 @@ extends Control
 class_name InventoryEntry
 
 # Interface
-export (bool) var selected_for_delete = false
-export (bool) var equipped = false
-export (String) var item_name = ""
-export (String) var val_per_unit = ""
-export (int) var denomination = 0
-export (String) var weight_per_unit = ""
-export (String) var quantity = ""
+@export var selected_for_delete: bool = false
+@export var equipped: bool = false
+@export var item_name: String = ""
+@export var val_per_unit: String = ""
+@export var denomination: int = 0
+@export var weight_per_unit: String = ""
+@export var quantity: String = ""
 
 func _ready() -> void:
-	Signals.connect("item_info_changed", self, "update_item_info")
-	Signals.connect("item_info_changed", self, "add_color_to_info_button")
+	Signals.connect("item_info_changed", Callable(self, "update_item_info"))
+	Signals.connect("item_info_changed", Callable(self, "add_color_to_info_button"))
 	add_color_to_info_button(self.name, "")
 	
 func _on_ItemName_text_changed(new_text: String) -> void:
@@ -58,7 +58,7 @@ func update_item_info(node_name, item_info : String):
 		$InfoContainer.text = item_info
 		
 func add_color_to_info_button(node_name, _info_text):
-	if self.name == node_name and not $InfoContainer.text.empty():
+	if self.name == node_name and not $InfoContainer.text.is_empty():
 		$HBoxContainer/InfoRequest.self_modulate = Color(0, 1, 0)
 	elif self.name == node_name:
 		$HBoxContainer/InfoRequest.self_modulate = Color(1, 0, 0)
@@ -76,7 +76,7 @@ func save():
 		"Denomination" : $HBoxContainer/Denomination.selected,
 		"Weight/Unit" : $HBoxContainer/WeightPerUnit.text,
 		"Quantity" : $HBoxContainer/Quantity.text,
-		"Equipped" : $HBoxContainer/Equip.pressed,
+		"Equipped" : $HBoxContainer/Equip.button_pressed,
 		"Info" : $InfoContainer.text
 	}
 	return save_dict
@@ -87,7 +87,7 @@ func load_sheet(save_dict):
 	$HBoxContainer/Denomination.selected = save_dict["Denomination"]
 	$HBoxContainer/WeightPerUnit.text = save_dict["Weight/Unit"]
 	$HBoxContainer/Quantity.text = save_dict["Quantity"]
-	$HBoxContainer/Equip.pressed = save_dict["Equipped"]
+	$HBoxContainer/Equip.button_pressed = save_dict["Equipped"]
 	
 	item_name = save_dict["Name"]
 	val_per_unit = save_dict["Value/Unit"]

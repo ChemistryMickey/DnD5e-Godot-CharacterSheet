@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://371hp1a3hxvp"]
 
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Summary/StateBlock.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Summary/StateBlock.gd" id="1"]
 
 [node name="StateBlock" type="GridContainer"]
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -640.0
-margin_right = 640.0
-margin_bottom = 600.0
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 600.0
 size_flags_horizontal = 3
 columns = 5
-script = ExtResource( 1 )
+script = ExtResource("1")

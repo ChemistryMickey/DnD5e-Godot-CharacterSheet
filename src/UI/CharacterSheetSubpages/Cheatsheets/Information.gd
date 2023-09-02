@@ -3,7 +3,7 @@ extends VBoxContainer
 var line_item = preload("res://src/UI/CharacterSheetSubpages/Cheatsheets/LabelTextPair.tscn")
 
 func _ready() -> void:
-	Signals.connect("cheatsheet_info_requested", self, "update_info")
+	Signals.connect("cheatsheet_info_requested", Callable(self, "update_info"))
 	
 func update_info(cheatsheet, subsheet):
 	for child in self.get_children():
@@ -11,7 +11,7 @@ func update_info(cheatsheet, subsheet):
 		
 	if cheatsheet == "Races":
 		var textedit = TextEdit.new()
-		textedit.wrap_enabled = true
+		textedit.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
 		textedit.size_flags_horizontal = textedit.SIZE_EXPAND_FILL
 		textedit.size_flags_vertical = textedit.SIZE_EXPAND_FILL
 		textedit.text = DatabaseLoader.stringify_race(DatabaseLoader.json_dicts["races"][subsheet])
@@ -26,7 +26,7 @@ func update_info(cheatsheet, subsheet):
 	
 	for item in cur_dict:
 		var content_str = parse_content(cur_dict[item])
-		var new_line = line_item.instance()
+		var new_line = line_item.instantiate()
 		new_line.set_props(item, content_str)
 		self.add_child(new_line)
 		

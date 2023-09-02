@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-onready var language_dict = DatabaseLoader.json_dicts["languages"]
+@onready var language_dict = DatabaseLoader.json_dicts["languages"]
 
 func _ready():
 	var lang_list = []
@@ -13,16 +13,16 @@ func _ready():
 		
 		var help_text = "Spoken By: %s. Script Used: %s" % [language_dict[lang]["Typical Speakers"],
 															language_dict[lang]["Script"]]
-		new_lang_button.hint_tooltip = help_text
+		new_lang_button.tooltip_text = help_text
 		self.add_child(new_lang_button)
 
 func save():
 	var save_dict = {"Languages" : {}}
 	for child in self.get_children():
-		save_dict["Languages"][child.text] = child.pressed
+		save_dict["Languages"][child.text] = child.button_pressed
 	return save_dict
 	
 func load_sheet(save_dict):
 	for child in self.get_children():
 		if save_dict["Languages"].has(child.text):
-			child.pressed = save_dict["Languages"][child.text]
+			child.button_pressed = save_dict["Languages"][child.text]

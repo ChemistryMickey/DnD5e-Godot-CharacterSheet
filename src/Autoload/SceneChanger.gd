@@ -1,15 +1,15 @@
 extends CanvasLayer
 
-onready var animation_player = $AnimationPlayer
-onready var black = $Control/Black
+@onready var animation_player = $AnimationPlayer
+@onready var black = $Control/Black
 
-func change_scene( path, delay = 0.5, _player_position = Vector2.ZERO ):
+func change_scene_to_file( path, delay = 0.5, _player_position = Vector2.ZERO ):
 	Signals.emit_signal("Scene_Changing")
-	yield(get_tree().create_timer(delay), "timeout")
+	await get_tree().create_timer(delay).timeout
 	animation_player.play("fade")
-	yield(animation_player, "animation_finished")
-	assert( get_tree().change_scene(path) == OK )
+	await animation_player.animation_finished
+	assert( get_tree().change_scene_to_file(path) == OK )
 	
 	animation_player.play_backwards("fade")
-	yield(animation_player, "animation_finished")
+	await animation_player.animation_finished
 	Signals.emit_signal("Scene_Changed")

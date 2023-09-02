@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 func _ready() -> void:
-	if Signals.connect("spell_info_requested", self, "update_spell_info"):
+	if Signals.connect("spell_info_requested", Callable(self, "update_spell_info")):
 		print("Unable to connect to spell_info_requested")
 	
 func update_spell_info(spell : String):

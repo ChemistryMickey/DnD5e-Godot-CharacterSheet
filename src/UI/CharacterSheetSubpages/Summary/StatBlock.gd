@@ -2,11 +2,11 @@ extends VBoxContainer
 
 var stats = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
 var stat_line_template = preload("res://src/UI/CharacterSheetSubpages/Summary/StatLine.tscn")
-var stat_line_script = preload("res://src/UI/CharacterSheetSubpages/Summary/StatLine.gd")
+var stat_line_script = load("res://src/UI/CharacterSheetSubpages/Summary/StatLine.gd")
 
 func _ready() -> void:
 	for stat in stats:
-		var new_stat_line = stat_line_template.instance()
+		var new_stat_line = stat_line_template.instantiate()
 		for child in new_stat_line.get_children():
 			if child is LineEdit:
 				child.size_flags_horizontal = child.SIZE_EXPAND_FILL

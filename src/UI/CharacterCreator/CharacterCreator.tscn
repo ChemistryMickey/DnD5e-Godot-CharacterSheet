@@ -30,8 +30,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
@@ -46,8 +46,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.109804 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -63,106 +63,106 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -400.0
-margin_right = 400.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 800, 800 )
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+custom_minimum_size = Vector2( 800, 800 )
 
 [node name="Base Character" type="VBoxContainer" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
 
 [node name="Name" type="LineEdit" parent="TabContainer/Base Character" groups=["Persist"]]
-margin_right = 792.0
-margin_bottom = 24.0
+offset_right = 792.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "Name"
 script = ExtResource( 18 )
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Base Character" groups=["Persist"]]
-margin_top = 28.0
-margin_right = 792.0
-margin_bottom = 108.0
+offset_top = 28.0
+offset_right = 792.0
+offset_bottom = 108.0
 size_flags_horizontal = 3
 columns = 2
 
 [node name="Height" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_right = 394.0
-margin_bottom = 24.0
+offset_right = 394.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "Height"
 
 [node name="HairColor" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_left = 398.0
-margin_right = 792.0
-margin_bottom = 24.0
+offset_left = 398.0
+offset_right = 792.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "Hair Color"
 
 [node name="EyeColor" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_top = 28.0
-margin_right = 394.0
-margin_bottom = 52.0
+offset_top = 28.0
+offset_right = 394.0
+offset_bottom = 52.0
 size_flags_horizontal = 3
 placeholder_text = "Eye Color"
 
 [node name="Age" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_left = 398.0
-margin_top = 28.0
-margin_right = 792.0
-margin_bottom = 52.0
+offset_left = 398.0
+offset_top = 28.0
+offset_right = 792.0
+offset_bottom = 52.0
 size_flags_horizontal = 3
 placeholder_text = "Age"
 
 [node name="Sex" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_top = 56.0
-margin_right = 394.0
-margin_bottom = 80.0
+offset_top = 56.0
+offset_right = 394.0
+offset_bottom = 80.0
 size_flags_horizontal = 3
 placeholder_text = "Sex"
 
 [node name="Weight" type="LineEdit" parent="TabContainer/Base Character/GridContainer"]
-margin_left = 398.0
-margin_top = 56.0
-margin_right = 792.0
-margin_bottom = 80.0
+offset_left = 398.0
+offset_top = 56.0
+offset_right = 792.0
+offset_bottom = 80.0
 size_flags_horizontal = 3
 placeholder_text = "Weight [lbs]"
 
 [node name="Level" type="MenuButton" parent="TabContainer/Base Character" groups=["Persist"]]
-margin_top = 112.0
-margin_right = 792.0
-margin_bottom = 132.0
+offset_top = 112.0
+offset_right = 792.0
+offset_bottom = 132.0
 text = "Level"
 flat = false
 script = ExtResource( 1 )
 
 [node name="RaceBox" type="HBoxContainer" parent="TabContainer/Base Character"]
-margin_top = 136.0
-margin_right = 792.0
-margin_bottom = 426.0
+offset_top = 136.0
+offset_right = 792.0
+offset_bottom = 426.0
 size_flags_vertical = 3
 
 [node name="Race" type="MenuButton" parent="TabContainer/Base Character/RaceBox" groups=["Persist"]]
-margin_top = 135.0
-margin_right = 131.0
-margin_bottom = 155.0
+offset_top = 135.0
+offset_right = 131.0
+offset_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Race"
 flat = false
-icon_align = 1
+icon_alignment = 1
 script = ExtResource( 5 )
 
 [node name="RaceEdit" type="TextEdit" parent="TabContainer/Base Character/RaceBox"]
-margin_left = 135.0
-margin_right = 792.0
-margin_bottom = 290.0
+offset_left = 135.0
+offset_right = 792.0
+offset_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -171,15 +171,15 @@ wrap_enabled = true
 script = ExtResource( 7 )
 
 [node name="ClassBox" type="HBoxContainer" parent="TabContainer/Base Character"]
-margin_top = 430.0
-margin_right = 792.0
-margin_bottom = 720.0
+offset_top = 430.0
+offset_right = 792.0
+offset_bottom = 720.0
 size_flags_vertical = 3
 
 [node name="Class" type="MenuButton" parent="TabContainer/Base Character/ClassBox" groups=["Persist"]]
-margin_top = 135.0
-margin_right = 131.0
-margin_bottom = 155.0
+offset_top = 135.0
+offset_right = 131.0
+offset_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Class"
@@ -187,9 +187,9 @@ flat = false
 script = ExtResource( 6 )
 
 [node name="ClassEdit" type="TextEdit" parent="TabContainer/Base Character/ClassBox"]
-margin_left = 135.0
-margin_right = 792.0
-margin_bottom = 290.0
+offset_left = 135.0
+offset_right = 792.0
+offset_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -198,260 +198,260 @@ It was too complicated for me to bother formatting all the class trees nicely."
 readonly = true
 
 [node name="ButtonBar" parent="TabContainer/Base Character" instance=ExtResource( 11 )]
-margin_top = 724.0
-margin_right = 792.0
-margin_bottom = 764.0
+offset_top = 724.0
+offset_right = 792.0
+offset_bottom = 764.0
 size_flags_stretch_ratio = 0.1
 
 [node name="Ability Score" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
 
 [node name="Instruction" type="LineEdit" parent="TabContainer/Ability Score"]
-margin_right = 792.0
-margin_bottom = 24.0
+offset_right = 792.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 text = "Using one of the methods given (agreed by your DM), to generate ability scores and enter in the final totals at the bottom"
 editable = false
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Ability Score"]
-margin_top = 28.0
-margin_right = 792.0
-margin_bottom = 32.0
+offset_top = 28.0
+offset_right = 792.0
+offset_bottom = 32.0
 
 [node name="Label" type="Label" parent="TabContainer/Ability Score"]
-margin_top = 36.0
-margin_right = 792.0
-margin_bottom = 50.0
+offset_top = 36.0
+offset_right = 792.0
+offset_bottom = 50.0
 text = "Roll for Ability Score (uses roll 4, take highest 3)"
 
 [node name="Roller" type="HBoxContainer" parent="TabContainer/Ability Score"]
-margin_top = 54.0
-margin_right = 792.0
-margin_bottom = 78.0
+offset_top = 54.0
+offset_right = 792.0
+offset_bottom = 78.0
 script = ExtResource( 13 )
 
 [node name="Roll" type="Button" parent="TabContainer/Ability Score/Roller"]
-margin_top = 2.0
-margin_right = 36.0
-margin_bottom = 22.0
+offset_top = 2.0
+offset_right = 36.0
+offset_bottom = 22.0
 size_flags_vertical = 4
 text = "Roll"
 
 [node name="Rolls" type="LineEdit" parent="TabContainer/Ability Score/Roller"]
-margin_left = 40.0
-margin_right = 792.0
-margin_bottom = 24.0
+offset_left = 40.0
+offset_right = 792.0
+offset_bottom = 24.0
 size_flags_horizontal = 3
 align = 1
 editable = false
 
 [node name="HSeparator3" type="HSeparator" parent="TabContainer/Ability Score"]
-margin_top = 82.0
-margin_right = 792.0
-margin_bottom = 86.0
+offset_top = 82.0
+offset_right = 792.0
+offset_bottom = 86.0
 
 [node name="Label2" type="Label" parent="TabContainer/Ability Score"]
-margin_top = 90.0
-margin_right = 792.0
-margin_bottom = 104.0
+offset_top = 90.0
+offset_right = 792.0
+offset_bottom = 104.0
 text = "Enter Scores Manually"
 
 [node name="ManualEntry" type="HBoxContainer" parent="TabContainer/Ability Score"]
-margin_top = 108.0
-margin_right = 792.0
-margin_bottom = 108.0
+offset_top = 108.0
+offset_right = 792.0
+offset_bottom = 108.0
 script = ExtResource( 14 )
 
 [node name="HSeparator4" type="HSeparator" parent="TabContainer/Ability Score"]
-margin_top = 112.0
-margin_right = 792.0
-margin_bottom = 116.0
+offset_top = 112.0
+offset_right = 792.0
+offset_bottom = 116.0
 
 [node name="Label3" type="Label" parent="TabContainer/Ability Score"]
-margin_top = 120.0
-margin_right = 792.0
-margin_bottom = 134.0
+offset_top = 120.0
+offset_right = 792.0
+offset_bottom = 134.0
 text = "Use Standard Values - Use each once"
 
 [node name="StandardValues" type="HBoxContainer" parent="TabContainer/Ability Score"]
-margin_top = 138.0
-margin_right = 792.0
-margin_bottom = 138.0
+offset_top = 138.0
+offset_right = 792.0
+offset_bottom = 138.0
 script = ExtResource( 15 )
 
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Ability Score"]
-margin_top = 142.0
-margin_right = 792.0
-margin_bottom = 146.0
+offset_top = 142.0
+offset_right = 792.0
+offset_bottom = 146.0
 
 [node name="Label4" type="Label" parent="TabContainer/Ability Score"]
-margin_top = 150.0
-margin_right = 792.0
-margin_bottom = 164.0
+offset_top = 150.0
+offset_right = 792.0
+offset_bottom = 164.0
 text = "Incremental Choices - Balance until Points Remaining is 0"
 
 [node name="Incrementer" type="HBoxContainer" parent="TabContainer/Ability Score"]
-margin_top = 168.0
-margin_right = 792.0
-margin_bottom = 192.0
+offset_top = 168.0
+offset_right = 792.0
+offset_bottom = 192.0
 script = ExtResource( 17 )
 
 [node name="Label" type="Label" parent="TabContainer/Ability Score/Incrementer"]
-margin_top = 5.0
-margin_right = 119.0
-margin_bottom = 19.0
+offset_top = 5.0
+offset_right = 119.0
+offset_bottom = 19.0
 text = "Points Remaining: "
 
 [node name="TotalPoints" type="LineEdit" parent="TabContainer/Ability Score/Incrementer"]
-margin_left = 123.0
-margin_right = 181.0
-margin_bottom = 24.0
+offset_left = 123.0
+offset_right = 181.0
+offset_bottom = 24.0
 text = "27"
 align = 1
 editable = false
 
 [node name="VSeparator" type="VSeparator" parent="TabContainer/Ability Score/Incrementer"]
-margin_left = 185.0
-margin_right = 189.0
-margin_bottom = 24.0
+offset_left = 185.0
+offset_right = 189.0
+offset_bottom = 24.0
 
 [node name="Spacer" type="Control" parent="TabContainer/Ability Score"]
-margin_top = 196.0
-margin_right = 792.0
-margin_bottom = 690.0
+offset_top = 196.0
+offset_right = 792.0
+offset_bottom = 690.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HSeparator5" type="HSeparator" parent="TabContainer/Ability Score"]
-margin_top = 694.0
-margin_right = 792.0
-margin_bottom = 698.0
+offset_top = 694.0
+offset_right = 792.0
+offset_bottom = 698.0
 
 [node name="Label5" type="Label" parent="TabContainer/Ability Score"]
-margin_top = 702.0
-margin_right = 792.0
-margin_bottom = 716.0
+offset_top = 702.0
+offset_right = 792.0
+offset_bottom = 716.0
 text = "Ability Scores to Save"
 
 [node name="Total" type="HBoxContainer" parent="TabContainer/Ability Score"]
-margin_top = 720.0
-margin_right = 792.0
-margin_bottom = 720.0
+offset_top = 720.0
+offset_right = 792.0
+offset_bottom = 720.0
 script = ExtResource( 12 )
 
 [node name="ButtonBar" parent="TabContainer/Ability Score" instance=ExtResource( 11 )]
-margin_top = 724.0
-margin_right = 792.0
-margin_bottom = 764.0
+offset_top = 724.0
+offset_right = 792.0
+offset_bottom = 764.0
 size_flags_stretch_ratio = 0.1
 
 [node name="Background" type="VBoxContainer" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
 
 [node name="BackgroundBanner" type="HBoxContainer" parent="TabContainer/Background"]
-margin_right = 792.0
-margin_bottom = 40.0
+offset_right = 792.0
+offset_bottom = 40.0
 script = ExtResource( 9 )
 
 [node name="Label4" type="Label" parent="TabContainer/Background/BackgroundBanner"]
-margin_top = 13.0
-margin_right = 78.0
-margin_bottom = 27.0
+offset_top = 13.0
+offset_right = 78.0
+offset_bottom = 27.0
 text = "Background:"
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Background/BackgroundBanner" groups=["Persist"]]
-margin_left = 82.0
-margin_right = 792.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 40 )
+offset_left = 82.0
+offset_right = 792.0
+offset_bottom = 40.0
+custom_minimum_size = Vector2( 200, 40 )
 size_flags_horizontal = 3
 align = 1
 script = ExtResource( 8 )
 
 [node name="BackgroundBlock" type="TextEdit" parent="TabContainer/Background"]
-margin_top = 44.0
-margin_right = 792.0
-margin_bottom = 380.0
+offset_top = 44.0
+offset_right = 792.0
+offset_bottom = 380.0
 size_flags_vertical = 3
 readonly = true
 wrap_enabled = true
 script = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Background"]
-margin_top = 384.0
-margin_right = 792.0
-margin_bottom = 720.0
+offset_top = 384.0
+offset_right = 792.0
+offset_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Motivation" type="VBoxContainer" parent="TabContainer/Background/HBoxContainer"]
-margin_right = 394.0
-margin_bottom = 336.0
+offset_right = 394.0
+offset_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="TabContainer/Background/HBoxContainer/Motivation"]
-margin_right = 394.0
-margin_bottom = 14.0
+offset_right = 394.0
+offset_bottom = 14.0
 text = "Motivation: "
 
 [node name="MotivationEdit" type="TextEdit" parent="TabContainer/Background/HBoxContainer/Motivation" groups=["Persist"]]
-margin_top = 18.0
-margin_right = 394.0
-margin_bottom = 336.0
+offset_top = 18.0
+offset_right = 394.0
+offset_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 wrap_enabled = true
 script = ExtResource( 19 )
 
 [node name="Background" type="VBoxContainer" parent="TabContainer/Background/HBoxContainer"]
-margin_left = 398.0
-margin_right = 792.0
-margin_bottom = 336.0
+offset_left = 398.0
+offset_right = 792.0
+offset_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="TabContainer/Background/HBoxContainer/Background"]
-margin_right = 394.0
-margin_bottom = 14.0
+offset_right = 394.0
+offset_bottom = 14.0
 text = "Backstory: "
 
 [node name="BackstoryEdit" type="TextEdit" parent="TabContainer/Background/HBoxContainer/Background" groups=["Persist"]]
-margin_top = 18.0
-margin_right = 394.0
-margin_bottom = 336.0
+offset_top = 18.0
+offset_right = 394.0
+offset_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 wrap_enabled = true
 script = ExtResource( 20 )
 
 [node name="ButtonBar" parent="TabContainer/Background" instance=ExtResource( 11 )]
-margin_top = 724.0
-margin_right = 792.0
-margin_bottom = 764.0
+offset_top = 724.0
+offset_right = 792.0
+offset_bottom = 764.0
 size_flags_stretch_ratio = 0.1
 
-[node name="OptionDialogue" type="WindowDialog" parent="."]
+[node name="OptionDialogue" type="Window" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -412.5
-margin_top = -61.5
-margin_right = 412.5
-margin_bottom = 61.5
+offset_left = -412.5
+offset_top = -61.5
+offset_right = 412.5
+offset_bottom = 61.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 window_title = "Options"
@@ -463,56 +463,56 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionDialogue/VBoxContainer"]
-margin_top = 36.0
-margin_right = 825.0
-margin_bottom = 86.0
+offset_top = 36.0
+offset_right = 825.0
+offset_bottom = 86.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Save" type="Button" parent="OptionDialogue/VBoxContainer/HBoxContainer"]
-margin_right = 272.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 120, 50 )
-hint_tooltip = "Ctrl + S"
+offset_right = 272.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 120, 50 )
+tooltip_text = "Ctrl + S"
 size_flags_horizontal = 3
 text = "Save"
-icon_align = 1
+icon_alignment = 1
 
 [node name="QuitToMainMenu" type="Button" parent="OptionDialogue/VBoxContainer/HBoxContainer"]
-margin_left = 276.0
-margin_right = 548.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 120, 50 )
-hint_tooltip = "Ctrl + Q"
+offset_left = 276.0
+offset_right = 548.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 120, 50 )
+tooltip_text = "Ctrl + Q"
 size_flags_horizontal = 3
 text = "Quit to Main Menu"
-icon_align = 1
+icon_alignment = 1
 
 [node name="QuitToDesktop" type="Button" parent="OptionDialogue/VBoxContainer/HBoxContainer"]
-margin_left = 552.0
-margin_right = 825.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 120, 50 )
-hint_tooltip = "Ctrl + Q"
+offset_left = 552.0
+offset_right = 825.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 120, 50 )
+tooltip_text = "Ctrl + Q"
 size_flags_horizontal = 3
 text = "Quit to Desktop"
-icon_align = 1
+icon_alignment = 1
 
 [node name="SaveFile" type="FileDialog" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -464.0
-margin_top = -313.0
-margin_right = 464.0
-margin_bottom = 313.0
-popup_exclusive = true
+offset_left = -464.0
+offset_top = -313.0
+offset_right = 464.0
+offset_bottom = 313.0
+exclusive = true
 resizable = true
 dialog_text = "Save File..."
 dialog_hide_on_ok = true
 access = 2
-filters = PoolStringArray( "*.json" )
+filters = PackedStringArray( "*.json" )
 
 [node name="SaveFlash" type="ColorRect" parent="."]
 visible = false
@@ -520,10 +520,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = 960.0
-margin_bottom = 540.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 
@@ -537,11 +537,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -159.5
-margin_top = -35.0
-margin_right = 159.5
-margin_bottom = 35.0
-popup_exclusive = true
+offset_left = -159.5
+offset_top = -35.0
+offset_right = 159.5
+offset_bottom = 35.0
+exclusive = true
 window_title = "Confirm?"
 script = ExtResource( 4 )
 

@@ -1,8 +1,8 @@
 extends ItemList
 
 func _ready() -> void:
-	Signals.connect("unequip_item", self, "unequip_item")
-	Signals.connect("equip_item", self, "equip_item")
+	Signals.connect("unequip_item", Callable(self, "unequip_item"))
+	Signals.connect("equip_item", Callable(self, "equip_item"))
 	
 func equip_item(item : String):
 	self.add_item(item)

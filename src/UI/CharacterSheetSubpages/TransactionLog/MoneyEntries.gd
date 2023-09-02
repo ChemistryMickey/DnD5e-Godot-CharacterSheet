@@ -3,14 +3,14 @@ extends VBoxContainer
 var money_log_template = preload("res://src/UI/CharacterSheetSubpages/TransactionLog/MoneyEntry.tscn")
 
 func _ready() -> void:
-	Signals.connect("add_purchase_entry", self, "add_purchase")
+	Signals.connect("add_purchase_entry", Callable(self, "add_purchase"))
 	
 func add_purchase(item_name : String, quantity : String, price : Array):
-	var new_log = money_log_template.instance()
+	var new_log = money_log_template.instantiate()
 	var purchase_str = "Purchased %sx %s" % [quantity, item_name]
 	var total_price = []
 	for currency in price:
-		total_price.append("-%s" % String(int(quantity) * int(currency)))
+		total_price.append("-%s" % str(int(quantity) * int(currency)))
 		
 	new_log.set_props(purchase_str, total_price)
 	self.add_child(new_log)
@@ -26,7 +26,7 @@ func load_sheet(save_dict):
 		child.queue_free()
 		
 	for entry in save_dict["Money Entries"]:
-		var new_entry = money_log_template.instance()
+		var new_entry = money_log_template.instantiate()
 		new_entry.load_sheet(entry)
 		self.add_child(new_entry)
 	Signals.emit_signal("money_changed")

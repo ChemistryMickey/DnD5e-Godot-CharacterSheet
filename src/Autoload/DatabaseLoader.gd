@@ -11,14 +11,13 @@ func _ready() -> void:
 func load_cheatsheets():
 	var json_raw_strs = []
 	var filenames = []
-	var dir = Directory.new()
-	if dir.open("res://cheatsheets/") == OK:
-		dir.list_dir_begin(true, true)
+	var dir = DirAccess.open("res://cheatsheets/")
+	if dir:
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var cur_file = dir.get_next()
 
 		while cur_file != "":
-			var file = File.new()
-			file.open("res://cheatsheets/%s" % cur_file, File.READ)
+			var file = FileAccess.open("res://cheatsheets/%s" % cur_file, FileAccess.READ)
 			var contents = file.get_as_text()
 			file.close()
 			json_raw_strs.append(contents)
@@ -27,19 +26,19 @@ func load_cheatsheets():
 			cur_file = dir.get_next()
 		
 	for idx in range(filenames.size()):
-		cheatsheets[filenames[idx]] = JSON.parse(json_raw_strs[idx]).result
+		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
+		cheatsheets[filenames[idx]] = test_json_conv
 	
 func load_jsons():
 	var json_raw_strs = []
 	var filenames = []
-	var dir = Directory.new()
-	if dir.open("res://databases/") == OK:
-		dir.list_dir_begin(true, true)
+	var dir = DirAccess.open("res://databases/")
+	if dir:
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var cur_file = dir.get_next()
 
 		while cur_file != "":
-			var file = File.new()
-			file.open("res://databases/%s" % cur_file, File.READ)
+			var file = FileAccess.open("res://databases/%s" % cur_file, FileAccess.READ)
 			var contents = file.get_as_text()
 			file.close()
 			json_raw_strs.append(contents)
@@ -48,12 +47,13 @@ func load_jsons():
 			cur_file = dir.get_next()
 		
 	for idx in range(filenames.size()):
-		json_dicts[filenames[idx]] = JSON.parse(json_raw_strs[idx]).result
+		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
+		json_dicts[filenames[idx]] = test_json_conv
 		
 func parse_table(table_dict : Dictionary, depth : int = 0) -> String:
 	var tab_str = determine_num_tabs(table_dict)
 	var out_str = ""
-	if not table_dict.empty():
+	if not table_dict.is_empty():
 		for col in table_dict:
 			for _i in range(depth):
 				out_str += "\t"
@@ -104,7 +104,7 @@ func stringify_race(race : Dictionary) -> String:
 		race["Speeds"]["Swimming"] ,race["Speeds"]["Flying"]]
 	out_str += "\nAbilities: \n"
 	out_str += parse_list(race["Abilities"], 1)
-	if not race["Tool Proficiencies"].empty():
+	if not race["Tool Proficiencies"].is_empty():
 		out_str += "\nTool Proficiencies: \n"
 		for item in race["Tool Proficiencies"]:
 			if item is String:
@@ -116,7 +116,7 @@ func stringify_race(race : Dictionary) -> String:
 	for lang in race["Languages"]:
 		out_str += "\t%s\n" % lang
 		
-	if not race["Subraces"].empty():
+	if not race["Subraces"].is_empty():
 		out_str += "\nSubraces: \n"
 		for subrace in race["Subraces"]:
 			out_str += "\t%s: \n" % subrace

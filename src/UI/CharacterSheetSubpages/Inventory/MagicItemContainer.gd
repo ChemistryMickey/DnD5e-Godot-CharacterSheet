@@ -3,7 +3,7 @@ extends VBoxContainer
 var inventory_entry_template = preload("res://src/UI/CharacterSheetSubpages/Inventory/InventoryEntry.tscn")
 var num_inventory_entries = 0
 func _on_AddItem_button_up() -> void:
-	var new_entry = inventory_entry_template.instance()
+	var new_entry = inventory_entry_template.instantiate()
 	new_entry.name = "inventory_entry_" + str($"/root/Utilities".num_inventory_entries)
 	$"/root/Utilities".num_inventory_entries += 1
 	self.add_child(new_entry)
@@ -29,7 +29,7 @@ func _on_SortMagicItems_button_up() -> void:
 	for child in children:
 		self.remove_child(child)
 		
-	children.sort_custom(Inventory_sorter, "sort_by_name")
+	children.sort_custom(Callable(Inventory_sorter, "sort_by_name"))
 	for child in children:
 		self.add_child(child)
 		
@@ -44,7 +44,7 @@ func load_sheet(save_dict):
 		child.queue_free()
 	if save_dict.has("Magic Items"):
 		for entry in save_dict["Magic Items"]:
-			var new_entry = inventory_entry_template.instance()
+			var new_entry = inventory_entry_template.instantiate()
 			new_entry.load_sheet(entry)
 			new_entry.name = "inventory_entry_" + str($"/root/Utilities".num_inventory_entries)
 			$"/root/Utilities".num_inventory_entries += 1

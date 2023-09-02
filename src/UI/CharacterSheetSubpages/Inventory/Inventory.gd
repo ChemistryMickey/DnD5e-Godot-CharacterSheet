@@ -3,8 +3,8 @@ extends Control
 var inventory_entry_template = preload("res://src/UI/CharacterSheetSubpages/Inventory/InventoryEntry.tscn")
 
 func _ready() -> void:
-	Signals.connect("display_item_info", self, "update_item_description")
-	Signals.connect("update_total_weights_and_values", self, "update_total_weights_and_values")
+	Signals.connect("display_item_info", Callable(self, "update_item_description"))
+	Signals.connect("update_total_weights_and_values", Callable(self, "update_total_weights_and_values"))
 
 func _on_ItemDatabase_button_up() -> void:
 	Signals.emit_signal("show_item_database")
@@ -23,5 +23,5 @@ func update_total_weights_and_values():
 		total_value += float(child.val_per_unit) * float(child.quantity) * \
 						denomination_map[child.denomination]
 		total_weight += float(child.weight_per_unit) * float(child.quantity)
-	$InventoryContainer/Inventory/Summary/TotalValue.text = String(total_value)
-	$InventoryContainer/Inventory/Summary/TotalWeight.text = String(total_weight)
+	$InventoryContainer/Inventory/Summary/TotalValue.text = str(total_value)
+	$InventoryContainer/Inventory/Summary/TotalWeight.text = str(total_weight)

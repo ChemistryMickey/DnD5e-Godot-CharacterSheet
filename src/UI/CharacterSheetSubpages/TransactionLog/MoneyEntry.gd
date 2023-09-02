@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-export (bool) var is_empty = true
+@export var is_empty: bool = true
 
 func _on_TransactionEdit_text_changed(_new_text: String) -> void:
 	Signals.emit_signal("money_changed")

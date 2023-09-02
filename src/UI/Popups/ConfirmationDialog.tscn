@@ -8,11 +8,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -159.5
-margin_top = -35.0
-margin_right = 159.5
-margin_bottom = 35.0
-popup_exclusive = true
+offset_left = -159.5
+offset_top = -35.0
+offset_right = 159.5
+offset_bottom = 35.0
+exclusive = true
 window_title = "Confirm?"
 script = ExtResource( 1 )
 

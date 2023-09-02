@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-onready var tool_dict = DatabaseLoader.json_dicts["tools"]
+@onready var tool_dict = DatabaseLoader.json_dicts["tools"]
 
 func _ready():
 	for tool_class in tool_dict:
@@ -17,10 +17,10 @@ func save():
 	var save_dict = {"Tool Proficiencies" : {}}
 	for child in self.get_children():
 		if child is CheckButton:
-			save_dict["Tool Proficiencies"][child.text] = child.pressed
+			save_dict["Tool Proficiencies"][child.text] = child.button_pressed
 	return save_dict
 	
 func load_sheet(save_dict):
 	for child in self.get_children():
 		if child is CheckButton:
-			child.pressed = save_dict["Tool Proficiencies"][child.text]
+			child.button_pressed = save_dict["Tool Proficiencies"][child.text]

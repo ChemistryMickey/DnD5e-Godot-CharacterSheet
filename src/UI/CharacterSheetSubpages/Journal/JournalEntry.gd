@@ -1,7 +1,7 @@
 extends HBoxContainer
 class_name JournalEntry
 
-export (bool) var is_empty = true
+@export var is_empty: bool = true
 
 func save():
 	var save_dict = {}

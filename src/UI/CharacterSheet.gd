@@ -1,11 +1,11 @@
 extends Control
 
-onready var state2 = $TabContainer/Summary/Summary/Right/State2
-onready var tab_container = $TabContainer
-onready var spellbook = $TabContainer/Spellbook
-onready var save_dialog = $SaveFile
+@onready var state2 = $TabContainer/Summary/Summary/Right/State2
+@onready var tab_container = $TabContainer
+@onready var spellbook = $TabContainer/Spellbook
+@onready var save_dialog = $SaveFile
 
-export (String) var current_character_path = ""
+@export var current_character_path: String = ""
 
 var sheet_dict : Dictionary
 		
@@ -34,20 +34,19 @@ func _on_LoadFile_file_selected(path: String) -> void:
 	
 func open_quit_dialogue():
 	$ConfirmationDialog.popup_centered()
-	yield($ConfirmationDialog, "confirmed")
+	await $ConfirmationDialog.confirmed
 		
 func save_current_sheet():
 	if current_character_path == "":
 		save_dialog.popup_centered()
-		yield(save_dialog, "file_selected")
+		await save_dialog.file_selected
 		
 	var save_filename = current_character_path
 	Debug.debug_print("Saving current sheet %s..." % save_filename)
 
 	sheet_dict = {} #clear the sheet dict to prevent unintended entry persistence
 
-	var save_game = File.new()
-	save_game.open(save_filename, File.WRITE)
+	var save_game = FileAccess.open(save_filename, FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		# Check the node has a save function.
@@ -60,27 +59,25 @@ func save_current_sheet():
 		for key in node_data:
 			sheet_dict[key] = node_data[key]
 		
-	save_game.store_string(JSON.print(sheet_dict))
+	save_game.store_string(JSON.stringify(sheet_dict))
 	save_game.close()
 	$SaveFlash/AnimationPlayer.play("flash")
 
-func load_sheet(var path : String = ""):
+func load_sheet(path : String = ""):
 	if path == "":
 		$LoadFile.popup_centered()
-		yield($LoadFile, "file_selected")
+		await $LoadFile.file_selected
 	else:
 		current_character_path = path
 	
-	var save_game = File.new()
-	if not save_game.file_exists(current_character_path):
+	if not FileAccess.file_exists(current_character_path):
 		return # Error! We don't have a save to load.
-
-	save_game.open(current_character_path, File.READ)
+	var save_game = FileAccess.open(current_character_path, FileAccess.READ)
 
 	var conts = save_game.get_as_text()
 	save_game.close()
 	
-	sheet_dict = JSON.parse(conts).result
+	sheet_dict = JSON.parse_string(conts)
 	
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:

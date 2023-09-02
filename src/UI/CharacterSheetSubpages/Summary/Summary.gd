@@ -4,33 +4,33 @@ extends ScrollContainer
 ## None
 
 # Buttons
-onready var bloodied_button = $Summary/Right/State2/BloodiedButton
+@onready var bloodied_button = $Summary/Right/State2/BloodiedButton
 
 # Line Edits
-onready var max_hp_edit = $Summary/Right/State/maxHPEdit
-onready var proficiency_edit = $Summary/Right/State/ProficiencyEdit
-onready var money_edits = [	$Summary/Right/MoneyAndExp/cpDisp, 
+@onready var max_hp_edit = $Summary/Right/State/maxHPEdit
+@onready var proficiency_edit = $Summary/Right/State/ProficiencyEdit
+@onready var money_edits = [	$Summary/Right/MoneyAndExp/cpDisp, 
 							$Summary/Right/MoneyAndExp/spDisp, 
 							$Summary/Right/MoneyAndExp/epDisp, 
 							$Summary/Right/MoneyAndExp/gpDisp, 
 							$Summary/Right/MoneyAndExp/ppDisp]
-onready var exp_edit = $Summary/Right/MoneyAndExp/expDisp
-onready var char_name = $Summary/Left/CharacterInfo/CharacterChoices/NameEnter
+@onready var exp_edit = $Summary/Right/MoneyAndExp/expDisp
+@onready var char_name = $Summary/Left/CharacterInfo/CharacterChoices/NameEnter
 
 # Containers
-onready var language_container = $Summary/Left/TabSummaries/LanguagesAndTools/ScrollBox/LanguageContainer
-onready var tool_container = $Summary/Left/TabSummaries/LanguagesAndTools/ScrollBox2/ToolContainer
-onready var prepared_spells_container = $Summary/Left/TabSummaries/SpellsAndFeats/VBoxContainer/PreparedSpells
-onready var skill_block = $Summary/Right/Skills/SkillBlock
+@onready var language_container = $Summary/Left/TabSummaries/LanguagesAndTools/ScrollBox/LanguageContainer
+@onready var tool_container = $Summary/Left/TabSummaries/LanguagesAndTools/ScrollBox2/ToolContainer
+@onready var prepared_spells_container = $Summary/Left/TabSummaries/SpellsAndFeats/VBoxContainer/PreparedSpells
+@onready var skill_block = $Summary/Right/Skills/SkillBlock
 
 func _ready():
-	if Signals.connect("exp_updated", self, "update_exp_label"): 
+	if Signals.connect("exp_updated", Callable(self, "update_exp_label")): 
 		print("Unable to connect to exp_updated!")
-	if Signals.connect("money_updated", self, "update_money_labels"): 
+	if Signals.connect("money_updated", Callable(self, "update_money_labels")): 
 		print("Unable to connect to money_updated!")
-	if Signals.connect("prepared_spells_changed", self, "update_prepared_list"): 
+	if Signals.connect("prepared_spells_changed", Callable(self, "update_prepared_list")): 
 		print("Unable to connecto to prepared_spells_changed!")
-	if Signals.connect("proficiency_requested", self, "emit_proficiency_bonus"):
+	if Signals.connect("proficiency_requested", Callable(self, "emit_proficiency_bonus")):
 		print("Unable to connect to proficiency_requested!")
 		
 func emit_proficiency_bonus():
@@ -44,24 +44,24 @@ func _on_hpEdit_text_entered(new_text: String) -> void:
 	Debug.debug_print("New health: %d" % cur_health)
 	if cur_health < floor(0.5 * int(max_hp_edit.text)):
 		Debug.debug_print("Player bloodied!")
-		bloodied_button.pressed = true
+		bloodied_button.set_pressed(true)
 	else:
-		bloodied_button.pressed = false
+		bloodied_button.set_pressed(false)
 		
 func _on_LevelEdit_text_changed(new_text: String) -> void:
 	update_proficiency_bonus(new_text)
 
 func update_proficiency_bonus(new_bonus : String):
 	var cur_level = int(new_bonus)
-	proficiency_edit.text = String(floor(cur_level/4) + 2)
+	proficiency_edit.text = str(floor(cur_level/4) + 2)
 	Signals.emit_signal("proficiency_returned", proficiency_edit.text)
 	
 func update_exp_label(exp_amount):
-	exp_edit.text = String(exp_amount)
+	exp_edit.text = str(exp_amount)
 
 func update_money_labels(money_amounts : Array):
 	for idx in range(money_amounts.size()):
-		money_edits[idx].text = String(money_amounts[idx])
+		money_edits[idx].text = str(money_amounts[idx])
 
 func update_prepared_list(spell_dict : Dictionary):
 	prepared_spells_container.clear()

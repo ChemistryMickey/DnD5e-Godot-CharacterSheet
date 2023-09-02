@@ -1,183 +1,140 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cvaqt1x1atw1s"]
 
-[ext_resource path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/TakenFeatList.gd" type="Script" id=1]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/FeatInfo.gd" type="Script" id=2]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/AllFeats.gd" type="Script" id=3]
-[ext_resource path="res://src/UI/Theme.tres" type="Theme" id=4]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/TakenFeatList.gd" id="1"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/FeatInfo.gd" id="2"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/AllFeats.gd" id="3"]
+[ext_resource type="Theme" path="res://src/UI/Theme.tres" id="4"]
 
 [node name="Feats" type="HBoxContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-theme = ExtResource( 4 )
+offset_left = 4.0
+offset_top = 32.0
+offset_right = -4.0
+offset_bottom = -4.0
+theme = ExtResource("4")
 
 [node name="Left" type="VBoxContainer" parent="."]
-margin_right = 954.0
-margin_bottom = 1044.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Left"]
-margin_right = 954.0
-margin_bottom = 14.0
+layout_mode = 2
 text = "Taken Feats:"
 
 [node name="TakenFeats" type="ScrollContainer" parent="Left"]
-margin_top = 18.0
-margin_right = 954.0
-margin_bottom = 492.0
-rect_min_size = Vector2( 0, 200 )
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TakenFeatList" type="ItemList" parent="Left/TakenFeats" groups=["Persist"]]
-margin_right = 954.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 0, 200 )
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="TakenFeatButtons" type="HBoxContainer" parent="Left"]
-margin_top = 496.0
-margin_right = 954.0
-margin_bottom = 516.0
+layout_mode = 2
 
 [node name="RemoveFeat" type="Button" parent="Left/TakenFeatButtons"]
-margin_right = 475.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Remove Feat"
 
 [node name="ClearFeats" type="Button" parent="Left/TakenFeatButtons"]
-margin_left = 479.0
-margin_right = 954.0
-margin_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Clear All Feats"
 
 [node name="HSeparator" type="HSeparator" parent="Left"]
-margin_top = 520.0
-margin_right = 954.0
-margin_bottom = 524.0
+layout_mode = 2
 
 [node name="Label3" type="Label" parent="Left"]
-margin_top = 528.0
-margin_right = 954.0
-margin_bottom = 542.0
+layout_mode = 2
 text = "All Available Feats:"
 
 [node name="AllFeats" type="ScrollContainer" parent="Left"]
-margin_top = 546.0
-margin_right = 954.0
-margin_bottom = 1020.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="ItemList" type="ItemList" parent="Left/AllFeats"]
-margin_right = 954.0
-margin_bottom = 474.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AddToFeats" type="Button" parent="Left"]
-margin_top = 1024.0
-margin_right = 954.0
-margin_bottom = 1044.0
+layout_mode = 2
 text = "Add to Feats"
 
 [node name="FeatInfo" type="VBoxContainer" parent="."]
-margin_left = 958.0
-margin_right = 1912.0
-margin_bottom = 1044.0
+layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="FeatName" type="HBoxContainer" parent="FeatInfo"]
-margin_right = 954.0
-margin_bottom = 24.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="FeatInfo/FeatName"]
-margin_top = 5.0
-margin_right = 100.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 text = "Feat Name: "
 
 [node name="LineEdit" type="LineEdit" parent="FeatInfo/FeatName"]
-margin_left = 104.0
-margin_right = 954.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Prerequisites" type="HBoxContainer" parent="FeatInfo"]
-margin_top = 28.0
-margin_right = 954.0
-margin_bottom = 52.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="FeatInfo/Prerequisites"]
-margin_top = 5.0
-margin_right = 100.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 text = "Prerequisites: "
 
 [node name="LineEdit" type="LineEdit" parent="FeatInfo/Prerequisites"]
-margin_left = 104.0
-margin_right = 954.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Source" type="HBoxContainer" parent="FeatInfo"]
-margin_top = 56.0
-margin_right = 954.0
-margin_bottom = 80.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="FeatInfo/Source"]
-margin_top = 5.0
-margin_right = 100.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 text = "Source: "
 
 [node name="LineEdit" type="LineEdit" parent="FeatInfo/Source"]
-margin_left = 104.0
-margin_right = 954.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 selecting_enabled = false
 
 [node name="Effect" type="HBoxContainer" parent="FeatInfo"]
-margin_top = 84.0
-margin_right = 954.0
-margin_bottom = 1044.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="FeatInfo/Effect"]
-margin_right = 100.0
-margin_bottom = 960.0
-rect_min_size = Vector2( 100, 0 )
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 size_flags_vertical = 1
 text = "Effect: "
 
 [node name="TextEdit" type="TextEdit" parent="FeatInfo/Effect"]
-margin_left = 104.0
-margin_right = 954.0
-margin_bottom = 960.0
-rect_min_size = Vector2( 0, 350 )
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
 size_flags_horizontal = 11
 size_flags_vertical = 3
-readonly = true
 selecting_enabled = false
-wrap_enabled = true
+wrap_mode = 1
 
 [connection signal="item_activated" from="Left/TakenFeats/TakenFeatList" to="Left/TakenFeats/TakenFeatList" method="_on_TakenFeatList_item_activated"]
 [connection signal="button_up" from="Left/TakenFeatButtons/RemoveFeat" to="Left/TakenFeats/TakenFeatList" method="_on_RemoveFeat_button_up"]

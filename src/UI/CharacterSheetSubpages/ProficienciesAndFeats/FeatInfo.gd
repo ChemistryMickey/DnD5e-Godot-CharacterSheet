@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 func _ready() -> void:
-	if Signals.connect("feat_info_requested", self, "update_feat_info"):
+	if Signals.connect("feat_info_requested", Callable(self, "update_feat_info")):
 		print("Unable to connect to feat_info_requested")
 	
 func update_feat_info(feat : String):

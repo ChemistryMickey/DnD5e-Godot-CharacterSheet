@@ -1,7 +1,7 @@
 extends ItemList
 
 func _ready() -> void:
-	if Signals.connect("feats_updated", self, "update_feat_list"): 
+	if Signals.connect("feats_updated", Callable(self, "update_feat_list")): 
 		print("Unable to connect to feats_updated!")
 
 func update_feat_list(feat_list : Array):

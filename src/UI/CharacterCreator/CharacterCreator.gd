@@ -3,16 +3,16 @@ extends Control
 var current_character_path : String = ""
 var sheet_dict : Dictionary
 
-onready var character_sheet = preload("res://src/UI/CharacterSheet.tscn")
+@onready var character_sheet = preload("res://src/UI/CharacterSheet.tscn")
 
 func _ready() -> void:
-	Signals.connect("save_character_creator", self, "finish_cc")
+	Signals.connect("save_character_creator", Callable(self, "finish_cc"))
 	
 func finish_cc():
 	save_current_sheet()
-	yield($SaveFile, "file_selected")
+	await $SaveFile.file_selected
 	
-	var new_charactersheet = character_sheet.instance()
+	var new_charactersheet = character_sheet.instantiate()
 	new_charactersheet.current_character_path = current_character_path
 	new_charactersheet.load_sheet(current_character_path)
 	$root.add_child(new_charactersheet)	
@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 func save_current_sheet():
 	if current_character_path == "":
 		$SaveFile.popup_centered()
-		yield($SaveFile, "file_selected")
+		await $SaveFile.file_selected
 		
 	var save_filename = current_character_path
 	Debug.debug_print("Saving current sheet %s..." % save_filename)
@@ -50,7 +50,7 @@ func save_current_sheet():
 		for key in node_data:
 			sheet_dict[key] = node_data[key]
 		
-	save_game.store_string(JSON.print(sheet_dict))
+	save_game.store_string(JSON.stringify(sheet_dict))
 	save_game.close()
 	$SaveFlash/AnimationPlayer.play("flash") 
 

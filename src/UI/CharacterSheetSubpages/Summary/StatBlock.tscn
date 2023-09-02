@@ -1,65 +1,48 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://c4wyew4rstgb4"]
 
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Summary/StatBlock.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Summary/StatBlock.gd" id="2"]
 
 [node name="StatBlock" type="VBoxContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -369, -282 )
-script = ExtResource( 2 )
+pivot_offset = Vector2(-369, -282)
+script = ExtResource("2")
 
 [node name="Labels" type="HBoxContainer" parent="."]
-margin_right = 1920.0
-margin_bottom = 14.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Labels"]
-margin_right = 90.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Stat"
-align = 1
 
 [node name="Base Val" type="Label" parent="Labels"]
-margin_left = 94.0
-margin_right = 524.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Base Val"
-align = 1
 
 [node name="Label3" type="Label" parent="Labels"]
-margin_left = 528.0
-margin_right = 958.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Misc. Bonus"
-align = 1
 
 [node name="Label4" type="Label" parent="Labels"]
-margin_left = 962.0
-margin_right = 1392.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Total Stat"
-align = 1
 
 [node name="Label5" type="Label" parent="Labels"]
-margin_left = 1396.0
-margin_right = 1826.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Ability Bonus"
-align = 1
 
 [node name="Label6" type="Label" parent="Labels"]
-margin_left = 1830.0
-margin_right = 1920.0
-margin_bottom = 14.0
-rect_min_size = Vector2( 90, 0 )
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
 text = "Saving Throw?"
-align = 1

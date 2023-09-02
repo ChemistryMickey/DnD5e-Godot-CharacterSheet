@@ -3,19 +3,19 @@ extends HBoxContainer
 var experience_log_template = preload("res://src/UI/CharacterSheetSubpages/TransactionLog/ExperienceEntry.tscn")
 var money_log_template = preload("res://src/UI/CharacterSheetSubpages/TransactionLog/MoneyEntry.tscn")
 
-onready var experience_log = $Left/ExperienceLog/ExperienceEntries
-onready var experience_total = $Left/Total/ExpAmountEdit
+@onready var experience_log = $Left/ExperienceLog/ExperienceEntries
+@onready var experience_total = $Left/Total/ExpAmountEdit
 
-onready var money_log = $Right/MoneyLog/MoneyEntries
-onready var money_totals = [$Right/Total/cpEdit, $Right/Total/spEdit, $Right/Total/epEdit, 
+@onready var money_log = $Right/MoneyLog/MoneyEntries
+@onready var money_totals = [$Right/Total/cpEdit, $Right/Total/spEdit, $Right/Total/epEdit, 
 							$Right/Total/gpEdit, $Right/Total/ppEdit]
 
 func _ready() -> void:
-	if Signals.connect("money_changed", self, "update_money_total"): print("Unable to connect to money_changed!")
-	if Signals.connect("exp_changed", self, "update_exp_total"): print("Unable to connect to exp_changed!")
+	if Signals.connect("money_changed", Callable(self, "update_money_total")): print("Unable to connect to money_changed!")
+	if Signals.connect("exp_changed", Callable(self, "update_exp_total")): print("Unable to connect to exp_changed!")
 
 func _on_Exp_AddEntry_button_up() -> void:
-	var new_exp_entry = experience_log_template.instance()
+	var new_exp_entry = experience_log_template.instantiate()
 	var exp_log_timestamp = new_exp_entry.get_child(0)
 	exp_log_timestamp.text = Time.get_date_string_from_system()
 	
@@ -23,7 +23,7 @@ func _on_Exp_AddEntry_button_up() -> void:
 	Signals.emit_signal("exp_changed")
 
 func _on_Money_AddEntry_button_up() -> void:
-	var new_money_entry = money_log_template.instance()
+	var new_money_entry = money_log_template.instantiate()
 	var money_log_timestamp = new_money_entry.get_child(0)
 	money_log_timestamp.text = Time.get_date_string_from_system()
 	
@@ -62,7 +62,7 @@ func update_money_total():
 		total_copper -= cur_money_totals[currency] * money_multiples[currency]
 	cur_money_totals[0] = total_copper
 	for idx in range(money_totals.size()):
-		money_totals[idx].text = String(cur_money_totals[idx])
+		money_totals[idx].text = str(cur_money_totals[idx])
 	Signals.emit_signal("money_updated", cur_money_totals)
 	
 func update_exp_total():
@@ -73,5 +73,5 @@ func update_exp_total():
 		for child in entry_children:
 			if child is ReadableLineEdit:
 				exp_total += int(child.text)
-	experience_total.text = String(exp_total)
+	experience_total.text = str(exp_total)
 	Signals.emit_signal("exp_updated", exp_total)

@@ -2,11 +2,11 @@ extends VBoxContainer
 
 var journal_entry_template = preload("res://src/UI/CharacterSheetSubpages/Journal/JournalEntry.tscn")
 
-onready var entry_box = $Entries/JournalEntries
+@onready var entry_box = $Entries/JournalEntries
 
 func _on_NewEntry_button_up() -> void:
 	var cur_date = Time.get_date_string_from_system()
-	var new_entry = journal_entry_template.instance()
+	var new_entry = journal_entry_template.instantiate()
 	new_entry.size_flags_vertical = new_entry.SIZE_EXPAND_FILL
 	var entry_IRL_timestamp = new_entry.get_child(0).get_child(0)
 	entry_IRL_timestamp.text = cur_date

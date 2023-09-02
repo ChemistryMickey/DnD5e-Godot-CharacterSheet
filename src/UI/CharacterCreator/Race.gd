@@ -6,7 +6,7 @@ func _ready() -> void:
 	for entry in database:
 		popup.add_check_item(entry)
 		
-	popup.connect("id_pressed", self, "update_choice_text")
+	popup.connect("id_pressed", Callable(self, "update_choice_text"))
 	
 func update_choice_text(choice_ind : int):
 	self.text = self.get_popup().get_item_text(choice_ind)

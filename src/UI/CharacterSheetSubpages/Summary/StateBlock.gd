@@ -1,6 +1,6 @@
 extends GridContainer
 
-onready var states_dict : Dictionary = DatabaseLoader.json_dicts["conditions"]
+@onready var states_dict : Dictionary = DatabaseLoader.json_dicts["conditions"]
 
 var button_script = preload("res://src/UI/CharacterSheetSubpages/Summary/StatusButton.gd")
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 		if state != "Exhaustion":
 			new_control = CheckButton.new()
 			new_control.text = state
-			new_control.align = 1
+			new_control.alignment = HORIZONTAL_ALIGNMENT_LEFT
 			new_control.size_flags_horizontal = CheckButton.SIZE_EXPAND_FILL
 			new_control.set_script(button_script)
 		else:
@@ -21,10 +21,10 @@ func _ready() -> void:
 			
 			var lineEdit = LineEdit.new()
 			lineEdit.size_flags_horizontal = LineEdit.SIZE_EXPAND_FILL
-			lineEdit.align = LineEdit.ALIGN_RIGHT
+			lineEdit.alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			new_control.add_child(lineEdit)
 		
-		new_control.hint_tooltip = states_dict[state]
+		new_control.tooltip_text = states_dict[state]
 		
 		
 		self.add_child(new_control)
@@ -40,7 +40,7 @@ func save():
 	var status_iter = 0
 	for child in children:
 		if child is StatusButton:
-			save_dict["Conditions"][state_list[status_iter]] = child.pressed
+			save_dict["Conditions"][state_list[status_iter]] = child.button_pressed
 			status_iter += 1
 		elif child is LineEdit:
 			save_dict["Conditions"]["Exhaustion"] = child.text
@@ -57,7 +57,7 @@ func load_sheet(save_dict):
 	var status_iter = 0
 	for child in children:
 		if child is StatusButton:
-			child.pressed = save_dict["Conditions"][state_list[status_iter]]
+			child.button_pressed = save_dict["Conditions"][state_list[status_iter]]
 			status_iter += 1
 		elif child is LineEdit:
 			child.text = save_dict["Conditions"]["Exhaustion"]

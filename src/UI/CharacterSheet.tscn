@@ -1,172 +1,182 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=3 uid="uid://b1ofytttyyhcd"]
 
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Summary/Summary.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/TransactionLog/Transaction Logs.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Journal/Journal.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Cheatsheets/Cheatsheets.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UI/CharacterSheet.gd" type="Script" id=5]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Inventory/Inventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/Proficiencies and Feats.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/Spellbook/Spellbook.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/UI/Theme.tres" type="Theme" id=9]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/CharacterDevelopment/Character Development.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/UI/CharacterSheetSubpages/MiscScratchEntries/Misc Scratch Entries.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/UI/Popups/ConfirmationDialog.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/UI/ScratchText.gd" type="Script" id=13]
-[ext_resource path="res://src/UI/ScratchWindow.gd" type="Script" id=14]
-[ext_resource path="res://src/UI/Popups/OptionDialogue.tscn" type="PackedScene" id=15]
+[ext_resource type="PackedScene" uid="uid://dtybly2niound" path="res://src/UI/CharacterSheetSubpages/Summary/Summary.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://df23fkwkm27pi" path="res://src/UI/CharacterSheetSubpages/TransactionLog/Transaction Logs.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dbohtweyrnu50" path="res://src/UI/CharacterSheetSubpages/Journal/Journal.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cs45ofvipag6x" path="res://src/UI/CharacterSheetSubpages/Cheatsheets/Cheatsheets.tscn" id="4"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheet.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://cnjcq6f6fw47u" path="res://src/UI/CharacterSheetSubpages/Inventory/Inventory.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cvaqt1x1atw1s" path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/Proficiencies and Feats.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bm2qgaji5d7g7" path="res://src/UI/CharacterSheetSubpages/Spellbook/Spellbook.tscn" id="8"]
+[ext_resource type="Theme" path="res://src/UI/Theme.tres" id="9"]
+[ext_resource type="PackedScene" uid="uid://dm1xupxrm5lyw" path="res://src/UI/CharacterSheetSubpages/CharacterDevelopment/Character Development.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://8ney6eev55hk" path="res://src/UI/CharacterSheetSubpages/MiscScratchEntries/Misc Scratch Entries.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://src/UI/Popups/ConfirmationDialog.tscn" id="12"]
+[ext_resource type="Script" path="res://src/UI/ScratchText.gd" id="13"]
+[ext_resource type="Script" path="res://src/UI/ScratchWindow.gd" id="14"]
+[ext_resource type="PackedScene" uid="uid://g5op4hb3bppr" path="res://src/UI/Popups/OptionDialogue.tscn" id="15"]
 
-[sub_resource type="Theme" id=2]
-TextEdit/colors/font_color_readonly = Color( 1, 1, 1, 1 )
+[sub_resource type="Theme" id="2"]
+TextEdit/colors/font_color_readonly = Color(1, 1, 1, 1)
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="Theme" id="1"]
 TabContainer/fonts/font = null
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "flash"
 length = 0.5
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.109804 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.109804), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvldc"]
+_data = {
+"RESET": SubResource("3"),
+"flash": SubResource("4")
 }
 
 [node name="CharacterSheet" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -539.0
-margin_right = 960.0
-margin_bottom = 542.0
-theme = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("2")
+script = ExtResource("5")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( 1 )
-tab_align = 0
+theme = SubResource("1")
 
-[node name="Summary" parent="TabContainer" groups=["Persist"] instance=ExtResource( 1 )]
+[node name="Summary" parent="TabContainer" groups=["Persist"] instance=ExtResource("1")]
+layout_mode = 2
 
-[node name="Spellbook" parent="TabContainer" instance=ExtResource( 8 )]
+[node name="Spellbook" parent="TabContainer" instance=ExtResource("8")]
 visible = false
+layout_mode = 2
 
-[node name="Inventory" parent="TabContainer" groups=["Persist"] instance=ExtResource( 6 )]
+[node name="Inventory" parent="TabContainer" groups=["Persist"] instance=ExtResource("6")]
 visible = false
+layout_mode = 2
 
-[node name="Feats" parent="TabContainer" instance=ExtResource( 7 )]
+[node name="Feats" parent="TabContainer" instance=ExtResource("7")]
 visible = false
+layout_mode = 2
 
-[node name="Journal" parent="TabContainer" instance=ExtResource( 3 )]
+[node name="Journal" parent="TabContainer" instance=ExtResource("3")]
 visible = false
+layout_mode = 2
 
-[node name="Transaction Logs" parent="TabContainer" groups=["Persist"] instance=ExtResource( 2 )]
+[node name="Transaction Logs" parent="TabContainer" groups=["Persist"] instance=ExtResource("2")]
 visible = false
-theme = ExtResource( 9 )
+layout_mode = 2
+theme = ExtResource("9")
 
-[node name="Cheatsheets" parent="TabContainer" instance=ExtResource( 4 )]
+[node name="Cheatsheets" parent="TabContainer" instance=ExtResource("4")]
 visible = false
+layout_mode = 2
 
-[node name="Character Development" parent="TabContainer" instance=ExtResource( 10 )]
+[node name="Character Development" parent="TabContainer" instance=ExtResource("10")]
 visible = false
+layout_mode = 2
 
-[node name="Misc Scratch Entries" parent="TabContainer" instance=ExtResource( 11 )]
+[node name="Misc Scratch Entries" parent="TabContainer" instance=ExtResource("11")]
 visible = false
+layout_mode = 2
 
 [node name="SaveFile" type="FileDialog" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -464.0
-margin_top = -313.0
-margin_right = 464.0
-margin_bottom = 313.0
-popup_exclusive = true
-resizable = true
+initial_position = 2
+size = Vector2i(914, 800)
 dialog_text = "Save File..."
 dialog_hide_on_ok = true
 access = 2
-filters = PoolStringArray( "*.json" )
+filters = PackedStringArray("*.json")
 
 [node name="LoadFile" type="FileDialog" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -465.0
-margin_top = -311.0
-margin_right = 464.0
-margin_bottom = 315.0
-popup_exclusive = true
-window_title = "Open a File"
-resizable = true
-mode = 0
+title = "Open a File"
+initial_position = 2
+size = Vector2i(914, 800)
+ok_button_text = "Open"
+file_mode = 0
 access = 2
-filters = PoolStringArray( "*.json" )
+filters = PackedStringArray("*.json")
 
-[node name="ConfirmationDialog" parent="." instance=ExtResource( 12 )]
+[node name="ConfirmationDialog" parent="." instance=ExtResource("12")]
+handle_input_locally = false
+initial_position = 2
+visible = false
 
-[node name="OptionDialogue" parent="." instance=ExtResource( 15 )]
+[node name="OptionDialogue" parent="." instance=ExtResource("15")]
+title = "Options"
+initial_position = 1
+visible = false
 
-[node name="ScratchWindow" type="WindowDialog" parent="."]
-margin_left = 1318.0
-margin_top = 277.0
-margin_right = 1779.0
-margin_bottom = 788.0
-window_title = "Scratch Notes - Changes will be saved with sheet"
-resizable = true
-script = ExtResource( 14 )
+[node name="ScratchWindow" type="Window" parent="."]
+handle_input_locally = false
+title = "Scratch Window"
+position = Vector2i(1200, 400)
+size = Vector2i(600, 600)
+visible = false
+script = ExtResource("14")
 
 [node name="ScratchText" type="TextEdit" parent="ScratchWindow" groups=["Persist"]]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-wrap_enabled = true
-script = ExtResource( 13 )
+script = ExtResource("13")
 
 [node name="SaveFlash" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = 960.0
-margin_bottom = 540.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 mouse_filter = 2
-color = Color( 1, 1, 1, 0 )
+color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SaveFlash"]
 autoplay = "RESET"
-anims/RESET = SubResource( 3 )
-anims/flash = SubResource( 4 )
+libraries = {
+"": SubResource("AnimationLibrary_fvldc")
+}
 
 [connection signal="file_selected" from="SaveFile" to="." method="_on_SaveFile_file_selected"]
 [connection signal="file_selected" from="LoadFile" to="." method="_on_LoadFile_file_selected"]
+[connection signal="close_requested" from="OptionDialogue" to="OptionDialogue" method="_on_close_requested"]
+[connection signal="close_requested" from="ScratchWindow" to="ScratchWindow" method="_on_close_requested"]

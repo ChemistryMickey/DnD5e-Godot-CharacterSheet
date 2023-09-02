@@ -1,10 +1,14 @@
-extends WindowDialog
+extends Window
 
 func _ready():
-	Signals.connect("show_notes", self, "toggle_self")
+	Signals.connect("show_notes", self.toggle_self)
 	
 func toggle_self():
-	if self.is_visible_in_tree():
-		self.hide()
+	if self.visible:
+		self.visible = false
 	else:
-		self.show()
+		self.visible = true
+
+
+func _on_close_requested():
+	self.visible = false

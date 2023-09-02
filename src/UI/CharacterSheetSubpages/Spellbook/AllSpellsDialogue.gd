@@ -1,4 +1,4 @@
-extends WindowDialog
+extends Window
 
 func _ready() -> void:
 	var all_spells = DatabaseLoader.json_dicts["spellcasting"]["Spell Lists"]
@@ -32,7 +32,7 @@ func _on_Button_button_up() -> void:
 	elif $"VBoxContainer/TabContainer/By Class".visible:
 		selected_inds = $"VBoxContainer/TabContainer/By Class".get_selected_items()
 		
-	if selected_inds.empty():
+	if selected_inds.is_empty():
 		return
 	var index = selected_inds[0]
 	var spell_request = ""
@@ -54,9 +54,12 @@ func prepare_alphabet_spell_list(all_spells : Dictionary):
 			for spell in all_spells[class_choice][spell_level]:
 				all_spell_list.append(spell)
 	all_spell_list.sort()
+	var spells_to_remove = []
 	for spell in all_spell_list:
-		while all_spell_list.count(spell) > 1:
-			all_spell_list.remove(all_spell_list.find(spell))
+		if all_spell_list.count(spell) > 1:
+			spells_to_remove.append(spell)
+	for spell in spells_to_remove:
+		all_spell_list.erase(spell)
 			
 	for spell in all_spell_list:
 		$"VBoxContainer/TabContainer/All Spells".add_item(spell)
@@ -84,3 +87,5 @@ func prepare_by_class_list(all_spells : Dictionary):
 			for spell in all_spells[class_choice][spell_level]:
 				$"VBoxContainer/TabContainer/By Class".add_item(spell)
 
+func _on_close_requested():
+	self.hide() # Replace with function body.

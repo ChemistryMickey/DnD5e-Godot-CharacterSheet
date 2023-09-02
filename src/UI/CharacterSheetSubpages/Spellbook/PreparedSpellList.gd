@@ -6,7 +6,7 @@ const spell_levels = ["Cantrips", "1st Level", "2nd Level", "3rd Level",
 const json_search_strs = ["cantrip", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 func _ready() -> void:
-	if Signals.connect("add_to_prepared_spells", self, "insert_new_spell"):
+	if Signals.connect("add_to_prepared_spells", Callable(self, "insert_new_spell")):
 		print("Unable to connect to add_to_prepared_spells")
 	add_spell_level_delimiters()
 
