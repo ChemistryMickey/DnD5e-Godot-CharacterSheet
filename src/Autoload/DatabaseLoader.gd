@@ -70,8 +70,25 @@ func parse_list(list_in : Array, depth : int = 0) -> String:
 		if item is Dictionary:
 			str_out += parse_table(item)
 		if item is Array:
-			str_out += parse_list(item, depth + 1)				
-
+			str_out += parse_list(item, depth + 1)
+			
+	# Enforce a maximum line length:
+	const MAX_STR_LEN = 150
+	var every_line  = str_out.split("\n")
+	str_out = ""
+	for line in every_line:				
+		var every_word = line.split(" ")
+		var lines = []
+		var cur_line = ""
+		for word in every_word:
+			cur_line += word + " " 
+			if len(cur_line) > MAX_STR_LEN:
+				lines.append(cur_line)
+				cur_line = ""
+		lines.append(cur_line)
+		str_out += "\n".join(lines)
+		str_out += "\n" #Add a new line before going to the next line in every_line
+	
 	return str_out
 
 func extend_entry_strings(col_name: String, column: Array) -> Array:
