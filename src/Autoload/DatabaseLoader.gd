@@ -9,40 +9,53 @@ func _ready() -> void:
 	load_cheatsheets()
 	
 func load_cheatsheets():
-	Utilities.load_jsons_from_dir("res://cheatsheets", cheatsheets)
+	Utilities.load_jsons_from_dir("res://cheatsheets/base", cheatsheets)
 	
 	var custom_cheatsheets = {}
-	Utilities.load_jsons_from_dir("res://custom-cheatsheets", custom_cheatsheets)
+	Utilities.load_jsons_from_dir("res://cheatsheets/custom", custom_cheatsheets)
 	
 	cheatsheets = Utilities.recursive_dict_merge(cheatsheets, custom_cheatsheets)
 		
 func load_databases() -> void:
-	Utilities.load_jsons_from_dir("res://databases", json_dicts)
+	Utilities.load_jsons_from_dir("res://databases/base", json_dicts)
 
 	var custom_jsons = {}
-	Utilities.load_jsons_from_dir("res://custom-databases", custom_jsons)
+	Utilities.load_jsons_from_dir("res://databases/custom", custom_jsons)
 	
 	json_dicts = Utilities.recursive_dict_merge(json_dicts, custom_jsons)		
 		
 func parse_table(table_dict : Dictionary, depth : int = 0) -> String:
-	var tab_str = determine_num_tabs(table_dict)
 	var out_str = ""
 	if not table_dict.is_empty():
+		var extended_col_names = {}
+		for col in table_dict.keys():
+			table_dict[col] = extend_entry_strings(col, table_dict[col])
+			extended_col_names[col] = col
+			var col_length = len(table_dict[col][0])
+			var len_diff = col_length - len(col)
+			for _i in range(len_diff):
+				extended_col_names[col] += " "
+				
+		# Header			
 		for col in table_dict:
 			for _i in range(depth):
 				out_str += "\t"
-			out_str += "%s%s" % [col, tab_str]
+			out_str += "%s" % extended_col_names[col]
 		out_str += "\n"
 		for _i in range(depth):
 				out_str += "\t"
+				
+		# Separator
 		for cha in out_str.length():
 			out_str += '-'
 		out_str += "\n"
+		
+		# Entries
 		for row in range(table_dict[table_dict.keys()[0]].size()):
 			for col in table_dict:
 				for _i in range(depth):
 					out_str += "\t"
-				out_str += "%s%s" % [table_dict[col][row], tab_str]
+				out_str += "%s" % table_dict[col][row]
 			out_str += "\n"
 	
 	return out_str
@@ -61,10 +74,21 @@ func parse_list(list_in : Array, depth : int = 0) -> String:
 
 	return str_out
 
-func determine_num_tabs(_table_dict : Dictionary) -> String:
-	#TODO make this smarter
+func extend_entry_strings(col_name: String, column: Array) -> Array:
+	var max_len: int = 0
+	for item in column:
+		if len(item) > max_len:
+			max_len = len(item) + 1 # for the final space
+	if len(col_name) > max_len:
+		max_len = len(col_name)
 	
-	return "\t\t\t\t\t\t\t"
+	for i in range(len(column)):
+		if len(column[i]) < max_len:
+			var len_diff = max_len - len(column[i])
+			for _i in range(len_diff):
+				column[i] += " "
+				
+	return column
 	
 func stringify_race(race : Dictionary) -> String:
 	var out_str = ""

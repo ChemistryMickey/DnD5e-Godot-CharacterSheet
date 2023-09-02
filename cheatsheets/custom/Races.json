@@ -1,0 +1,43 @@
+{
+    "Corvid": {
+        "Description": "Corvids are bird-people.",
+        "Ability Score Increases": {
+            "Stats": [
+                "DEX",
+                "WIS"
+            ],
+            "Amount": [
+                2,
+                1
+            ]
+        },
+        "Age": "Corvid tend to live a bit longer than humans. Most live to 150 or older.",
+        "Size": "Medium and quite light. Maybe 80 lbs at 6' tall.",
+        "Speeds": {
+            "Walking": 30,
+            "Climbing": 10,
+            "Swimming": 10,
+            "Flying": 40
+        },
+        "Abilities": [
+            "Kenku Training - You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand.",
+            "Mimicry - You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.",
+            "Expert Forgery - You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects."
+        ],
+        "Tool Proficiencies": [],
+        "Languages": [
+            "Common",
+            "Sylvan"
+        ],
+        "Subraces": {
+            "Owlkind": {
+                "Ability Score Increases": {},
+                "Abilities": [
+                    "You gain none of the normal Kenku abilities but you gain the following:",
+                    "Darkvision - As a nocturnal creature, you can see well in the dark.",
+                    "Flying - You have the ability to fly and operate simple machines/items (one handed weapons, guns, thrown items, etc.) while in flight"
+                ]
+            }
+        }
+    }
+}

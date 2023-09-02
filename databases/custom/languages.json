@@ -1,0 +1,18 @@
+{
+    "Sylic": {
+        "Typical Speakers": "",
+        "Script": ""
+    },
+    "Xholgesh": {
+        "Typical Speakers": "Orcs",
+        "Script": "Dwercant"
+    },
+    "Dwercant": {
+        "Typical Speakers": "Dwarves, Common of the Realm",
+        "Script": "Dwercant"
+    },
+    "Thite": {
+        "Typical Speakers": "",
+        "Script": ""
+    }
+}

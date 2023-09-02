@@ -1,0 +1,21 @@
+{
+    "Spell Lists": {
+        "Wizard": {
+            "7th Level": [
+                "Golead's Modify Memory"
+            ]
+        }
+    },
+    "Spell Descriptions": {
+        "Golead's Modify Memory": {
+            "content": [
+                "*7th-level enchantment*",
+                "**Casting Time:** 1 action",
+                "**Range:** Touch",
+                "**Components:** V, S",
+                "**Duration:** Forever or Temporary",
+                "1x/day, when you touch a creature that sees you as an ally, temporarily or otherwise, you may choose to make them forget meeting you, and ever having known you. Their memories that included you will either omit you, or replace you, where appropriate. If there are images of you that the target owns, you fade from the image, leaving only a vanta black silhouette and a vague recollection that the target knew the Golead"
+            ]
+        }
+    }
+}
