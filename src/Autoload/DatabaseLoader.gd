@@ -5,57 +5,24 @@ var json_dicts : Dictionary = {}
 var cheatsheets : Dictionary = {}
 
 func _ready() -> void:
-	load_jsons()
+	load_databases()
 	load_cheatsheets()
 	
 func load_cheatsheets():
-	var json_raw_strs = []
-	var filenames = []
-	var dir = DirAccess.open("res://cheatsheets/")
-	if dir:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-		var cur_file = dir.get_next()
-
-		while cur_file != "":
-			var file = FileAccess.open("res://cheatsheets/%s" % cur_file, FileAccess.READ)
-			var contents = file.get_as_text()
-			file.close()
-			json_raw_strs.append(contents)
-			
-			filenames.append(cur_file.split('.')[0])
-			cur_file = dir.get_next()
-		
-	for idx in range(filenames.size()):
-		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
-		cheatsheets[filenames[idx]] = test_json_conv
+	Utilities.load_jsons_from_dir("res://cheatsheets", cheatsheets)
 	
-func load_jsons():
-	var json_raw_strs = []
-	var filenames = []
-	var dir = DirAccess.open("res://databases/").get_files()
-	if dir:
-		for cur_file in dir:
-			var contents = FileAccess.open("res://databases/%s" % cur_file, FileAccess.READ).get_as_text()
-			json_raw_strs.append(contents)
-			filenames.append(cur_file.split('.')[0])
-
-	for idx in range(filenames.size()):
-		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
-		json_dicts[filenames[idx]] = test_json_conv
-		
-	# Now for the custom databases
-	json_raw_strs = []
-	filenames = []
-	dir = DirAccess.open("res://custom-databases/").get_files()
-	if dir:
-		for cur_file in dir:
-			var contents = FileAccess.open("res://custom-databases/%s" % cur_file, FileAccess.READ).get_as_text()
-			json_raw_strs.append(contents)
-			filenames.append(cur_file.split('.')[0])
+	var custom_cheatsheets = {}
+	Utilities.load_jsons_from_dir("res://custom-cheatsheets", custom_cheatsheets)
 	
-	for idx in range(filenames.size()):
-		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
-		json_dicts[filenames[idx]].merge(test_json_conv)
+	cheatsheets = Utilities.recursive_dict_merge(cheatsheets, custom_cheatsheets)
+		
+func load_databases() -> void:
+	Utilities.load_jsons_from_dir("res://databases", json_dicts)
+
+	var custom_jsons = {}
+	Utilities.load_jsons_from_dir("res://custom-databases", custom_jsons)
+	
+	json_dicts = Utilities.recursive_dict_merge(json_dicts, custom_jsons)		
 		
 func parse_table(table_dict : Dictionary, depth : int = 0) -> String:
 	var tab_str = determine_num_tabs(table_dict)
