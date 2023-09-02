@@ -42,7 +42,7 @@ func create_item_display(item_str : String):
 			for info in dict_entry:
 				if info != "Contents":
 					var info_line = label_edit_couple.instantiate()
-					info_line.set_props("%s: " % info, String(dict_entry[info]))
+					info_line.set_props("%s: " % info, str(dict_entry[info]))
 					info_box.add_child(info_line)
 				else:
 					for idx in dict_entry["Contents"].size():

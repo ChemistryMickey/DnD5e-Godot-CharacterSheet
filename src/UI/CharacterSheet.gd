@@ -9,7 +9,7 @@ extends Control
 
 var sheet_dict : Dictionary
 		
-func _input(event: InputEvent) -> void:
+func _shortcut_input(event: InputEvent) -> void:
 	if event.is_action_pressed("save"):
 		save_current_sheet()
 	if event.is_action_pressed("save_as"):

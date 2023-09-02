@@ -46,11 +46,11 @@ item_count = 6
 selected = 0
 popup/item_0/text = "STR"
 popup/item_0/id = 0
-popup/item_1/text = "INT"
+popup/item_1/text = "DEX"
 popup/item_1/id = 1
-popup/item_2/text = "DEX"
+popup/item_2/text = "CON"
 popup/item_2/id = 2
-popup/item_3/text = "CON"
+popup/item_3/text = "INT"
 popup/item_3/id = 3
 popup/item_4/text = "WIS"
 popup/item_4/id = 4
@@ -90,6 +90,7 @@ editable = false
 layout_mode = 2
 
 [node name="SpellSlotContainer" type="GridContainer" parent="TopMatter" groups=["Persist"]]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -110,6 +111,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/1stLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -127,6 +129,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/2ndLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -144,6 +147,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/3rdLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -161,6 +165,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/4thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -178,6 +183,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/5thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -195,6 +201,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/6thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -212,6 +219,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/7thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -229,6 +237,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/8thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 
@@ -246,6 +255,7 @@ script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/9thLevel"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "/?"
 script = ExtResource("3")
 

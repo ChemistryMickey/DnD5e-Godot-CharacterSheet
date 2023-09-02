@@ -32,23 +32,30 @@ func load_cheatsheets():
 func load_jsons():
 	var json_raw_strs = []
 	var filenames = []
-	var dir = DirAccess.open("res://databases/")
+	var dir = DirAccess.open("res://databases/").get_files()
 	if dir:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-		var cur_file = dir.get_next()
-
-		while cur_file != "":
-			var file = FileAccess.open("res://databases/%s" % cur_file, FileAccess.READ)
-			var contents = file.get_as_text()
-			file.close()
+		for cur_file in dir:
+			var contents = FileAccess.open("res://databases/%s" % cur_file, FileAccess.READ).get_as_text()
 			json_raw_strs.append(contents)
-			
 			filenames.append(cur_file.split('.')[0])
-			cur_file = dir.get_next()
-		
+
 	for idx in range(filenames.size()):
 		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
 		json_dicts[filenames[idx]] = test_json_conv
+		
+	# Now for the custom databases
+	json_raw_strs = []
+	filenames = []
+	dir = DirAccess.open("res://custom-databases/").get_files()
+	if dir:
+		for cur_file in dir:
+			var contents = FileAccess.open("res://custom-databases/%s" % cur_file, FileAccess.READ).get_as_text()
+			json_raw_strs.append(contents)
+			filenames.append(cur_file.split('.')[0])
+	
+	for idx in range(filenames.size()):
+		var test_json_conv = JSON.parse_string(json_raw_strs[idx])
+		json_dicts[filenames[idx]].merge(test_json_conv)
 		
 func parse_table(table_dict : Dictionary, depth : int = 0) -> String:
 	var tab_str = determine_num_tabs(table_dict)

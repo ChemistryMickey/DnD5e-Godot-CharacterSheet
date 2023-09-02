@@ -1,9 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcnip4b6a6ft0"]
+[gd_scene load_steps=8 format=3 uid="uid://xkqhjwya6ilc"]
 
 [ext_resource type="PackedScene" path="res://src/UI/CommonComponents/ChangeSceneButton.tscn" id="1"]
 [ext_resource type="Theme" uid="uid://dy02d6hmsrf8w" path="res://src/UI/Fonts/new_theme.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://df5xjdlqlqqdx" path="res://icon.png" id="3"]
-[ext_resource type="Script" path="res://Quit.gd" id="4"]
+
+[sub_resource type="GDScript" id="GDScript_2g5ol"]
+script/source = "@tool
+extends Control
+
+@onready var animation_player = $AnimationPlayer
+
+@export var next_scene_path = \"\" # (String, FILE)
+@export var button_help: String = \"\"
+@export var use_scene_changer: bool = false
+
+func _on_ChangeSceneButton_mouse_entered() -> void:
+	Signals.emit_signal(\"Button_Hover\", button_help)
+	animation_player.play(\"selected\")
+
+func _on_ChangeSceneButton_mouse_exited() -> void:
+	Signals.emit_signal(\"Button_Hover\", \"\")
+	animation_player.play(\"RESET\")
+
+func _on_Quit_button_up() -> void:
+	get_tree().quit()
+"
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
@@ -46,6 +67,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -83,7 +106,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "Quit"
 icon = ExtResource("3")
-script = ExtResource("4")
+script = SubResource("GDScript_2g5ol")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Quit"]
 libraries = {

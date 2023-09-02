@@ -5,6 +5,8 @@
 [node name="SkillBlock" type="VBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1")
 
 [node name="Labels" type="HBoxContainer" parent="."]
@@ -13,6 +15,7 @@ layout_mode = 2
 [node name="Skill" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Skill"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -20,12 +23,13 @@ vertical_alignment = 1
 [node name="Stat" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Stat"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Base" type="Label" parent="Labels"]
-custom_minimum_size = Vector2(69, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Base"
@@ -34,7 +38,7 @@ vertical_alignment = 1
 clip_text = true
 
 [node name="Bonus" type="Label" parent="Labels"]
-custom_minimum_size = Vector2(69, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Bonus"
@@ -54,6 +58,7 @@ clip_text = true
 [node name="Proficient" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Proficient?"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -61,6 +66,7 @@ vertical_alignment = 1
 [node name="DoubleProf" type="Label" parent="Labels"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Double?"
 horizontal_alignment = 1
 vertical_alignment = 1

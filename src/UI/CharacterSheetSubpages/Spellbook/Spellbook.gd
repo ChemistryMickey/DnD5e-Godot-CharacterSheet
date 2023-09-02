@@ -19,7 +19,6 @@ func _on_PreparedSpellList_item_activated(index: int) -> void:
 
 func _on_AllSpellsButton_button_up() -> void:
 	$AllSpellsDialogue.popup_centered(Vector2(-0.5, 0))
-	pass # Replace with function body.
 
 func _on_ItemList_item_activated(index: int) -> void:
 	var chosen_spell_str : String = class_spell_list.get_item_text(index).strip_edges()

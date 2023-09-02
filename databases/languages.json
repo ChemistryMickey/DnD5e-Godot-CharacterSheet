@@ -1,82 +1,66 @@
 {
-   "Common": {
-      "Typical Speakers": "Humans",
-      "Script": "Common"
-   },
-   "Dwarvish": {
-      "Typical Speakers": "Dwarves",
-      "Script": "Dwarvish"
-   },
-   "Elvish": {
-      "Typical Speakers": "Elves",
-      "Script": "Elvish"
-   },
-   "Giant": {
-      "Typical Speakers": "Ogres, Giants",
-      "Script": "Dwarvish"
-   },
-   "Gnomish": {
-      "Typical Speakers": "Gnomes",
-      "Script": "Dwarvish"
-   },
-   "Goblin": {
-      "Typical Speakers": "Goblinoids",
-      "Script": "Dwarvish"
-   },
-   "Halfling": {
-      "Typical Speakers": "Halflings, Rabbitfolk",
-      "Script": "Common"
-   },
-   "Orc": {
-      "Typical Speakers": "Orcs",
-      "Script": "Dwarvish"
-   },
-   "Abyssal": {
-      "Typical Speakers": "Demons",
-      "Script": "Infernal"
-   },
-   "Celestial": {
-      "Typical Speakers": "Celestials",
-      "Script": "Celestial"
-   },
-   "Draconic": {
-      "Typical Speakers": "Dragons, Dragonborn",
-      "Script": "Draconic"
-   },
-   "Deep Speech": {
-      "Typical Speakers": "Aboleths, Cloakers",
-      "Script": "None"
-   },
-   "Infernal": {
-      "Typical Speakers": "Devils",
-      "Script": "Infernal"
-   },
-   "Primordial": {
-      "Typical Speakers": "Elementals",
-      "Script": "Dwarvish"
-   },
-   "Sylvan": {
-      "Typical Speakers": "Fey Creatures",
-      "Script": "Elvish"
-   },
-   "Undercommon": {
-      "Typical Speakers": "Underworld Traders",
-      "Script": "Elvish"
-   },
-   "Sylic": {
-      "Typical Speakers": "",
-      "Script": ""
-   },
-   "Xholgesh": {
-      "Typical Speakers": "Orcs",
-      "Script": "Dwercant"
-   },
-   "Dwercant": {
-      "Typical Speakers": "Dwarves, Common of the Realm",
-      "Script": "Dwercant"
-   },
-   "Thite": {
-      "Typical Speakers": "",
-      "Script": ""
-   }
+    "Common": {
+        "Typical Speakers": "Humans",
+        "Script": "Common"
+    },
+    "Dwarvish": {
+        "Typical Speakers": "Dwarves",
+        "Script": "Dwarvish"
+    },
+    "Elvish": {
+        "Typical Speakers": "Elves",
+        "Script": "Elvish"
+    },
+    "Giant": {
+        "Typical Speakers": "Ogres, Giants",
+        "Script": "Dwarvish"
+    },
+    "Gnomish": {
+        "Typical Speakers": "Gnomes",
+        "Script": "Dwarvish"
+    },
+    "Goblin": {
+        "Typical Speakers": "Goblinoids",
+        "Script": "Dwarvish"
+    },
+    "Halfling": {
+        "Typical Speakers": "Halflings, Rabbitfolk",
+        "Script": "Common"
+    },
+    "Orc": {
+        "Typical Speakers": "Orcs",
+        "Script": "Dwarvish"
+    },
+    "Abyssal": {
+        "Typical Speakers": "Demons",
+        "Script": "Infernal"
+    },
+    "Celestial": {
+        "Typical Speakers": "Celestials",
+        "Script": "Celestial"
+    },
+    "Draconic": {
+        "Typical Speakers": "Dragons, Dragonborn",
+        "Script": "Draconic"
+    },
+    "Deep Speech": {
+        "Typical Speakers": "Aboleths, Cloakers",
+        "Script": "None"
+    },
+    "Infernal": {
+        "Typical Speakers": "Devils",
+        "Script": "Infernal"
+    },
+    "Primordial": {
+        "Typical Speakers": "Elementals",
+        "Script": "Dwarvish"
+    },
+    "Sylvan": {
+        "Typical Speakers": "Fey Creatures",
+        "Script": "Elvish"
+    },
+    "Undercommon": {
+        "Typical Speakers": "Underworld Traders",
+        "Script": "Elvish"
+    }
 }
