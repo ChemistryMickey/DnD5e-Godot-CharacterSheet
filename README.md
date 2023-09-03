@@ -1,5 +1,5 @@
 # DnD5e-Godot-CharacterSheet
-A character sheet helper for Dungeons and Dragons 5e written in GDScript using the Godot 3.x game engine.
+A character sheet helper for Dungeons and Dragons 5e written in GDScript using the Godot 4.1 game engine.
 
 Only tested using Arcane Trickster Rogue and Warlock.
 Possibly not flexible enough for something like homebrewed classes. 
