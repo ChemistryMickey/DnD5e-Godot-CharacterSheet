@@ -26,38 +26,31 @@ func load_databases() -> void:
 		
 func parse_table(table_dict : Dictionary, depth : int = 0) -> String:
 	var out_str = ""
-	if not table_dict.is_empty():
-		var extended_col_names = {}
-		for col in table_dict.keys():
-			table_dict[col] = extend_entry_strings(col, table_dict[col])
-			extended_col_names[col] = col
-			var col_length = len(table_dict[col][0])
-			var len_diff = col_length - len(col)
-			for _i in range(len_diff):
-				extended_col_names[col] += " "
-				
-		# Header			
+	const tab_str = "\t\t\t\t"
+	
+	if table_dict.is_empty():
+		return ""
+	
+	# Print header
+	for col in table_dict:
+		for _i in range(depth):
+			out_str += "\t"
+		out_str += col + tab_str
+	out_str += "\n"
+	
+	# Print separator
+	for _i in range(len(out_str)):
+		out_str += "-"
+	out_str += "\n";
+	
+	# Print table contents
+	for row in range(table_dict[table_dict.keys()[0]].size()):
 		for col in table_dict:
 			for _i in range(depth):
 				out_str += "\t"
-			out_str += "%s" % extended_col_names[col]
+			out_str += str(table_dict[col][row]) + tab_str
 		out_str += "\n"
-		for _i in range(depth):
-				out_str += "\t"
-				
-		# Separator
-		for cha in out_str.length():
-			out_str += '-'
-		out_str += "\n"
-		
-		# Entries
-		for row in range(table_dict[table_dict.keys()[0]].size()):
-			for col in table_dict:
-				for _i in range(depth):
-					out_str += "\t"
-				out_str += "%s" % table_dict[col][row]
-			out_str += "\n"
-	
+			
 	return out_str
 
 func parse_list(list_in : Array, depth : int = 0) -> String:
@@ -91,7 +84,7 @@ func parse_list(list_in : Array, depth : int = 0) -> String:
 	
 	return str_out
 
-func extend_entry_strings(col_name: String, column: Array) -> Array:
+func calc_col_width(col_name: String, column: Array) -> int:
 	var max_len: int = 0
 	for item in column:
 		if len(item) > max_len:
@@ -99,13 +92,7 @@ func extend_entry_strings(col_name: String, column: Array) -> Array:
 	if len(col_name) > max_len:
 		max_len = len(col_name)
 	
-	for i in range(len(column)):
-		if len(column[i]) < max_len:
-			var len_diff = max_len - len(column[i])
-			for _i in range(len_diff):
-				column[i] += " "
-				
-	return column
+	return max_len
 	
 func stringify_race(race : Dictionary) -> String:
 	var out_str = ""
@@ -135,7 +122,7 @@ func stringify_race(race : Dictionary) -> String:
 		out_str += "\nSubraces: \n"
 		for subrace in race["Subraces"]:
 			out_str += "\t%s: \n" % subrace
-			out_str += "\tAbility Score Increases:\n%s\n" % parse_table(race["Subraces"][subrace]["Ability Score Increases"], 2)
-			out_str += "\tAbilities: \n"
-			out_str += parse_list(race["Subraces"][subrace]["Abilities"], 2)
+			out_str += "\t\tAbility Score Increases:\n%s\n" % parse_table(race["Subraces"][subrace]["Ability Score Increases"], 3)
+			out_str += "\t\tAbilities: \n"
+			out_str += parse_list(race["Subraces"][subrace]["Abilities"], 3)
 	return out_str

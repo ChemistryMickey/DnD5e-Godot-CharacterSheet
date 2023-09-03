@@ -34,6 +34,10 @@ class NPC_sorter:
 		if a.where < b.where:
 			return true
 		return false
+	static func sort_by_when(a, b):
+		if a.when < b.when:
+			return true
+		return false
 
 func _on_sort_np_cs_button_up():
 	var children = $Right/NPC_scroll/NPCs.get_children()
@@ -45,7 +49,9 @@ func _on_sort_np_cs_button_up():
 		$Right/NPC_scroll/NPCs.add_child(child)
 
 func _on_add_npc_button_up():
-	$Right/NPC_scroll/NPCs.add_child(NPC_line.instantiate())
+	var new_NPC = NPC_line.instantiate()
+	new_NPC.update_when(Time.get_date_string_from_system())
+	$Right/NPC_scroll/NPCs.add_child(new_NPC)
 
 func _on_remove_np_cs_button_up():
 	for child in $Right/NPC_scroll/NPCs.get_children():
@@ -59,5 +65,15 @@ func _on_sort_where_np_cs_button_up():
 		$Right/NPC_scroll/NPCs.remove_child(child)
 		
 	children.sort_custom(NPC_sorter.sort_by_where)
+	for child in children:
+		$Right/NPC_scroll/NPCs.add_child(child)
+
+
+func _on_sort_when_np_cs_button_up():
+	var children = $Right/NPC_scroll/NPCs.get_children()
+	for child in children:
+		$Right/NPC_scroll/NPCs.remove_child(child)
+		
+	children.sort_custom(NPC_sorter.sort_by_when)
 	for child in children:
 		$Right/NPC_scroll/NPCs.add_child(child)
