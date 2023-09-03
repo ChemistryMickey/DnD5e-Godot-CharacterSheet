@@ -418,11 +418,11 @@ mouse_filter = 1
 text = "HP:  "
 
 [node name="hpEdit" type="LineEdit" parent="Summary/Right/State"]
-custom_minimum_size = Vector2(35, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+expand_to_text_length = true
 
 [node name="MaxHP" type="Label" parent="Summary/Right/State"]
 layout_mode = 2
@@ -430,11 +430,11 @@ mouse_filter = 1
 text = "Max HP:  "
 
 [node name="maxHPEdit" type="LineEdit" parent="Summary/Right/State"]
-custom_minimum_size = Vector2(35, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+expand_to_text_length = true
 
 [node name="TempHP" type="Label" parent="Summary/Right/State"]
 layout_mode = 2
@@ -442,11 +442,11 @@ mouse_filter = 1
 text = "Temp HP:  "
 
 [node name="tempHPEdit" type="LineEdit" parent="Summary/Right/State"]
-custom_minimum_size = Vector2(35, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+expand_to_text_length = true
 
 [node name="HitDie" type="Label" parent="Summary/Right/State"]
 layout_mode = 2
@@ -454,11 +454,11 @@ mouse_filter = 1
 text = "Hit Die: "
 
 [node name="hitDieEdit" type="LineEdit" parent="Summary/Right/State"]
-custom_minimum_size = Vector2(35, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+expand_to_text_length = true
 
 [node name="ProficiencyBonus" type="Label" parent="Summary/Right/State"]
 layout_mode = 2

@@ -107,12 +107,14 @@ text = "1st-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/1stLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/1stLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="2ndLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -125,12 +127,14 @@ text = "2nd-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/2ndLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/2ndLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="3rdLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -143,12 +147,14 @@ text = "3rd-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/3rdLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/3rdLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="4thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -161,12 +167,14 @@ text = "4th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/4thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/4thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="5thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -179,12 +187,14 @@ text = "5th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/5thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/5thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="6thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -197,12 +207,14 @@ text = "6th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/6thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/6thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="7thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -215,12 +227,14 @@ text = "7th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/7thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/7thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="8thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -233,12 +247,14 @@ text = "8th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/8thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/8thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="9thLevel" type="HBoxContainer" parent="TopMatter/SpellSlotContainer"]
@@ -251,12 +267,14 @@ text = "9th-Level: "
 
 [node name="LineEdit" type="LineEdit" parent="TopMatter/SpellSlotContainer/9thLevel"]
 layout_mode = 2
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="LineEdit2" type="LineEdit" parent="TopMatter/SpellSlotContainer/9thLevel"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "/?"
+expand_to_text_length = true
 script = ExtResource("3")
 
 [node name="HSeparator" type="HSeparator" parent="."]
