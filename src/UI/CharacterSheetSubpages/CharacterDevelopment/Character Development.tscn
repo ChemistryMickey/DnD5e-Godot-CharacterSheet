@@ -55,48 +55,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator3" type="HSeparator" parent="Right"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Right"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="Right/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-text = "NPCs:"
-
-[node name="AddNPC" type="Button" parent="Right/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "   +   "
-
-[node name="RemoveNPCs" type="Button" parent="Right/HBoxContainer"]
-layout_mode = 2
-text = "Remove Selected"
-
-[node name="SortNPCs" type="Button" parent="Right/HBoxContainer"]
-layout_mode = 2
-text = "Sort by Name"
-
-[node name="SortWhereNPCs" type="Button" parent="Right/HBoxContainer"]
-layout_mode = 2
-text = "Sort by Where"
-
-[node name="SortWhenNPCs" type="Button" parent="Right/HBoxContainer"]
-layout_mode = 2
-text = "Sort by When"
-
-[node name="NPC_scroll" type="ScrollContainer" parent="Right"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="NPCs" type="VBoxContainer" parent="Right/NPC_scroll"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
 [node name="HSeparator4" type="HSeparator" parent="Right"]
 layout_mode = 2
 
@@ -119,9 +77,4 @@ size_flags_vertical = 3
 wrap_mode = 1
 script = ExtResource("4")
 
-[connection signal="button_up" from="Right/HBoxContainer/AddNPC" to="." method="_on_add_npc_button_up"]
-[connection signal="button_up" from="Right/HBoxContainer/RemoveNPCs" to="." method="_on_remove_np_cs_button_up"]
-[connection signal="button_up" from="Right/HBoxContainer/SortNPCs" to="." method="_on_sort_np_cs_button_up"]
-[connection signal="button_up" from="Right/HBoxContainer/SortWhereNPCs" to="." method="_on_sort_where_np_cs_button_up"]
-[connection signal="button_up" from="Right/HBoxContainer/SortWhenNPCs" to="." method="_on_sort_when_np_cs_button_up"]
 [connection signal="item_selected" from="Right/BackgroundBanner/OptionButton" to="Right/BackgroundBanner" method="_on_OptionButton_item_selected"]

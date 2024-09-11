@@ -36,23 +36,27 @@ custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
+alignment = 1
 
 [node name="MiscBonus" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
+alignment = 1
 
 [node name="TotalStat" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 editable = false
 
 [node name="AbilityBonus" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(90, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 editable = false
 
 [node name="SavingThrow" type="CheckButton" parent="."]

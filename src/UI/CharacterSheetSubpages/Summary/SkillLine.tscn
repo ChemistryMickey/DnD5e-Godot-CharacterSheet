@@ -39,6 +39,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "STR"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,24 +49,29 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 editable = false
 
 [node name="MiscBonus" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="SkillBonus" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 editable = false
 
 [node name="Proficient" type="CheckButton" parent="."]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+alignment = 1
+icon_alignment = 1
 
 [node name="DoubleProficient" type="CheckButton" parent="."]
 custom_minimum_size = Vector2(100, 40)

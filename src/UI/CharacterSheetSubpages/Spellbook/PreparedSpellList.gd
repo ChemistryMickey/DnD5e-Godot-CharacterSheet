@@ -37,7 +37,7 @@ func insert_new_spell(spell_to_add):
 	var new_spell_entry = DatabaseLoader.json_dicts["spellcasting"]["Spell Descriptions"][spell_to_add].content
 	var spell_type_text : String = new_spell_entry[0].replace('*', '').strip_edges()
 	for i in range(spell_levels.size()):
-		if spell_type_text.count(json_search_strs[i]) > 0:
+		if spell_type_text.to_lower().count(json_search_strs[i]) > 0:
 			if not spell_to_add in current_spell_dict[spell_levels[i]]:
 				current_spell_dict[spell_levels[i]].append(spell_to_add)
 				current_spell_dict[spell_levels[i]].sort()

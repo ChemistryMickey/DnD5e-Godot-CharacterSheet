@@ -69,4 +69,3 @@ func load_sheet(save_dict):
 	$DoubleProficient.button_pressed = save_dict["DoubleProficient"]
 	update_skill_bonus()
 	Signals.emit_signal("skill_bonus_changed")
-

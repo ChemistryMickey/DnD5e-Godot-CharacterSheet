@@ -4,28 +4,97 @@
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Journal/Journal.gd" id="2"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Journal/JournalEntries.gd" id="3"]
 
-[node name="Journal" type="VBoxContainer"]
+[node name="Journal" type="HBoxContainer" groups=["Persist"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1")
 script = ExtResource("2")
 
-[node name="Entries" type="ScrollContainer" parent="."]
+[node name="NPCs" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VertSpace" type="Control" parent="NPCs"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="Buttons" type="HBoxContainer" parent="NPCs"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="NPCs/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "NPCs:"
+
+[node name="AddNPC" type="Button" parent="NPCs/Buttons"]
+layout_mode = 2
+text = "   +   "
+
+[node name="RemoveNPCs" type="Button" parent="NPCs/Buttons"]
+layout_mode = 2
+text = "Remove Selected"
+
+[node name="SortNPCs" type="Button" parent="NPCs/Buttons"]
+layout_mode = 2
+text = "Sort by Name"
+
+[node name="SortWhereNPCs" type="Button" parent="NPCs/Buttons"]
+layout_mode = 2
+text = "Sort by Where"
+
+[node name="SortWhenNPCs" type="Button" parent="NPCs/Buttons"]
+layout_mode = 2
+text = "Sort by When"
+
+[node name="VertSpace2" type="Control" parent="NPCs"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HSeparator" type="HSeparator" parent="NPCs"]
+layout_mode = 2
+
+[node name="NPC_scroll" type="ScrollContainer" parent="NPCs"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NPCs" type="VBoxContainer" parent="NPCs/NPC_scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="JournalEntries" type="VBoxContainer" parent="Entries" groups=["Persist"]]
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="JournCont" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Entries" type="ScrollContainer" parent="JournCont"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="JournalEntries" type="VBoxContainer" parent="JournCont/Entries" groups=["Persist"]]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HSeparator" type="HSeparator" parent="JournCont"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="JournCont"]
 layout_mode = 2
 alignment = 1
 
-[node name="NewEntry" type="Button" parent="HBoxContainer"]
+[node name="NewEntry" type="Button" parent="JournCont/HBoxContainer"]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -33,7 +102,7 @@ size_flags_vertical = 0
 text = "New Entry"
 icon_alignment = 1
 
-[node name="RemoveLastEntry" type="Button" parent="HBoxContainer"]
+[node name="RemoveLastEntry" type="Button" parent="JournCont/HBoxContainer"]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -41,5 +110,10 @@ size_flags_vertical = 0
 text = "Remove Last Entry"
 icon_alignment = 1
 
-[connection signal="button_up" from="HBoxContainer/NewEntry" to="." method="_on_NewEntry_button_up"]
-[connection signal="button_up" from="HBoxContainer/RemoveLastEntry" to="." method="_on_RemoveLastEntry_button_up"]
+[connection signal="pressed" from="NPCs/Buttons/AddNPC" to="." method="_on_add_npc_pressed"]
+[connection signal="pressed" from="NPCs/Buttons/RemoveNPCs" to="." method="_on_remove_np_cs_pressed"]
+[connection signal="pressed" from="NPCs/Buttons/SortNPCs" to="." method="_on_sort_np_cs_pressed"]
+[connection signal="pressed" from="NPCs/Buttons/SortWhereNPCs" to="." method="_on_sort_where_np_cs_pressed"]
+[connection signal="pressed" from="NPCs/Buttons/SortWhenNPCs" to="." method="_on_sort_when_np_cs_pressed"]
+[connection signal="button_up" from="JournCont/HBoxContainer/NewEntry" to="." method="_on_NewEntry_button_up"]
+[connection signal="button_up" from="JournCont/HBoxContainer/RemoveLastEntry" to="." method="_on_RemoveLastEntry_button_up"]

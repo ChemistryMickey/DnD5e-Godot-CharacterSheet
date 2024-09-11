@@ -42,4 +42,3 @@ func load_sheet(save_dict):
 			children[idx].skill = skill_list[skill_iter]
 			children[idx].load_sheet(save_dict["Skills"][skill_list[skill_iter]])
 			skill_iter += 1
-

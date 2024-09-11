@@ -610,21 +610,32 @@
         },
         "Warlock": {
             "Cantrips": [
+                "Blade Ward",
                 "Chill Touch",
+                "Eldritch Blast",
+                "Friends",
                 "Mage Hand",
                 "Minor Illusion",
+                "Poison Spray",
                 "Prestidigitation",
                 "True Strike"
             ],
             "1st Level": [
+                "Armor of Agathys",
+                "Arms of Hadar",
                 "Charm Person",
                 "Comprehend Languages",
                 "Expeditious Retreat",
+                "Hellish Rebuke",
+                "Hex",
                 "Illusory Script",
                 "Protection from Evil and Good",
-                "Unseen Servant"
+                "Unseen Servant",
+                "Witch Bolt"
             ],
             "2nd Level": [
+                "Cloud of Daggers",
+                "Crown of Madness",
                 "Darkness",
                 "Enthrall",
                 "Hold Person",
@@ -4776,6 +4787,124 @@
                 "**Duration:** Instantaneous",
                 "Choose one object weighing 1 to 5 pounds within range that isn’t being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.",
                 "***At Higher Levels.*** When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above 1st."
+            ]
+        },
+        "Blade Ward": {
+            "content": [
+                "*Abjuration cantrip*",
+                "**Casting Time:** 1 action",
+                "**Range:** Self",
+                "**Components:** V, S",
+                "**Duration:** 1 round",
+                "You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks."
+            ]
+        },
+        "Eldritch Blast": {
+            "content": [
+                "*Evocation cantrip*",
+                "**Casting Time:** 1 action",
+                "**Range:** 120 feet",
+                "**Components:** V, S",
+                "**Duration:** Instantaneous",
+                "A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.",
+                "***At Higher Levels*** The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam."
+            ]
+        },
+        "Friends": {
+            "content": [
+                "*Enchantment cantrip*",
+                "**Casting Time:** 1 action",
+                "**Range:** Self",
+                "**Components:** S, M (a small amount of makeup applied to the face as this spell is cast)",
+                "**Duration:** Concentration, up to 1 minute",
+                "For the duration, you have advantage on all Charisma checks directed at one creature of your choice that isn't hostile toward you. When the spell ends, the creature realizes that you used magic to influence its mood and becomes hostile toward you. A creature prone to violence might attack you. Another creature might seek retribution in other ways (at the DM's discretion), depending on the nature of your interaction with it."
+            ]
+        },
+        "Poison Spray": {
+            "content": [
+                "*Conjuration cantrip*",
+                "**Casting Time:** 1 action",
+                "**Range:** 10 feet",
+                "**Components:** V, S",
+                "**Duration:** Instantaneous",
+                "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage.",
+                "***At Higher Levels*** This spell’s damage increases by 1d12 when you reach 5th level (2d12), 11th level (3d12), and 17th level (4d12)."
+            ]
+        },
+        "Armor of Agathys": {
+            "content": [
+                "*1st-level abjuration*",
+                "**Casting Time:** 1 action",
+                "**Range:** Self",
+                "**Components:** V, S, M (a cup of water)",
+                "**Duration:** 1 hour",
+                "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot."
+            ]
+        },
+        "Arms of Hadar": {
+            "content": [
+                "*1st-level conjuration*",
+                "**Casting Time:** 1 action",
+                "**Range:** Self (10-foot radius)",
+                "**Components:** V, S",
+                "**Duration:** Instantaneous",
+                "You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes 2d6 necrotic damage and can’t take reactions until its next turn. On a successful save, the creature takes half damage, but suffers no other effect.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."
+            ]
+        },
+        "Hellish Rebuke": {
+            "content": [
+                "*1st-level evocation*",
+                "**Casting Time:** 1 reaction, which you take when you are damaged by a creature within 60 feet of you that you can see",
+                "**Range:** 60 feet",
+                "**Components:** V, S",
+                "**Duration:** Instantaneous",
+                "You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st."
+            ]
+        },
+        "Hex": {
+            "content": [
+                "*1st-level enchantment*",
+                "**Casting Time:** 1 bonus action",
+                "**Range:** 90 feet",
+                "**Components:** V, S, M (the petrified eye of a newt)",
+                "**Duration:** Concentration, up to 1 hour",
+                "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability. \nIf the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature. \nA Remove Curse cast on the target ends this spell early.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours."
+            ]
+        },
+        "Witch Bolt": {
+            "content": [
+                "*1st-level evocation*",
+                "**Casting Time:** 1 action",
+                "**Range:** 30 feet",
+                "**Components:** V, S, M (a twig from a tree that has been struck by lightning)",
+                "**Duration:** Concentration, up to 1 minute",
+                "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell’s range or if it has total cover from you.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 2nd level or higher, the initial damage increases by 1d12 for each slot level above 1st."
+            ]
+        },
+        "Cloud of Daggers": {
+            "content": [
+                "*2nd-level conjuration*",
+                "**Casting Time:** 1 action",
+                "**Range:** 60 feet",
+                "**Components:** V, S, M (a sliver of glass)",
+                "**Duration:** Concentration, up to 1 minute",
+                "You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell’s area for the first time on a turn or starts its turn there.",
+                "***At Higher Levels*** When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 2d4 for each slot level above 2nd."
+            ]
+        },
+        "Crown of Madness": {
+            "content": [
+                "*2nd-level enchantment*",
+                "**Casting Time:** 1 action",
+                "**Range:** 120 feet",
+                "**Components:** V, S",
+                "**Duration:** Concentration, up to 1 minute",
+                "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes. \nThe charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach. \nOn your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends."
             ]
         }
     }

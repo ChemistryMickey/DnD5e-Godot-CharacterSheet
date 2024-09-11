@@ -87,6 +87,11 @@ text = "Total Value: "
 [node name="TotalValue" type="LineEdit" parent="InventoryContainer/Inventory/Summary"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+tooltip_text = "1 CP = 1/10 SP, 1/50 EP, 1/100 GP, 1/1000 PP
+1 SP = 10 CP, 1/5 EP, 1/10 GP, 1/100 PP
+1 EP = 50 CP, 5 SP, 1/2 GP, 1/20 PP
+1 GP = 100 CP, 10 SP, 2 EP, 1/10 PP
+1 PP = 1000 CP, 100 SP, 20 EP, 10 GP"
 editable = false
 
 [node name="Label2" type="Label" parent="InventoryContainer/Inventory/Summary"]
@@ -139,6 +144,7 @@ size_flags_horizontal = 3
 [node name="ItemDescription" type="TextEdit" parent="InventoryContainer/Right"]
 layout_mode = 2
 size_flags_vertical = 3
+wrap_mode = 1
 script = ExtResource("4")
 
 [node name="MagicItems" type="VBoxContainer" parent="InventoryContainer/Right"]

@@ -53,7 +53,7 @@ func _on_LevelEdit_text_changed(new_text: String) -> void:
 
 func update_proficiency_bonus(new_bonus : String):
 	var cur_level = int(new_bonus)
-	proficiency_edit.text = str(floor(cur_level/4) + 2)
+	proficiency_edit.text = str(ceil(cur_level/4) + 1)
 	Signals.emit_signal("proficiency_returned", proficiency_edit.text)
 	
 func update_exp_label(exp_amount):

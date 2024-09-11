@@ -4,11 +4,11 @@ extends Control
 @onready var animation_player = $AnimationPlayer
 
 @export var next_scene_path = "" # (String, FILE)
-@export (String) var button_help = ""
-@export (bool) var use_scene_changer = false
+@export var button_help: String = ""
+@export var use_scene_changer: bool = false
 
-func _get_configuration_warnings() -> String:
-	return "Next scene path must be set!" if next_scene_path == "" else ""
+func _get_configuration_warnings() -> PackedStringArray:
+	return PackedStringArray(["Next scene path must be set!" if next_scene_path == "" else ""])
 	
 func _on_ChangeSceneButton_mouse_entered() -> void:
 	Signals.emit_signal("Button_Hover", button_help)

@@ -89,6 +89,3 @@ func choose_class_spell_list(chosen_class):
 func add_spell_level_delimiters():
 	for level in spell_levels:
 		prepared_spell_list.add_item("---------- %s" % level, null, false)
-
-
-

@@ -26,6 +26,7 @@ offset_bottom = -4.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("6")
+horizontal_scroll_mode = 3
 script = ExtResource("4")
 
 [node name="Summary" type="HBoxContainer" parent="."]
@@ -54,6 +55,7 @@ text = "Name: "
 custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Class" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -81,6 +83,7 @@ text = "Height: "
 custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Hair" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -90,6 +93,7 @@ text = "Hair Color: "
 custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Eyes" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -99,6 +103,7 @@ text = "Eye Color: "
 custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Age" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -108,6 +113,7 @@ text = "Age: "
 custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Level" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -117,6 +123,7 @@ text = "Level: "
 custom_minimum_size = Vector2(120, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Sex" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -126,6 +133,7 @@ text = "Sex: "
 custom_minimum_size = Vector2(120, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Weight" type="Label" parent="Summary/Left/CharacterInfo/CharacterChoices"]
 layout_mode = 2
@@ -135,6 +143,7 @@ text = "Weight [lbs]: "
 custom_minimum_size = Vector2(120, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Summary/Left"]
 layout_mode = 2
@@ -280,6 +289,7 @@ text = "Walk: "
 custom_minimum_size = Vector2(50, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="WalkSpeed2" type="Label" parent="Summary/Right/Movement"]
 layout_mode = 2
@@ -289,6 +299,7 @@ text = "Climb: "
 custom_minimum_size = Vector2(50, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="WalkSpeed3" type="Label" parent="Summary/Right/Movement"]
 layout_mode = 2
@@ -298,6 +309,7 @@ text = "Swim: "
 custom_minimum_size = Vector2(50, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="WalkSpeed4" type="Label" parent="Summary/Right/Movement"]
 layout_mode = 2
@@ -307,6 +319,7 @@ text = "Fly: "
 custom_minimum_size = Vector2(50, 14)
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="MoneyAndExp" type="HBoxContainer" parent="Summary/Right"]
 layout_mode = 2
@@ -325,6 +338,7 @@ tooltip_text = "cp: 1, sp: 1/10, ep: 1/50, gp: 1/100, pt: 1/1000
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="sp" type="Label" parent="Summary/Right/MoneyAndExp"]
@@ -341,6 +355,7 @@ tooltip_text = "cp: 10, sp: 1, ep: 1/5, gp: 1/10, pt: 1/100
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="ep" type="Label" parent="Summary/Right/MoneyAndExp"]
@@ -357,6 +372,7 @@ tooltip_text = "cp: 50, sp: 5, ep: 1, gp: 1/2, pt: 1/20
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="gp" type="Label" parent="Summary/Right/MoneyAndExp"]
@@ -373,6 +389,7 @@ tooltip_text = "cp: 100, sp: 10, ep: 2, gp: 1, pt: 1/10
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="pp" type="Label" parent="Summary/Right/MoneyAndExp"]
@@ -389,6 +406,7 @@ tooltip_text = "cp: 1000, sp: 100, ep: 20, gp: 10, pt: 1
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="exp" type="Label" parent="Summary/Right/MoneyAndExp"]
@@ -405,6 +423,7 @@ tooltip_text = "cp: 1000, sp: 100, ep: 20, gp: 10, pt: 1
 To add money, please make an entry in the transaction log"
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="State" type="HBoxContainer" parent="Summary/Right" groups=["Persist"]]
@@ -422,6 +441,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 expand_to_text_length = true
 
 [node name="MaxHP" type="Label" parent="Summary/Right/State"]
@@ -434,6 +454,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 expand_to_text_length = true
 
 [node name="TempHP" type="Label" parent="Summary/Right/State"]
@@ -446,6 +467,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 expand_to_text_length = true
 
 [node name="HitDie" type="Label" parent="Summary/Right/State"]
@@ -458,6 +480,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 expand_to_text_length = true
 
 [node name="ProficiencyBonus" type="Label" parent="Summary/Right/State"]
@@ -471,6 +494,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 
 [node name="PassivePerception" type="Label" parent="Summary/Right/State"]
@@ -484,6 +508,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 editable = false
 script = ExtResource("14")
 
@@ -501,14 +526,15 @@ custom_minimum_size = Vector2(35, 24)
 layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 0
+alignment = 1
 
 [node name="BloodiedButton" type="CheckBox" parent="Summary/Right/State2"]
 layout_mode = 2
 tooltip_text = "Automatically trips when health drops below 50% of max.
 Please don't touch."
 mouse_filter = 1
-theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.839216, 0.839216, 0.839216, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 text = "Bloodied?"
 icon_alignment = 1
 

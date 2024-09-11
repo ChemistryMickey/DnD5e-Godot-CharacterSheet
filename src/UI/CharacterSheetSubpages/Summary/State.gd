@@ -14,4 +14,3 @@ func load_sheet(save_dict):
 	$maxHPEdit.text = save_dict["Max HP"]
 	$tempHPEdit.text = save_dict["Temp HP"]
 	$hitDieEdit.text = save_dict["Hit Die"]
-

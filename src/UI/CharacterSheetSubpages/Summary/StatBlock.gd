@@ -33,5 +33,3 @@ func load_sheet(save_dict):
 		if cur_child is StatLine:
 			cur_child.load_sheet(save_dict["Stats"][stats[stat_iter]])
 			stat_iter += 1
-
-

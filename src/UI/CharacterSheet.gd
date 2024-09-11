@@ -25,6 +25,8 @@ func _shortcut_input(event: InputEvent) -> void:
 		Signals.emit_signal("show_notes")
 	if event.is_action_pressed("new_character"):
 		Signals.emit_signal("show_confirmation", "new_character")
+	
+	self.get_viewport().set_input_as_handled();
 		
 func _on_SaveFile_file_selected(path: String) -> void:
 	current_character_path = path
