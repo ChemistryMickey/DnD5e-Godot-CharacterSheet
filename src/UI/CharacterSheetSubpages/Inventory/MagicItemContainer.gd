@@ -22,7 +22,8 @@ class Inventory_sorter:
 func _on_DeleteSelected_button_up() -> void:
 	for child in self.get_children():
 		if child.selected_for_delete:
-			child.queue_free()
+			child.free()
+	Signals.emit_signal("update_total_weights_and_values")
 
 func _on_SortMagicItems_button_up() -> void:
 	var children = self.get_children()
@@ -41,7 +42,7 @@ func save():
 	
 func load_sheet(save_dict):
 	for child in self.get_children():
-		child.queue_free()
+		child.free()
 	if save_dict.has("Magic Items"):
 		for entry in save_dict["Magic Items"]:
 			var new_entry = inventory_entry_template.instantiate()
@@ -50,6 +51,3 @@ func load_sheet(save_dict):
 			$"/root/Utilities".num_inventory_entries += 1
 			self.add_child(new_entry)
 		Signals.emit_signal("update_total_weights_and_values")
-
-
-

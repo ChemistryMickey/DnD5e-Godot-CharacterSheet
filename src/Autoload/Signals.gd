@@ -2,7 +2,6 @@ extends Node
 #warning-ignore-all:unused_signal
 
 # Player/Environment Interactions
-
 signal Button_Hover(text_out)
 
 signal show_notes()
@@ -57,6 +56,7 @@ signal update_total_weights_and_values()
 signal display_item_database_info(string)
 signal add_item_to_inventory(selected_item, quantity)
 signal add_purchase_entry(selected_item, quantity, price)
+
 # Incrementers
 signal inventory_item_count(num_inventory_entries)
 signal decrement_inventory_count()

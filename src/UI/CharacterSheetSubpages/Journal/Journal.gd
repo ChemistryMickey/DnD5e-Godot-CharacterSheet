@@ -3,8 +3,8 @@ extends HBoxContainer
 var journal_entry_template = preload("res://src/UI/CharacterSheetSubpages/Journal/JournalEntry.tscn")
 var NPC_line = preload("res://src/UI/CharacterSheetSubpages/CharacterDevelopment/NPC_entry.tscn")
 
-@onready var entry_box = $JournCont/Entries/JournalEntries
-@onready var npc_cont = $NPCs/NPC_scroll/NPCs
+@onready var entry_box = $HSplitContainer/JournCont/Entries/JournalEntries
+@onready var npc_cont = $HSplitContainer/NPCs/NPC_scroll/NPCs
 
 func save():
 	var save_dict = {
@@ -16,6 +16,9 @@ func save():
 	return save_dict
 	
 func load_sheet(save_dict):
+	for child in npc_cont.get_children():
+		child.queue_free()
+	
 	for NPC in save_dict["NPCs"].keys():
 		var new_npc: NPC_entry = NPC_line.instantiate()
 		new_npc.load_save(NPC, save_dict["NPCs"][NPC])

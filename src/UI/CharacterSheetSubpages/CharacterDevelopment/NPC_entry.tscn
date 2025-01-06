@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqyqecx3tuodc"]
+
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/CharacterDevelopment/NPC_entry.gd" id="1_cvjcf"]
+
+[node name="NPC_entry" type="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_cvjcf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckButton" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+placeholder_text = "Name"
+expand_to_text_length = true
+
+[node name="Date" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+placeholder_text = "Date Encountered"
+expand_to_text_length = true
+
+[node name="Where" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+placeholder_text = "Where"
+expand_to_text_length = true
+
+[node name="Affiliations" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Affiliations"
+wrap_mode = 1
+
+[node name="Notes" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Notes"
+wrap_mode = 1
+
+[node name="SelectedFilter" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(940, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+color = Color(1, 1, 1, 0.0980392)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="text_changed" from="HBoxContainer/Name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/Date" to="." method="_on_date_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/Where" to="." method="_on_where_text_changed"]

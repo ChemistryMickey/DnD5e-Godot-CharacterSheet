@@ -24,7 +24,8 @@ func _on_AddItem_button_up() -> void:
 func _on_DeleteSelected_button_up() -> void:
 	for child in self.get_children():
 		if child.selected_for_delete:
-			child.queue_free()
+			child.free()
+	Signals.emit_signal("update_total_weights_and_values")
 
 func _on_SortInventory_button_up() -> void:
 	var children = self.get_children()
@@ -50,7 +51,7 @@ func save():
 	
 func load_sheet(save_dict):
 	for child in self.get_children():
-		child.queue_free()
+		child.free()
 	for entry in save_dict["Items"]:
 		var new_entry = inventory_entry_template.instantiate()
 		new_entry.load_sheet(entry)
@@ -58,8 +59,3 @@ func load_sheet(save_dict):
 		$"/root/Utilities".num_inventory_entries += 1
 		self.add_child(new_entry)
 	Signals.emit_signal("update_total_weights_and_values")
-
-
-
-
-

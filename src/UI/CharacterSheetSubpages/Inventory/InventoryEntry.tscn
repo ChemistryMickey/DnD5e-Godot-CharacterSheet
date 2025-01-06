@@ -46,7 +46,6 @@ layout_mode = 2
 size_flags_vertical = 0
 item_count = 5
 popup/item_0/text = "cp"
-popup/item_0/id = 0
 popup/item_1/text = "sp"
 popup/item_1/id = 1
 popup/item_2/text = "ep"

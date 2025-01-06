@@ -15,86 +15,87 @@ size_flags_vertical = 3
 theme = ExtResource("1")
 script = ExtResource("2")
 
-[node name="NPCs" type="VBoxContainer" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VertSpace" type="Control" parent="NPCs"]
+[node name="NPCs" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VertSpace" type="Control" parent="HSplitContainer/NPCs"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
-[node name="Buttons" type="HBoxContainer" parent="NPCs"]
+[node name="Buttons" type="HBoxContainer" parent="HSplitContainer/NPCs"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="NPCs/Buttons"]
+[node name="Label3" type="Label" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "NPCs:"
 
-[node name="AddNPC" type="Button" parent="NPCs/Buttons"]
+[node name="AddNPC" type="Button" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 text = "   +   "
 
-[node name="RemoveNPCs" type="Button" parent="NPCs/Buttons"]
+[node name="RemoveNPCs" type="Button" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 text = "Remove Selected"
 
-[node name="SortNPCs" type="Button" parent="NPCs/Buttons"]
+[node name="SortNPCs" type="Button" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 text = "Sort by Name"
 
-[node name="SortWhereNPCs" type="Button" parent="NPCs/Buttons"]
+[node name="SortWhereNPCs" type="Button" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 text = "Sort by Where"
 
-[node name="SortWhenNPCs" type="Button" parent="NPCs/Buttons"]
+[node name="SortWhenNPCs" type="Button" parent="HSplitContainer/NPCs/Buttons"]
 layout_mode = 2
 text = "Sort by When"
 
-[node name="VertSpace2" type="Control" parent="NPCs"]
+[node name="VertSpace2" type="Control" parent="HSplitContainer/NPCs"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
 
-[node name="HSeparator" type="HSeparator" parent="NPCs"]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/NPCs"]
 layout_mode = 2
 
-[node name="NPC_scroll" type="ScrollContainer" parent="NPCs"]
+[node name="NPC_scroll" type="ScrollContainer" parent="HSplitContainer/NPCs"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NPCs" type="VBoxContainer" parent="NPCs/NPC_scroll"]
+[node name="NPCs" type="VBoxContainer" parent="HSplitContainer/NPCs/NPC_scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VSeparator" type="VSeparator" parent="."]
-layout_mode = 2
-
-[node name="JournCont" type="VBoxContainer" parent="."]
+[node name="JournCont" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Entries" type="ScrollContainer" parent="JournCont"]
+[node name="Entries" type="ScrollContainer" parent="HSplitContainer/JournCont"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="JournalEntries" type="VBoxContainer" parent="JournCont/Entries" groups=["Persist"]]
+[node name="JournalEntries" type="VBoxContainer" parent="HSplitContainer/JournCont/Entries" groups=["Persist"]]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3")
 
-[node name="HSeparator" type="HSeparator" parent="JournCont"]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/JournCont"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="JournCont"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/JournCont"]
 layout_mode = 2
 alignment = 1
 
-[node name="NewEntry" type="Button" parent="JournCont/HBoxContainer"]
+[node name="NewEntry" type="Button" parent="HSplitContainer/JournCont/HBoxContainer"]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -102,7 +103,7 @@ size_flags_vertical = 0
 text = "New Entry"
 icon_alignment = 1
 
-[node name="RemoveLastEntry" type="Button" parent="JournCont/HBoxContainer"]
+[node name="RemoveLastEntry" type="Button" parent="HSplitContainer/JournCont/HBoxContainer"]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -110,10 +111,10 @@ size_flags_vertical = 0
 text = "Remove Last Entry"
 icon_alignment = 1
 
-[connection signal="pressed" from="NPCs/Buttons/AddNPC" to="." method="_on_add_npc_pressed"]
-[connection signal="pressed" from="NPCs/Buttons/RemoveNPCs" to="." method="_on_remove_np_cs_pressed"]
-[connection signal="pressed" from="NPCs/Buttons/SortNPCs" to="." method="_on_sort_np_cs_pressed"]
-[connection signal="pressed" from="NPCs/Buttons/SortWhereNPCs" to="." method="_on_sort_where_np_cs_pressed"]
-[connection signal="pressed" from="NPCs/Buttons/SortWhenNPCs" to="." method="_on_sort_when_np_cs_pressed"]
-[connection signal="button_up" from="JournCont/HBoxContainer/NewEntry" to="." method="_on_NewEntry_button_up"]
-[connection signal="button_up" from="JournCont/HBoxContainer/RemoveLastEntry" to="." method="_on_RemoveLastEntry_button_up"]
+[connection signal="pressed" from="HSplitContainer/NPCs/Buttons/AddNPC" to="." method="_on_add_npc_pressed"]
+[connection signal="pressed" from="HSplitContainer/NPCs/Buttons/RemoveNPCs" to="." method="_on_remove_np_cs_pressed"]
+[connection signal="pressed" from="HSplitContainer/NPCs/Buttons/SortNPCs" to="." method="_on_sort_np_cs_pressed"]
+[connection signal="pressed" from="HSplitContainer/NPCs/Buttons/SortWhereNPCs" to="." method="_on_sort_where_np_cs_pressed"]
+[connection signal="pressed" from="HSplitContainer/NPCs/Buttons/SortWhenNPCs" to="." method="_on_sort_when_np_cs_pressed"]
+[connection signal="button_up" from="HSplitContainer/JournCont/HBoxContainer/NewEntry" to="." method="_on_NewEntry_button_up"]
+[connection signal="button_up" from="HSplitContainer/JournCont/HBoxContainer/RemoveLastEntry" to="." method="_on_RemoveLastEntry_button_up"]
