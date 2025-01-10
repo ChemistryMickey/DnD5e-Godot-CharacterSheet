@@ -1,10 +1,10 @@
 extends Window
 
 func _ready() -> void:
-	var all_spell_dict = DatabaseLoader.json_dicts["spellcasting"]["Spell Descriptions"]
+	var all_spell_dict = DatabaseLoader.json_dicts["spell-descriptions"]
 	prepare_alphabet_spell_list(all_spell_dict)
 	
-	var class_spell_dict = DatabaseLoader.json_dicts["spellcasting"]["Spell Lists"]
+	var class_spell_dict = DatabaseLoader.json_dicts["spells-by-class"]
 	prepare_by_class_list(class_spell_dict)
 	prepare_by_level_list(class_spell_dict)
 
@@ -47,6 +47,7 @@ func _on_Button_button_up() -> void:
 		
 	if spell_request.count("==") > 0 or spell_request.count("--") > 0:
 		return
+	Debug.debug_print("Overriding to add " + spell_request + " to prepared spells")
 	Signals.emit_signal("add_to_prepared_spells", spell_request)
 
 func prepare_alphabet_spell_list(all_spells : Dictionary):

@@ -25,8 +25,7 @@ func _on_MiscBonus_text_changed(_new_text: String) -> void:
 	calculate_total_stat()
 
 func calculate_bonus() -> void:
-	#warning-ignore:integer_division
-	var bonus = floor((int(total_stat.text) - 10) / 2)
+	var bonus = floor((float(total_stat.text) - 10.0) / 2.0)
 	ability_bonus.text = str(bonus)
 	Signals.emit_signal("ability_score_changed", $Panel/Stat.text, bonus)
 	

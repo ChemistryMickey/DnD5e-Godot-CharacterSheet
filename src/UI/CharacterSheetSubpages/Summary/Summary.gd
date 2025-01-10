@@ -52,8 +52,8 @@ func _on_LevelEdit_text_changed(new_text: String) -> void:
 	update_proficiency_bonus(new_text)
 
 func update_proficiency_bonus(new_bonus : String):
-	var cur_level = int(new_bonus)
-	proficiency_edit.text = str(ceil(cur_level/4) + 1)
+	var cur_level = float(new_bonus)
+	proficiency_edit.text = str(int(ceil(cur_level/4.0)) + 1)
 	Signals.emit_signal("proficiency_returned", proficiency_edit.text)
 	
 func update_exp_label(exp_amount):
@@ -69,7 +69,7 @@ func update_prepared_list(spell_dict : Dictionary):
 		prepared_spells_container.add_item("---------- %s" % spell_level, null, false)
 		for spell in spell_dict[spell_level]:
 			var ind = prepared_spells_container.get_item_count()
-			var tool_tip_text = DatabaseLoader.parse_list(DatabaseLoader.json_dicts["spellcasting"]["Spell Descriptions"][spell]["content"])
+			var tool_tip_text = DatabaseLoader.json_dicts["spell-descriptions"][spell]["Description"]
 			prepared_spells_container.add_item(spell)
 			prepared_spells_container.set_item_tooltip(ind, tool_tip_text)
 

@@ -1,10 +1,12 @@
 extends MenuButton
 
-@export_enum ("classes", "races", "conditions", "equipment", 
+signal class_updated
+
+@export_enum("classes", "races", "conditions", "equipment",
 						"feats", "spellcasting") var json_choice: String
+
 var option_list = []
 
-signal class_updated
 
 func _ready() -> void:
 	get_popup().clear()
@@ -15,9 +17,8 @@ func _ready() -> void:
 
 	var popup = get_children(true)[0]
 	popup.connect("id_pressed", Callable(self, "update_choice_text"))
-	
-func update_choice_text(choice_ind : int) -> void:
+
+func update_choice_text(choice_ind: int) -> void:
 	self.text = option_list[choice_ind]
 	if Debug.DEBUG_PRINT: print("Emitting updated choice text: %s" % option_list[choice_ind])
-	emit_signal("class_updated", option_list[choice_ind])
-
+	Signals.emit_signal("class_updated", option_list[choice_ind])

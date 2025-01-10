@@ -44,4 +44,3 @@ func load_sheet(save_dict):
 	
 	$"9thLevel/LineEdit".text = slot_list[8][0]
 	$"9thLevel/LineEdit2".text = slot_list[8][1]
-
