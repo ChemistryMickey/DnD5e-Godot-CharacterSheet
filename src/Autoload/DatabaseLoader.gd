@@ -1,7 +1,7 @@
 extends Node
 
 const BASE_DIR: String = "res://databases/base"
-const CUSTOM_DIR: String = "res://databases/custom"
+const CUSTOM_DIR: String = "user://databases/custom"
 
 # Autoloaded things are preserved between scenes
 var json_dicts: Dictionary = {}
