@@ -20,8 +20,8 @@ config/icon="res://icon.png"
 Signals="*res://src/Autoload/Signals.gd"
 Debug="*res://src/Autoload/Debug.gd"
 SceneChanger="*res://src/Autoload/SceneChanger.tscn"
-DatabaseLoader="*res://src/Autoload/DatabaseLoader.gd"
 Utilities="*res://src/Autoload/Utilities.gd"
+DatabaseLoader="*res://src/Autoload/DatabaseLoader.gd"
 
 [debug]
 

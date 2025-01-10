@@ -34,8 +34,8 @@ func add_spell_level_delimiters():
 func insert_new_spell(spell_to_add):
 	var current_spell_dict = get_current_prepared_dict()
 	spell_to_add = spell_to_add.strip_edges()
-	var new_spell_entry = DatabaseLoader.json_dicts["spellcasting"]["Spell Descriptions"][spell_to_add].content
-	var spell_type_text : String = new_spell_entry[0].replace('*', '').strip_edges()
+	var new_spell_entry = DatabaseLoader.json_dicts["spell-descriptions"][spell_to_add]
+	var spell_type_text : String = new_spell_entry["Level"]
 	for i in range(spell_levels.size()):
 		if spell_type_text.to_lower().count(json_search_strs[i]) > 0:
 			if not spell_to_add in current_spell_dict[spell_levels[i]]:
@@ -61,8 +61,8 @@ func get_current_prepared_dict() -> Dictionary:
 	for spell in current_prepared_spells:
 		# Get spell level
 		if spell.count('--') < 1:
-			var spell_entry = DatabaseLoader.json_dicts["spellcasting"]["Spell Descriptions"][spell].content
-			var spell_type_text : String = spell_entry[0].replace('*', '').strip_edges()
+			var spell_entry = DatabaseLoader.json_dicts["spell-descriptions"][spell]
+			var spell_type_text : String = spell_entry["Level"]
 			for i in range(spell_levels.size()):
 				if spell_type_text.count(json_search_strs[i]) > 0:
 					if not spell in spell_dict[spell_levels[i]]:
