@@ -4,8 +4,8 @@ var inventory_entry_template = preload("res://src/UI/CharacterSheetSubpages/Inve
 var num_inventory_entries = 0
 func _on_AddItem_button_up() -> void:
 	var new_entry = inventory_entry_template.instantiate()
-	new_entry.name = "inventory_entry_" + str($"/root/Utilities".num_inventory_entries)
-	$"/root/Utilities".num_inventory_entries += 1
+	new_entry.name = "inventory_entry_" + str(num_inventory_entries)
+	num_inventory_entries += 1
 	self.add_child(new_entry)
 
 class Inventory_sorter:
@@ -35,7 +35,7 @@ func _on_SortMagicItems_button_up() -> void:
 		self.add_child(child)
 		
 func save():
-	var save_dict = {"Magic Items" : []}
+	var save_dict = {"Magic Items": []}
 	for child in self.get_children():
 		save_dict["Magic Items"].append(child.save())
 	return save_dict
@@ -47,7 +47,7 @@ func load_sheet(save_dict):
 		for entry in save_dict["Magic Items"]:
 			var new_entry = inventory_entry_template.instantiate()
 			new_entry.load_sheet(entry)
-			new_entry.name = "inventory_entry_" + str($"/root/Utilities".num_inventory_entries)
-			$"/root/Utilities".num_inventory_entries += 1
+			new_entry.name = "inventory_entry_" + str(num_inventory_entries)
+			num_inventory_entries += 1
 			self.add_child(new_entry)
 		Signals.emit_signal("update_total_weights_and_values")
