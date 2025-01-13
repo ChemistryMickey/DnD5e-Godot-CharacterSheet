@@ -20,5 +20,5 @@ func _ready() -> void:
 
 func update_choice_text(choice_ind: int) -> void:
 	self.text = option_list[choice_ind]
-	if Debug.DEBUG_PRINT: print("Emitting updated choice text: %s" % option_list[choice_ind])
+	Debug.debug_print("Emitting updated choice text: %s" % option_list[choice_ind])
 	Signals.emit_signal("class_updated", option_list[choice_ind])

@@ -9,7 +9,7 @@ func _ready() -> void:
 func _on_ItemDatabase_button_up() -> void:
 	Signals.emit_signal("show_item_database")
 
-func update_item_description(node_name, item_name : String, info_str : String):
+func update_item_description(node_name, item_name: String, info_str: String):
 	$InventoryContainer/Right/ItemDescription.text = info_str
 	$InventoryContainer/Right/ItemDescription.target_node = node_name
 	$InventoryContainer/Right/HBoxContainer/CustomInfoItemName.text = item_name
@@ -17,9 +17,9 @@ func update_item_description(node_name, item_name : String, info_str : String):
 func update_total_weights_and_values():
 	var total_weight = 0
 	var total_value = 0
-	var denomination_map = [1.0/100.0, 1.0/10.0, 1.0/2.0, 1.0, 10.0]
+	var denomination_map = [1.0 / 100.0, 1.0 / 10.0, 1.0 / 2.0, 1.0, 10.0]
 	for child in get_tree().get_nodes_in_group("InventoryEntry"):
-		Debug.debug_print("%d" % child.denomination)
+		Debug.debug_print("Denomination: %d" % child.denomination)
 		total_value += float(child.val_per_unit) * float(child.quantity) * \
 						denomination_map[child.denomination]
 		total_weight += float(child.weight_per_unit) * float(child.quantity)
