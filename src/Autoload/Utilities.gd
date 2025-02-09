@@ -1,5 +1,5 @@
 extends Node
-
+@export var num_inventory_entries: int = 0
 func find_in_dictionary(dict: Dictionary, term):
 	if dict is Dictionary:
 		if not dict.has(term):
