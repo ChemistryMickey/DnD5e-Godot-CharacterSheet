@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://df23fkwkm27pi"]
+[gd_scene load_steps=5 format=3 uid="uid://df23fkwkm27pi"]
 
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/TransactionLog/Transaction Logs.gd" id="1"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/TransactionLog/MoneyEntries.gd" id="2"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/TransactionLog/ExperienceEntries.gd" id="3"]
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/TransactionLog/consolidate.gd" id="3_sko5y"]
 
 [node name="Transaction Logs" type="HBoxContainer"]
 anchors_preset = 15
@@ -86,9 +87,22 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Right"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Right"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Right/HBoxContainer"]
 layout_mode = 2
 text = "Money Log"
+
+[node name="Control" type="Control" parent="Right/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Consolidate" type="CheckBox" parent="Right/HBoxContainer" groups=["Persist"]]
+layout_mode = 2
+tooltip_text = "If enabled, consolidate money into the highest denomination (minimum number of coins)."
+text = "Consolidate?"
+script = ExtResource("3_sko5y")
 
 [node name="HSeparator" type="HSeparator" parent="Right"]
 layout_mode = 2
@@ -273,5 +287,6 @@ editable = false
 
 [connection signal="button_up" from="Left/ExpHeader/AddEntry" to="." method="_on_Exp_AddEntry_button_up"]
 [connection signal="button_up" from="Left/ExpHeader/RemoveLastEntry" to="." method="_on_Exp_RemoveLastEntry_button_up"]
+[connection signal="toggled" from="Right/HBoxContainer/Consolidate" to="." method="_on_consolidate_toggled"]
 [connection signal="button_up" from="Right/MoneyHeader/Buttons/AddEntry" to="." method="_on_Money_AddEntry_button_up"]
 [connection signal="button_up" from="Right/MoneyHeader/Buttons/RemoveLastEntry" to="." method="_on_Money_RemoveLastEntry_button_up"]

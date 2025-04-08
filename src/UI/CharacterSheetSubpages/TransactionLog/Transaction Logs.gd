@@ -9,6 +9,7 @@ var money_log_template = preload("res://src/UI/CharacterSheetSubpages/Transactio
 @onready var money_log = $Right/MoneyLog/MoneyEntries
 @onready var money_totals = [$Right/Total/cpEdit, $Right/Total/spEdit, $Right/Total/epEdit, 
 							$Right/Total/gpEdit, $Right/Total/ppEdit]
+@onready var consolidate_money = $Right/HBoxContainer/Consolidate
 
 func _ready() -> void:
 	if Signals.connect("money_changed", Callable(self, "update_money_total")): print("Unable to connect to money_changed!")
@@ -45,22 +46,29 @@ func update_money_total():
 	var money_multiples = [1, 10, 50, 100, 1000]
 	var money_index = 0
 	var money_entries = money_log.get_children()
+	var should_consolidate = consolidate_money.button_pressed
 	for entry in money_entries:
+		money_index = 0
 		var entry_children = entry.get_children()
 		for child in entry_children:
 			if child is ReadableLineEdit:
 				if child.text.count('-') > 0:
-					total_copper -= int(child.text.split('-')[1]) * money_multiples[money_index]
+					if should_consolidate:
+						total_copper -= int(child.text.split('-')[1]) * money_multiples[money_index]
+					else:
+						cur_money_totals[money_index] -= int(child.text.split('-')[1])
 				else:
-					total_copper += int(child.text) * money_multiples[money_index]
+					if should_consolidate:
+						total_copper += int(child.text) * money_multiples[money_index]
+					else:
+						cur_money_totals[money_index] += int(child.text)
 				money_index += 1
-				#Debug.debug_print("Total Copper %d" % total_copper)
-		money_index = 0
-	
-	for currency in range(money_multiples.size() - 1, 0, -1):
-		cur_money_totals[currency] = total_copper / money_multiples[currency]
-		total_copper -= cur_money_totals[currency] * money_multiples[currency]
-	cur_money_totals[0] = total_copper
+				
+	if should_consolidate:
+		for currency in range(money_multiples.size() - 1, 0, -1):
+			cur_money_totals[currency] = total_copper / money_multiples[currency]
+			total_copper -= cur_money_totals[currency] * money_multiples[currency]
+		cur_money_totals[0] = total_copper
 	for idx in range(money_totals.size()):
 		money_totals[idx].text = str(cur_money_totals[idx])
 	Signals.emit_signal("money_updated", cur_money_totals)
@@ -75,3 +83,6 @@ func update_exp_total():
 				exp_total += int(child.text)
 	experience_total.text = str(exp_total)
 	Signals.emit_signal("exp_updated", exp_total)
+
+func _on_consolidate_toggled(_toggled_on: bool) -> void:
+	update_money_total();
