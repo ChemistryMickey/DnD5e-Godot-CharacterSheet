@@ -19,7 +19,6 @@ func update_total_weights_and_values():
 	var total_value = 0
 	var denomination_map = [1.0 / 100.0, 1.0 / 10.0, 1.0 / 2.0, 1.0, 10.0]
 	for child in get_tree().get_nodes_in_group("InventoryEntry"):
-		Debug.debug_print("Denomination of %s: %d" % [child.name, child.denomination])
 		total_value += float(child.val_per_unit) * float(child.quantity) * \
 						denomination_map[child.denomination]
 		total_weight += float(child.weight_per_unit) * float(child.quantity)
