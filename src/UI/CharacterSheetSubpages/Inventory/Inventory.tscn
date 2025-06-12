@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnjcq6f6fw47u"]
+[gd_scene load_steps=7 format=3 uid="uid://cnjcq6f6fw47u"]
 
 [ext_resource type="Theme" path="res://src/UI/Theme.tres" id="1"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/Inventory.gd" id="2"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/ItemDatabasePopup.gd" id="3"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/ItemDescription.gd" id="4"]
-[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/MagicItemContainer.gd" id="5"]
-[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/InventoryList.gd" id="6"]
-[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/QuestItemContainer.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://b4yeo0nr8me27" path="res://src/UI/CharacterSheetSubpages/Inventory/inventory_special_list.tscn" id="5_qdmpy"]
 [ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/DatabaseTabs.gd" id="8"]
 
 [node name="Inventory" type="Control"]
@@ -34,44 +32,9 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryContainer/Inventory"]
+[node name="NormalItems" parent="InventoryContainer/Inventory" instance=ExtResource("5_qdmpy")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="InventoryContainer/Inventory/HBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 0
-text = "Inventory: "
-
-[node name="Spacer" type="Control" parent="InventoryContainer/Inventory/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SortInventory" type="Button" parent="InventoryContainer/Inventory/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Sort Inventory"
-
-[node name="DeleteSelected" type="Button" parent="InventoryContainer/Inventory/HBoxContainer"]
-layout_mode = 2
-text = "Delete Selected"
-
-[node name="AddItem" type="Button" parent="InventoryContainer/Inventory/HBoxContainer"]
-layout_mode = 2
-text = "+"
-
-[node name="HSeparator" type="HSeparator" parent="InventoryContainer/Inventory"]
-layout_mode = 2
-
-[node name="InventoryScroller" type="ScrollContainer" parent="InventoryContainer/Inventory"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="InventoryList" type="VBoxContainer" parent="InventoryContainer/Inventory/InventoryScroller" groups=["Persist"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("6")
+item_type = "Normal"
 
 [node name="HSeparator2" type="HSeparator" parent="InventoryContainer/Inventory"]
 layout_mode = 2
@@ -147,87 +110,16 @@ size_flags_vertical = 3
 wrap_mode = 1
 script = ExtResource("4")
 
-[node name="MagicItems" type="VBoxContainer" parent="InventoryContainer/Right"]
+[node name="MagicItems" parent="InventoryContainer/Right" instance=ExtResource("5_qdmpy")]
 layout_mode = 2
-size_flags_vertical = 3
+item_type = "Magic"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryContainer/Right/MagicItems"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="InventoryContainer/Right/MagicItems/HBoxContainer"]
-layout_mode = 2
-text = "Magic Items:"
-
-[node name="Spacer" type="Control" parent="InventoryContainer/Right/MagicItems/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SortMagicItems" type="Button" parent="InventoryContainer/Right/MagicItems/HBoxContainer"]
-layout_mode = 2
-text = "Sort Magic Items"
-
-[node name="DeleteSelected" type="Button" parent="InventoryContainer/Right/MagicItems/HBoxContainer"]
-layout_mode = 2
-text = "Delete Selected"
-
-[node name="AddItem" type="Button" parent="InventoryContainer/Right/MagicItems/HBoxContainer"]
-layout_mode = 2
-tooltip_text = "Add magic item line"
-text = "+"
-
-[node name="HSeparator" type="HSeparator" parent="InventoryContainer/Right/MagicItems"]
+[node name="HSeparator" type="HSeparator" parent="InventoryContainer/Right"]
 layout_mode = 2
 
-[node name="ScrollBox" type="ScrollContainer" parent="InventoryContainer/Right/MagicItems"]
+[node name="QuestItems" parent="InventoryContainer/Right" instance=ExtResource("5_qdmpy")]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="MagicItemContainer" type="VBoxContainer" parent="InventoryContainer/Right/MagicItems/ScrollBox" groups=["Persist"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("5")
-
-[node name="QuestItems" type="VBoxContainer" parent="InventoryContainer/Right"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryContainer/Right/QuestItems"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="InventoryContainer/Right/QuestItems/HBoxContainer"]
-layout_mode = 2
-text = "Quest Items:"
-
-[node name="Spacer" type="Control" parent="InventoryContainer/Right/QuestItems/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SortQuestItems" type="Button" parent="InventoryContainer/Right/QuestItems/HBoxContainer"]
-layout_mode = 2
-text = "Sort Quest Items"
-
-[node name="DeleteSelected" type="Button" parent="InventoryContainer/Right/QuestItems/HBoxContainer"]
-layout_mode = 2
-text = "Delete Selected"
-
-[node name="AddItem" type="Button" parent="InventoryContainer/Right/QuestItems/HBoxContainer"]
-layout_mode = 2
-tooltip_text = "Add quest item line"
-text = "+"
-
-[node name="HSeparator" type="HSeparator" parent="InventoryContainer/Right/QuestItems"]
-layout_mode = 2
-
-[node name="ScrollBox" type="ScrollContainer" parent="InventoryContainer/Right/QuestItems"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="QuestItemContainer" type="VBoxContainer" parent="InventoryContainer/Right/QuestItems/ScrollBox" groups=["Persist"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("7")
+item_type = "Quest"
 
 [node name="ItemDatabasePopup" type="Window" parent="."]
 title = "Item Database"
@@ -324,17 +216,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Add Item to Inventory"
 
-[connection signal="button_up" from="InventoryContainer/Inventory/HBoxContainer/SortInventory" to="InventoryContainer/Inventory/InventoryScroller/InventoryList" method="_on_SortInventory_button_up"]
-[connection signal="button_up" from="InventoryContainer/Inventory/HBoxContainer/DeleteSelected" to="InventoryContainer/Inventory/InventoryScroller/InventoryList" method="_on_DeleteSelected_button_up"]
-[connection signal="button_up" from="InventoryContainer/Inventory/HBoxContainer/AddItem" to="InventoryContainer/Inventory/InventoryScroller/InventoryList" method="_on_AddItem_button_up"]
 [connection signal="button_up" from="InventoryContainer/Right/ButtonContainer/ItemDatabase" to="." method="_on_ItemDatabase_button_up"]
 [connection signal="text_changed" from="InventoryContainer/Right/ItemDescription" to="InventoryContainer/Right/ItemDescription" method="_on_ItemDescription_text_changed"]
-[connection signal="button_up" from="InventoryContainer/Right/MagicItems/HBoxContainer/SortMagicItems" to="InventoryContainer/Right/MagicItems/ScrollBox/MagicItemContainer" method="_on_SortMagicItems_button_up"]
-[connection signal="button_up" from="InventoryContainer/Right/MagicItems/HBoxContainer/DeleteSelected" to="InventoryContainer/Right/MagicItems/ScrollBox/MagicItemContainer" method="_on_DeleteSelected_button_up"]
-[connection signal="button_up" from="InventoryContainer/Right/MagicItems/HBoxContainer/AddItem" to="InventoryContainer/Right/MagicItems/ScrollBox/MagicItemContainer" method="_on_AddItem_button_up"]
-[connection signal="button_up" from="InventoryContainer/Right/QuestItems/HBoxContainer/SortQuestItems" to="InventoryContainer/Right/QuestItems/ScrollBox/QuestItemContainer" method="_on_SortQuestItems_button_up"]
-[connection signal="button_up" from="InventoryContainer/Right/QuestItems/HBoxContainer/DeleteSelected" to="InventoryContainer/Right/QuestItems/ScrollBox/QuestItemContainer" method="_on_DeleteSelected_button_up"]
-[connection signal="button_up" from="InventoryContainer/Right/QuestItems/HBoxContainer/AddItem" to="InventoryContainer/Right/QuestItems/ScrollBox/QuestItemContainer" method="_on_AddItem_button_up"]
 [connection signal="close_requested" from="ItemDatabasePopup" to="ItemDatabasePopup" method="_on_close_requested"]
 [connection signal="button_up" from="ItemDatabasePopup/VBoxContainer/PurchaseBar/Confirm" to="ItemDatabasePopup" method="_on_Confirm_Purchase_button_up"]
 [connection signal="button_up" from="ItemDatabasePopup/VBoxContainer/PurchaseBar/Cancel" to="ItemDatabasePopup" method="_on_PurchaseBar_Cancel_button_up"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4yeo0nr8me27"]
+
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/Inventory/inventory_special_list.gd" id="1_x4ubi"]
+
+[node name="ItemContainer" type="VBoxContainer" groups=["Persist"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_x4ubi")
+item_type = "Placehodler"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "<> Items:"
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sort" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Sort <>"
+
+[node name="DeleteSelected" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete Selected"
+
+[node name="AddItem" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Add magic item line"
+text = "+"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="ScrollBox" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Items" type="VBoxContainer" parent="ScrollBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="button_up" from="HBoxContainer/Sort" to="." method="_on_sort_button_up"]
+[connection signal="button_up" from="HBoxContainer/DeleteSelected" to="." method="_on_delete_selected_button_up"]
+[connection signal="button_up" from="HBoxContainer/AddItem" to="." method="_on_add_item_button_up"]
