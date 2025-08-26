@@ -86,6 +86,7 @@ size_flags_vertical = 3
 [node name="JournalEntries" type="VBoxContainer" parent="HSplitContainer/JournCont/Entries" groups=["Persist"]]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("3")
 
 [node name="HSeparator" type="HSeparator" parent="HSplitContainer/JournCont"]
@@ -103,12 +104,12 @@ size_flags_vertical = 0
 text = "New Entry"
 icon_alignment = 1
 
-[node name="RemoveLastEntry" type="Button" parent="HSplitContainer/JournCont/HBoxContainer"]
+[node name="RemoveSelectedEntries" type="Button" parent="HSplitContainer/JournCont/HBoxContainer"]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Remove Last Entry"
+text = "Remove Selected Entries"
 icon_alignment = 1
 
 [connection signal="pressed" from="HSplitContainer/NPCs/Buttons/AddNPC" to="." method="_on_add_npc_pressed"]
@@ -117,4 +118,4 @@ icon_alignment = 1
 [connection signal="pressed" from="HSplitContainer/NPCs/Buttons/SortWhereNPCs" to="." method="_on_sort_where_np_cs_pressed"]
 [connection signal="pressed" from="HSplitContainer/NPCs/Buttons/SortWhenNPCs" to="." method="_on_sort_when_np_cs_pressed"]
 [connection signal="button_up" from="HSplitContainer/JournCont/HBoxContainer/NewEntry" to="." method="_on_NewEntry_button_up"]
-[connection signal="button_up" from="HSplitContainer/JournCont/HBoxContainer/RemoveLastEntry" to="." method="_on_RemoveLastEntry_button_up"]
+[connection signal="button_up" from="HSplitContainer/JournCont/HBoxContainer/RemoveSelectedEntries" to="." method="_on_RemoveLastEntry_button_up"]
