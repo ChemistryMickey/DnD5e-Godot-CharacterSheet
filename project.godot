@@ -38,6 +38,10 @@ window/size/fullscreen=true
 
 import/blender/enabled=false
 
+[global_group]
+
+Persist="Saved/loaded properties; assumes a 'save -> Dictionary' and 'load_sheet -> void' function."
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

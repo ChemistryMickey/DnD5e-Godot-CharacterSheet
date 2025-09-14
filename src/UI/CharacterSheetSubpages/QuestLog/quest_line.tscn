@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsqgd7jwa4hpl"]
+
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/QuestLog/quest_line.gd" id="1_aonj4"]
+
+[node name="QuestLine" type="Control"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_aonj4")
+
+[node name="SelectHighlight" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select" type="CheckBox" parent="Container"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+
+[node name="Title" type="LineEdit" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+placeholder_text = "Quest Name"
+
+[node name="Giver" type="LineEdit" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+placeholder_text = "Quest Giver"
+
+[node name="InGameDate" type="LineEdit" parent="Container/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Quest Given In-Game Date"
+
+[node name="IRLDate" type="LineEdit" parent="Container/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Quest Given IRL Date"
+
+[node name="KeyPlayers" type="TextEdit" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+focus_neighbor_right = NodePath("../Description")
+focus_next = NodePath("../Description")
+focus_previous = NodePath("../VBoxContainer/Title")
+placeholder_text = "Key Players"
+wrap_mode = 1
+indent_wrapped_lines = true
+
+[node name="Description" type="TextEdit" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Events")
+focus_previous = NodePath("../KeyPlayers")
+placeholder_text = "Description & Potential Reward"
+wrap_mode = 1
+indent_wrapped_lines = true
+
+[node name="Events" type="TextEdit" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../VBoxContainer/Title")
+focus_previous = NodePath("../Description")
+placeholder_text = "Events & Notes"
+wrap_mode = 1
+indent_wrapped_lines = true
+
+[connection signal="toggled" from="Container/Select" to="." method="_on_select_toggled"]

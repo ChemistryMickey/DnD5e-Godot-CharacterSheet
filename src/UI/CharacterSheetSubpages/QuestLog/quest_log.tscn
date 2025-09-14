@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://v65soahapwpa"]
+
+[ext_resource type="Script" path="res://src/UI/CharacterSheetSubpages/QuestLog/quest_log.gd" id="1_avtyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vb2p"]
+bg_color = Color(0.0330646, 0.700328, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l26u2"]
+bg_color = Color(4.25957e-06, 0.554526, 1.92523e-07, 0.423529)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnbb4"]
+bg_color = Color(0.856494, 1.97336e-06, 1.92523e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4opr"]
+bg_color = Color(0.760784, 0, 0, 0.501961)
+
+[node name="QuestLog" type="VBoxContainer" groups=["Persist"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avtyn")
+metadata/_tab_index = 5
+
+[node name="Controls" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Add Quest"
+
+[node name="Remove" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Remove Selected Quests"
+
+[node name="Spacer2" type="Control" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Complete" type="Button" parent="Controls"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_2vb2p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l26u2")
+text = "Mark Selected Complete"
+
+[node name="InProgress" type="Button" parent="Controls"]
+layout_mode = 2
+text = "Mark Selected In Progress"
+
+[node name="Failed" type="Button" parent="Controls"]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_jnbb4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y4opr")
+text = "Mark Selected Failed"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Quests" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InProgress" type="VBoxContainer" parent="Scroll/Quests"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Scroll/Quests/InProgress"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "In Progress"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Scroll/Quests/InProgress"]
+layout_mode = 2
+
+[node name="Complete" type="VBoxContainer" parent="Scroll/Quests"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Scroll/Quests/Complete"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Complete"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Scroll/Quests/Complete"]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Scroll/Quests"]
+layout_mode = 2
+
+[node name="Failed" type="VBoxContainer" parent="Scroll/Quests"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Scroll/Quests/Failed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Failed"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Scroll/Quests/Failed"]
+layout_mode = 2
+
+[connection signal="pressed" from="Controls/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Controls/Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="Controls/Complete" to="." method="_on_complete_pressed"]
+[connection signal="pressed" from="Controls/InProgress" to="." method="_on_in_progress_pressed"]
+[connection signal="pressed" from="Controls/Failed" to="." method="_on_failed_pressed"]

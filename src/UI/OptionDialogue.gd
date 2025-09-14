@@ -4,6 +4,7 @@ func _ready() -> void:
 	Signals.connect("show_options", Callable(self, "toggle_self"))
 
 func toggle_self():
+	return # Stop displaying this. It's not helpful.
 	if self.visible:
 		self.visible = false
 	else:

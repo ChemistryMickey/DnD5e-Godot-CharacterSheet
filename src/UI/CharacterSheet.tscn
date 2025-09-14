@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1ofytttyyhcd"]
+[gd_scene load_steps=22 format=3 uid="uid://b1ofytttyyhcd"]
 
 [ext_resource type="PackedScene" uid="uid://dtybly2niound" path="res://src/UI/CharacterSheetSubpages/Summary/Summary.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://df23fkwkm27pi" path="res://src/UI/CharacterSheetSubpages/TransactionLog/Transaction Logs.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/UI/CharacterSheet.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://cnjcq6f6fw47u" path="res://src/UI/CharacterSheetSubpages/Inventory/Inventory.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://cvaqt1x1atw1s" path="res://src/UI/CharacterSheetSubpages/ProficienciesAndFeats/Proficiencies and Feats.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://v65soahapwpa" path="res://src/UI/CharacterSheetSubpages/QuestLog/quest_log.tscn" id="7_y8eqb"]
 [ext_resource type="PackedScene" uid="uid://bm2qgaji5d7g7" path="res://src/UI/CharacterSheetSubpages/Spellbook/Spellbook.tscn" id="8"]
 [ext_resource type="Theme" path="res://src/UI/Theme.tres" id="9"]
 [ext_resource type="PackedScene" uid="uid://dm1xupxrm5lyw" path="res://src/UI/CharacterSheetSubpages/CharacterDevelopment/Character Development.tscn" id="10"]
@@ -105,26 +106,30 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
+[node name="QuestLog" parent="TabContainer" instance=ExtResource("7_y8eqb")]
+visible = false
+layout_mode = 2
+
 [node name="Transaction Logs" parent="TabContainer" groups=["Persist"] instance=ExtResource("2")]
 visible = false
 layout_mode = 2
 theme = ExtResource("9")
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="Cheatsheets" parent="TabContainer" instance=ExtResource("4")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 6
+metadata/_tab_index = 7
 
 [node name="Character Development" parent="TabContainer" instance=ExtResource("10")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 7
+metadata/_tab_index = 8
 
 [node name="Misc Scratch Entries" parent="TabContainer" instance=ExtResource("11")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 8
+metadata/_tab_index = 9
 
 [node name="SaveFile" type="FileDialog" parent="."]
 initial_position = 2
