@@ -14,8 +14,8 @@ func save():
 	save_dict["IRLDate"] = $Container/VBoxContainer/IRLDate.text
 	
 	save_dict["KeyPlayers"] = $Container/KeyPlayers.text
-	save_dict["Description"] = $Container/Description.text
-	save_dict["Events"] = $Container/Events.text
+	save_dict["Description"] = $Container/Split/Description.text
+	save_dict["Events"] = $Container/Split/Events.text
 	
 	save_dict["Status"] = self.status
 	
@@ -28,8 +28,8 @@ func load_sheet(save_dict):
 	$Container/VBoxContainer/IRLDate.text = save_dict["IRLDate"]
 	
 	$Container/KeyPlayers.text = save_dict["KeyPlayers"]
-	$Container/Description.text = save_dict["Description"]
-	$Container/Events.text = save_dict["Events"]
+	$Container/Split/Description.text = save_dict["Description"]
+	$Container/Split/Events.text = save_dict["Events"]
 	
 	self.status = save_dict["Status"]
 
