@@ -17,8 +17,8 @@ func load_sheet(save_dict):
 	$HBoxContainer/VBoxContainer/IGEdit.text = save_dict["In Game Timestamp"]
 	$HBoxContainer/Entry.text = save_dict["Entry"]
 
-func set_irl_date(str: String) -> void:
-	$HBoxContainer/VBoxContainer/IRLEdit.text = str
+func set_irl_date(s: String) -> void:
+	$HBoxContainer/VBoxContainer/IRLEdit.text = s
 
 func _on_selected_toggled(toggled_on: bool) -> void:
 	self.is_selected = toggled_on

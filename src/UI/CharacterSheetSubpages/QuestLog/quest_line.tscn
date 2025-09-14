@@ -5,13 +5,13 @@
 [node name="QuestLine" type="Control"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_aonj4")
 
 [node name="SelectHighlight" type="ColorRect" parent="."]
@@ -44,26 +44,31 @@ size_flags_stretch_ratio = 0.3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+tooltip_text = "Quest Name"
 placeholder_text = "Quest Name"
 
 [node name="Giver" type="LineEdit" parent="Container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+tooltip_text = "Quest Giver"
 placeholder_text = "Quest Giver"
 
 [node name="InGameDate" type="LineEdit" parent="Container/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "In-Game Date"
 placeholder_text = "Quest Given In-Game Date"
 
 [node name="IRLDate" type="LineEdit" parent="Container/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "IRL Date"
 placeholder_text = "Quest Given IRL Date"
 
 [node name="KeyPlayers" type="TextEdit" parent="Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
+tooltip_text = "Key Players/NPCs"
 focus_neighbor_right = NodePath("../Split/Description")
 focus_next = NodePath("../Split/Description")
 focus_previous = NodePath("../VBoxContainer/Title")
@@ -78,6 +83,7 @@ size_flags_horizontal = 3
 [node name="Description" type="TextEdit" parent="Container/Split"]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Description & Potential Rewards"
 focus_next = NodePath("../Events")
 focus_previous = NodePath("../../KeyPlayers")
 placeholder_text = "Description & Potential Reward"
@@ -88,6 +94,7 @@ indent_wrapped_lines = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
+tooltip_text = "Events & Notes"
 focus_next = NodePath("../../VBoxContainer/Title")
 focus_previous = NodePath("../Description")
 placeholder_text = "Events & Notes"
